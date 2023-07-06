@@ -1,0 +1,2162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="TB_trackingChannelInterface_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="TB_trackingChannelInterface" />
+            <top_module name="receiverconfigurationpackage" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="892508144fs"></ZoomEndTime>
+      <Cursor1Time time="442728000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="295"></NameColumnWidth>
+      <ValueColumnWidth column_width="157"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="534" />
+   <wvobject fp_name="/TB_trackingChannelInterface/sample_clk_b_in" type="logic">
+      <obj_property name="ElementShortName">sample_clk_b_in</obj_property>
+      <obj_property name="ObjectShortName">sample_clk_b_in</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/data_FE_sync_u_in" type="array">
+      <obj_property name="ElementShortName">data_FE_sync_u_in[3:0][1:0]</obj_property>
+      <obj_property name="ObjectShortName">data_FE_sync_u_in[3:0][1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/measurement_enable_b_in" type="logic">
+      <obj_property name="ElementShortName">measurement_enable_b_in</obj_property>
+      <obj_property name="ObjectShortName">measurement_enable_b_in</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/PP20ms_b_in" type="logic">
+      <obj_property name="ElementShortName">PP20ms_b_in</obj_property>
+      <obj_property name="ObjectShortName">PP20ms_b_in</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/interrupt_a_u_out" type="array">
+      <obj_property name="ElementShortName">interrupt_a_u_out[21:0]</obj_property>
+      <obj_property name="ObjectShortName">interrupt_a_u_out[21:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/snapshot_a_out" type="array">
+      <obj_property name="ElementShortName">snapshot_a_out[21:0]</obj_property>
+      <obj_property name="ObjectShortName">snapshot_a_out[21:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/meas_code_NCO_a_u_out" type="array">
+      <obj_property name="ElementShortName">meas_code_NCO_a_u_out[21:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">meas_code_NCO_a_u_out[21:0][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/meas_chip_count_a_u_out" type="array">
+      <obj_property name="ElementShortName">meas_chip_count_a_u_out[21:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">meas_chip_count_a_u_out[21:0][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/meas_epoch_count_a_u_out" type="array">
+      <obj_property name="ElementShortName">meas_epoch_count_a_u_out[21:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">meas_epoch_count_a_u_out[21:0][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/meas_carr_NCO_a_u_out" type="array">
+      <obj_property name="ElementShortName">meas_carr_NCO_a_u_out[21:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">meas_carr_NCO_a_u_out[21:0][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/meas_cycle_count_a_u_out" type="array">
+      <obj_property name="ElementShortName">meas_cycle_count_a_u_out[21:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">meas_cycle_count_a_u_out[21:0][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/meas_bit_count_a_u_out" type="array">
+      <obj_property name="ElementShortName">meas_bit_count_a_u_out[21:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">meas_bit_count_a_u_out[21:0][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/meas_sec_count_a_u_out" type="array">
+      <obj_property name="ElementShortName">meas_sec_count_a_u_out[21:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">meas_sec_count_a_u_out[21:0][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/s_axi_aclk" type="logic">
+      <obj_property name="ElementShortName">s_axi_aclk</obj_property>
+      <obj_property name="ObjectShortName">s_axi_aclk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/s_axi_aresetn" type="logic">
+      <obj_property name="ElementShortName">s_axi_aresetn</obj_property>
+      <obj_property name="ObjectShortName">s_axi_aresetn</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/s_axi_awaddr" type="array">
+      <obj_property name="ElementShortName">s_axi_awaddr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axi_awaddr[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/s_axi_awprot" type="array">
+      <obj_property name="ElementShortName">s_axi_awprot[2:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axi_awprot[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/s_axi_awvalid" type="logic">
+      <obj_property name="ElementShortName">s_axi_awvalid</obj_property>
+      <obj_property name="ObjectShortName">s_axi_awvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/s_axi_awready" type="logic">
+      <obj_property name="ElementShortName">s_axi_awready</obj_property>
+      <obj_property name="ObjectShortName">s_axi_awready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/s_axi_wdata" type="array">
+      <obj_property name="ElementShortName">s_axi_wdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axi_wdata[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/s_axi_wstrb" type="array">
+      <obj_property name="ElementShortName">s_axi_wstrb[3:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axi_wstrb[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/s_axi_wvalid" type="logic">
+      <obj_property name="ElementShortName">s_axi_wvalid</obj_property>
+      <obj_property name="ObjectShortName">s_axi_wvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/s_axi_wready" type="logic">
+      <obj_property name="ElementShortName">s_axi_wready</obj_property>
+      <obj_property name="ObjectShortName">s_axi_wready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/s_axi_bresp" type="array">
+      <obj_property name="ElementShortName">s_axi_bresp[1:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axi_bresp[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/s_axi_bvalid_out" type="logic">
+      <obj_property name="ElementShortName">s_axi_bvalid_out</obj_property>
+      <obj_property name="ObjectShortName">s_axi_bvalid_out</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/s_axi_bready" type="logic">
+      <obj_property name="ElementShortName">s_axi_bready</obj_property>
+      <obj_property name="ObjectShortName">s_axi_bready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/s_axi_araddr" type="array">
+      <obj_property name="ElementShortName">s_axi_araddr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axi_araddr[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/s_axi_arprot" type="array">
+      <obj_property name="ElementShortName">s_axi_arprot[2:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axi_arprot[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/s_axi_arvalid" type="logic">
+      <obj_property name="ElementShortName">s_axi_arvalid</obj_property>
+      <obj_property name="ObjectShortName">s_axi_arvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/s_axi_arready" type="logic">
+      <obj_property name="ElementShortName">s_axi_arready</obj_property>
+      <obj_property name="ObjectShortName">s_axi_arready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/s_axi_rdata" type="array">
+      <obj_property name="ElementShortName">s_axi_rdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axi_rdata[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/s_axi_rresp" type="array">
+      <obj_property name="ElementShortName">s_axi_rresp[1:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axi_rresp[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/s_axi_rvalid" type="logic">
+      <obj_property name="ElementShortName">s_axi_rvalid</obj_property>
+      <obj_property name="ObjectShortName">s_axi_rvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/s_axi_rready" type="logic">
+      <obj_property name="ElementShortName">s_axi_rready</obj_property>
+      <obj_property name="ObjectShortName">s_axi_rready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/C_S_AXI_DATA_WIDTH" type="other">
+      <obj_property name="ElementShortName">C_S_AXI_DATA_WIDTH</obj_property>
+      <obj_property name="ObjectShortName">C_S_AXI_DATA_WIDTH</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/AXI_addr_width_all_chan_i_g" type="other">
+      <obj_property name="ElementShortName">AXI_addr_width_all_chan_i_g</obj_property>
+      <obj_property name="ObjectShortName">AXI_addr_width_all_chan_i_g</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/sample_clk_b_in" type="logic">
+      <obj_property name="ElementShortName">sample_clk_b_in</obj_property>
+      <obj_property name="ObjectShortName">sample_clk_b_in</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/data_FE_sync_u_in" type="array">
+      <obj_property name="ElementShortName">data_FE_sync_u_in[3:0][1:0]</obj_property>
+      <obj_property name="ObjectShortName">data_FE_sync_u_in[3:0][1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/measurement_enable_b_in" type="logic">
+      <obj_property name="ElementShortName">measurement_enable_b_in</obj_property>
+      <obj_property name="ObjectShortName">measurement_enable_b_in</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/PP20ms_b_in" type="logic">
+      <obj_property name="ElementShortName">PP20ms_b_in</obj_property>
+      <obj_property name="ObjectShortName">PP20ms_b_in</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/interrupt_a_u_out" type="array">
+      <obj_property name="ElementShortName">interrupt_a_u_out[21:0]</obj_property>
+      <obj_property name="ObjectShortName">interrupt_a_u_out[21:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/snapshot_a_out" type="array">
+      <obj_property name="ElementShortName">snapshot_a_out[21:0]</obj_property>
+      <obj_property name="ObjectShortName">snapshot_a_out[21:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/meas_code_NCO_a_u_out" type="array">
+      <obj_property name="ElementShortName">meas_code_NCO_a_u_out[21:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">meas_code_NCO_a_u_out[21:0][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/meas_chip_count_a_u_out" type="array">
+      <obj_property name="ElementShortName">meas_chip_count_a_u_out[21:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">meas_chip_count_a_u_out[21:0][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/meas_epoch_count_a_u_out" type="array">
+      <obj_property name="ElementShortName">meas_epoch_count_a_u_out[21:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">meas_epoch_count_a_u_out[21:0][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/meas_carr_NCO_a_u_out" type="array">
+      <obj_property name="ElementShortName">meas_carr_NCO_a_u_out[21:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">meas_carr_NCO_a_u_out[21:0][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/meas_cycle_count_a_u_out" type="array">
+      <obj_property name="ElementShortName">meas_cycle_count_a_u_out[21:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">meas_cycle_count_a_u_out[21:0][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/meas_bit_count_a_u_out" type="array">
+      <obj_property name="ElementShortName">meas_bit_count_a_u_out[21:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">meas_bit_count_a_u_out[21:0][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/meas_sec_count_a_u_out" type="array">
+      <obj_property name="ElementShortName">meas_sec_count_a_u_out[21:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">meas_sec_count_a_u_out[21:0][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/s_axi_aclk" type="logic">
+      <obj_property name="ElementShortName">s_axi_aclk</obj_property>
+      <obj_property name="ObjectShortName">s_axi_aclk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/s_axi_aresetn" type="logic">
+      <obj_property name="ElementShortName">s_axi_aresetn</obj_property>
+      <obj_property name="ObjectShortName">s_axi_aresetn</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/s_axi_awaddr" type="array">
+      <obj_property name="ElementShortName">s_axi_awaddr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axi_awaddr[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/s_axi_awprot" type="array">
+      <obj_property name="ElementShortName">s_axi_awprot[2:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axi_awprot[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/s_axi_awvalid" type="logic">
+      <obj_property name="ElementShortName">s_axi_awvalid</obj_property>
+      <obj_property name="ObjectShortName">s_axi_awvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/s_axi_awready" type="logic">
+      <obj_property name="ElementShortName">s_axi_awready</obj_property>
+      <obj_property name="ObjectShortName">s_axi_awready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/s_axi_wdata" type="array">
+      <obj_property name="ElementShortName">s_axi_wdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axi_wdata[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/s_axi_wstrb" type="array">
+      <obj_property name="ElementShortName">s_axi_wstrb[3:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axi_wstrb[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/s_axi_wvalid" type="logic">
+      <obj_property name="ElementShortName">s_axi_wvalid</obj_property>
+      <obj_property name="ObjectShortName">s_axi_wvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/s_axi_wready" type="logic">
+      <obj_property name="ElementShortName">s_axi_wready</obj_property>
+      <obj_property name="ObjectShortName">s_axi_wready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/s_axi_bresp" type="array">
+      <obj_property name="ElementShortName">s_axi_bresp[1:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axi_bresp[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/s_axi_bvalid_out" type="logic">
+      <obj_property name="ElementShortName">s_axi_bvalid_out</obj_property>
+      <obj_property name="ObjectShortName">s_axi_bvalid_out</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/s_axi_bready" type="logic">
+      <obj_property name="ElementShortName">s_axi_bready</obj_property>
+      <obj_property name="ObjectShortName">s_axi_bready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/s_axi_araddr" type="array">
+      <obj_property name="ElementShortName">s_axi_araddr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axi_araddr[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/s_axi_arprot" type="array">
+      <obj_property name="ElementShortName">s_axi_arprot[2:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axi_arprot[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/s_axi_arvalid" type="logic">
+      <obj_property name="ElementShortName">s_axi_arvalid</obj_property>
+      <obj_property name="ObjectShortName">s_axi_arvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/s_axi_arready" type="logic">
+      <obj_property name="ElementShortName">s_axi_arready</obj_property>
+      <obj_property name="ObjectShortName">s_axi_arready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/s_axi_rdata" type="array">
+      <obj_property name="ElementShortName">s_axi_rdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axi_rdata[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/s_axi_rresp" type="array">
+      <obj_property name="ElementShortName">s_axi_rresp[1:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axi_rresp[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/s_axi_rvalid" type="logic">
+      <obj_property name="ElementShortName">s_axi_rvalid</obj_property>
+      <obj_property name="ObjectShortName">s_axi_rvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/s_axi_rready" type="logic">
+      <obj_property name="ElementShortName">s_axi_rready</obj_property>
+      <obj_property name="ObjectShortName">s_axi_rready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/front_end_select_a_u" type="array">
+      <obj_property name="ElementShortName">front_end_select_a_u[21:0][1:0]</obj_property>
+      <obj_property name="ObjectShortName">front_end_select_a_u[21:0][1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/RAM_we_a_b" type="array">
+      <obj_property name="ElementShortName">RAM_we_a_b[21:0]</obj_property>
+      <obj_property name="ObjectShortName">RAM_we_a_b[21:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/RAM_en_b" type="logic">
+      <obj_property name="ElementShortName">RAM_en_b</obj_property>
+      <obj_property name="ObjectShortName">RAM_en_b</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/RAM_addr_u" type="array">
+      <obj_property name="ElementShortName">RAM_addr_u[8:0]</obj_property>
+      <obj_property name="ObjectShortName">RAM_addr_u[8:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/RAM_di_u" type="array">
+      <obj_property name="ElementShortName">RAM_di_u[31:0]</obj_property>
+      <obj_property name="ObjectShortName">RAM_di_u[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/PPS_20ms_a_b" type="array">
+      <obj_property name="ElementShortName">PPS_20ms_a_b[21:0]</obj_property>
+      <obj_property name="ObjectShortName">PPS_20ms_a_b[21:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/start_enable_a_b" type="array">
+      <obj_property name="ElementShortName">start_enable_a_b[21:0]</obj_property>
+      <obj_property name="ObjectShortName">start_enable_a_b[21:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/SW_reset_a_b" type="array">
+      <obj_property name="ElementShortName">SW_reset_a_b[21:0]</obj_property>
+      <obj_property name="ObjectShortName">SW_reset_a_b[21:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/signal_type_a_u" type="array">
+      <obj_property name="ElementShortName">signal_type_a_u[21:0][2:0]</obj_property>
+      <obj_property name="ObjectShortName">signal_type_a_u[21:0][2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/start_chip_a_u" type="array">
+      <obj_property name="ElementShortName">start_chip_a_u[21:0][13:0]</obj_property>
+      <obj_property name="ObjectShortName">start_chip_a_u[21:0][13:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/start_epoch_a_u" type="array">
+      <obj_property name="ElementShortName">start_epoch_a_u[21:0][4:0]</obj_property>
+      <obj_property name="ObjectShortName">start_epoch_a_u[21:0][4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/code_len_chip_a_u" type="array">
+      <obj_property name="ElementShortName">code_len_chip_a_u[21:0][13:0]</obj_property>
+      <obj_property name="ObjectShortName">code_len_chip_a_u[21:0][13:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/code_len_chip_1ms_a_u" type="array">
+      <obj_property name="ElementShortName">code_len_chip_1ms_a_u[21:0][13:0]</obj_property>
+      <obj_property name="ObjectShortName">code_len_chip_1ms_a_u[21:0][13:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/carr_NCO_increment_a_u" type="array">
+      <obj_property name="ElementShortName">carr_NCO_increment_a_u[21:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">carr_NCO_increment_a_u[21:0][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/code_NCO_increment_a_u" type="array">
+      <obj_property name="ElementShortName">code_NCO_increment_a_u[21:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">code_NCO_increment_a_u[21:0][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/code_NCO_start_a_u_in" type="array">
+      <obj_property name="ElementShortName">code_NCO_start_a_u_in[21:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">code_NCO_start_a_u_in[21:0][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/early_prompt_spacing_a_u" type="array">
+      <obj_property name="ElementShortName">early_prompt_spacing_a_u[21:0][5:0]</obj_property>
+      <obj_property name="ObjectShortName">early_prompt_spacing_a_u[21:0][5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/very_early_prompt_spacing_a_u" type="array">
+      <obj_property name="ElementShortName">very_early_prompt_spacing_a_u[21:0][5:0]</obj_property>
+      <obj_property name="ObjectShortName">very_early_prompt_spacing_a_u[21:0][5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/correlation_length_epochs_a_u" type="array">
+      <obj_property name="ElementShortName">correlation_length_epochs_a_u[21:0][4:0]</obj_property>
+      <obj_property name="ObjectShortName">correlation_length_epochs_a_u[21:0][4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/epoch_length_ms_a_u" type="array">
+      <obj_property name="ElementShortName">epoch_length_ms_a_u[21:0][4:0]</obj_property>
+      <obj_property name="ObjectShortName">epoch_length_ms_a_u[21:0][4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/bit_length_a_u" type="array">
+      <obj_property name="ElementShortName">bit_length_a_u[21:0][7:0]</obj_property>
+      <obj_property name="ObjectShortName">bit_length_a_u[21:0][7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/fast_nco_count_value_a_u" type="array">
+      <obj_property name="ElementShortName">fast_nco_count_value_a_u[21:0][3:0]</obj_property>
+      <obj_property name="ObjectShortName">fast_nco_count_value_a_u[21:0][3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/arm_slave_start_a_b" type="array">
+      <obj_property name="ElementShortName">arm_slave_start_a_b[21:0]</obj_property>
+      <obj_property name="ObjectShortName">arm_slave_start_a_b[21:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/code_NCO_slave_input_a_u" type="array">
+      <obj_property name="ElementShortName">code_NCO_slave_input_a_u[21:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">code_NCO_slave_input_a_u[21:0][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/code_NCO_master_output_a_u" type="array">
+      <obj_property name="ElementShortName">code_NCO_master_output_a_u[21:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">code_NCO_master_output_a_u[21:0][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/code_NCO_count_master_a_u" type="array">
+      <obj_property name="ElementShortName">code_NCO_count_master_a_u[21:0][3:0]</obj_property>
+      <obj_property name="ObjectShortName">code_NCO_count_master_a_u[21:0][3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/accumulation_P_I_reg_a_s" type="array">
+      <obj_property name="ElementShortName">accumulation_P_I_reg_a_s[21:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_P_I_reg_a_s[21:0][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/accumulation_P_Q_reg_a_s" type="array">
+      <obj_property name="ElementShortName">accumulation_P_Q_reg_a_s[21:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_P_Q_reg_a_s[21:0][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/accumulation_E_I_reg_a_s" type="array">
+      <obj_property name="ElementShortName">accumulation_E_I_reg_a_s[21:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_E_I_reg_a_s[21:0][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/accumulation_E_Q_reg_a_s" type="array">
+      <obj_property name="ElementShortName">accumulation_E_Q_reg_a_s[21:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_E_Q_reg_a_s[21:0][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/accumulation_L_I_reg_a_s" type="array">
+      <obj_property name="ElementShortName">accumulation_L_I_reg_a_s[21:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_L_I_reg_a_s[21:0][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/accumulation_L_Q_reg_a_s" type="array">
+      <obj_property name="ElementShortName">accumulation_L_Q_reg_a_s[21:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_L_Q_reg_a_s[21:0][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/accumulation_VE_I_reg_a_s" type="array">
+      <obj_property name="ElementShortName">accumulation_VE_I_reg_a_s[21:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_VE_I_reg_a_s[21:0][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/accumulation_VE_Q_reg_a_s" type="array">
+      <obj_property name="ElementShortName">accumulation_VE_Q_reg_a_s[21:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_VE_Q_reg_a_s[21:0][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/accumulation_VL_I_reg_a_s" type="array">
+      <obj_property name="ElementShortName">accumulation_VL_I_reg_a_s[21:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_VL_I_reg_a_s[21:0][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/accumulation_VL_Q_reg_a_s" type="array">
+      <obj_property name="ElementShortName">accumulation_VL_Q_reg_a_s[21:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_VL_Q_reg_a_s[21:0][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/accm_1ms_P_I_reg_a_s" type="array">
+      <obj_property name="ElementShortName">accm_1ms_P_I_reg_a_s[21:0][19:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">accm_1ms_P_I_reg_a_s[21:0][19:0][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/accm_1ms_P_Q_reg_a_s" type="array">
+      <obj_property name="ElementShortName">accm_1ms_P_Q_reg_a_s[21:0][19:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">accm_1ms_P_Q_reg_a_s[21:0][19:0][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/RAM_do_a_u" type="array">
+      <obj_property name="ElementShortName">RAM_do_a_u[21:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">RAM_do_a_u[21:0][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/meas_code_NCO_a_u" type="array">
+      <obj_property name="ElementShortName">meas_code_NCO_a_u[21:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">meas_code_NCO_a_u[21:0][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/meas_chip_count_a_u" type="array">
+      <obj_property name="ElementShortName">meas_chip_count_a_u[21:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">meas_chip_count_a_u[21:0][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/meas_epoch_count_a_u" type="array">
+      <obj_property name="ElementShortName">meas_epoch_count_a_u[21:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">meas_epoch_count_a_u[21:0][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/meas_carr_NCO_a_u" type="array">
+      <obj_property name="ElementShortName">meas_carr_NCO_a_u[21:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">meas_carr_NCO_a_u[21:0][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/meas_cycle_count_a_u" type="array">
+      <obj_property name="ElementShortName">meas_cycle_count_a_u[21:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">meas_cycle_count_a_u[21:0][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/meas_bit_count_a_u" type="array">
+      <obj_property name="ElementShortName">meas_bit_count_a_u[21:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">meas_bit_count_a_u[21:0][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/meas_sec_count_a_u" type="array">
+      <obj_property name="ElementShortName">meas_sec_count_a_u[21:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">meas_sec_count_a_u[21:0][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/selectedChannelRead_i" type="other">
+      <obj_property name="ElementShortName">selectedChannelRead_i</obj_property>
+      <obj_property name="ObjectShortName">selectedChannelRead_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/selectedChannelWriteRAM_i" type="other">
+      <obj_property name="ElementShortName">selectedChannelWriteRAM_i</obj_property>
+      <obj_property name="ObjectShortName">selectedChannelWriteRAM_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/read_reg_a_u" type="array">
+      <obj_property name="ElementShortName">read_reg_a_u[0:79][31:0]</obj_property>
+      <obj_property name="ObjectShortName">read_reg_a_u[0:79][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/write_reg_a_u" type="array">
+      <obj_property name="ElementShortName">write_reg_a_u[0:22][31:0]</obj_property>
+      <obj_property name="ObjectShortName">write_reg_a_u[0:22][31:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/selectedChannelWrite_i" type="other">
+      <obj_property name="ElementShortName">selectedChannelWrite_i</obj_property>
+      <obj_property name="ObjectShortName">selectedChannelWrite_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/selectedWriteReg_i" type="other">
+      <obj_property name="ElementShortName">selectedWriteReg_i</obj_property>
+      <obj_property name="ObjectShortName">selectedWriteReg_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/s_axi_bvalid" type="logic">
+      <obj_property name="ElementShortName">s_axi_bvalid</obj_property>
+      <obj_property name="ObjectShortName">s_axi_bvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/armTrackingChannel_b" type="logic">
+      <obj_property name="ElementShortName">armTrackingChannel_b</obj_property>
+      <obj_property name="ObjectShortName">armTrackingChannel_b</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/PRN_data_u" type="array">
+      <obj_property name="ElementShortName">PRN_data_u[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PRN_data_u[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/interrupt_a_u" type="array">
+      <obj_property name="ElementShortName">interrupt_a_u[21:0]</obj_property>
+      <obj_property name="ObjectShortName">interrupt_a_u[21:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/clr_interrupt_a_u_toggle" type="array">
+      <obj_property name="ElementShortName">clr_interrupt_a_u_toggle[21:0]</obj_property>
+      <obj_property name="ObjectShortName">clr_interrupt_a_u_toggle[21:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/clr_interrupt_a_u_reg" type="array">
+      <obj_property name="ElementShortName">clr_interrupt_a_u_reg[21:0]</obj_property>
+      <obj_property name="ObjectShortName">clr_interrupt_a_u_reg[21:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/clr_interrupt_a_u" type="array">
+      <obj_property name="ElementShortName">clr_interrupt_a_u[21:0]</obj_property>
+      <obj_property name="ObjectShortName">clr_interrupt_a_u[21:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/ena_bit_count_a_b" type="array">
+      <obj_property name="ElementShortName">ena_bit_count_a_b[21:0]</obj_property>
+      <obj_property name="ObjectShortName">ena_bit_count_a_b[21:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/ena_bit_count_a_b_toggle" type="array">
+      <obj_property name="ElementShortName">ena_bit_count_a_b_toggle[21:0]</obj_property>
+      <obj_property name="ObjectShortName">ena_bit_count_a_b_toggle[21:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/ena_bit_count_a_b_reg" type="array">
+      <obj_property name="ElementShortName">ena_bit_count_a_b_reg[21:0]</obj_property>
+      <obj_property name="ObjectShortName">ena_bit_count_a_b_reg[21:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/arm_channel_a_u_toggle" type="array">
+      <obj_property name="ElementShortName">arm_channel_a_u_toggle[21:0]</obj_property>
+      <obj_property name="ObjectShortName">arm_channel_a_u_toggle[21:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/arm_channel_a_u_reg" type="array">
+      <obj_property name="ElementShortName">arm_channel_a_u_reg[21:0]</obj_property>
+      <obj_property name="ObjectShortName">arm_channel_a_u_reg[21:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/arm_channel_a_u" type="array">
+      <obj_property name="ElementShortName">arm_channel_a_u[21:0]</obj_property>
+      <obj_property name="ObjectShortName">arm_channel_a_u[21:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/C_S_AXI_DATA_WIDTH" type="other">
+      <obj_property name="ElementShortName">C_S_AXI_DATA_WIDTH</obj_property>
+      <obj_property name="ObjectShortName">C_S_AXI_DATA_WIDTH</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/AXI_addr_width_all_chan_i_g" type="other">
+      <obj_property name="ElementShortName">AXI_addr_width_all_chan_i_g</obj_property>
+      <obj_property name="ObjectShortName">AXI_addr_width_all_chan_i_g</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/i" type="other">
+      <obj_property name="ElementShortName">i</obj_property>
+      <obj_property name="ObjectShortName">i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/sample_clk_b_in" type="logic">
+      <obj_property name="ElementShortName">sample_clk_b_in</obj_property>
+      <obj_property name="ObjectShortName">sample_clk_b_in</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/data_FE_sync_u_in" type="array">
+      <obj_property name="ElementShortName">data_FE_sync_u_in[3:0][1:0]</obj_property>
+      <obj_property name="ObjectShortName">data_FE_sync_u_in[3:0][1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/front_end_select_u_in" type="array">
+      <obj_property name="ElementShortName">front_end_select_u_in[1:0]</obj_property>
+      <obj_property name="ObjectShortName">front_end_select_u_in[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/RAM_we_b_in" type="logic">
+      <obj_property name="ElementShortName">RAM_we_b_in</obj_property>
+      <obj_property name="ObjectShortName">RAM_we_b_in</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/RAM_en_b_in" type="logic">
+      <obj_property name="ElementShortName">RAM_en_b_in</obj_property>
+      <obj_property name="ObjectShortName">RAM_en_b_in</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/RAM_addr_u_in" type="array">
+      <obj_property name="ElementShortName">RAM_addr_u_in[8:0]</obj_property>
+      <obj_property name="ObjectShortName">RAM_addr_u_in[8:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/RAM_di_u_in" type="array">
+      <obj_property name="ElementShortName">RAM_di_u_in[31:0]</obj_property>
+      <obj_property name="ObjectShortName">RAM_di_u_in[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/PPS_20ms_b_in" type="logic">
+      <obj_property name="ElementShortName">PPS_20ms_b_in</obj_property>
+      <obj_property name="ObjectShortName">PPS_20ms_b_in</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/start_enable_b_in" type="logic">
+      <obj_property name="ElementShortName">start_enable_b_in</obj_property>
+      <obj_property name="ObjectShortName">start_enable_b_in</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/SW_reset_in" type="logic">
+      <obj_property name="ElementShortName">SW_reset_in</obj_property>
+      <obj_property name="ObjectShortName">SW_reset_in</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/signal_type_u_in" type="array">
+      <obj_property name="ElementShortName">signal_type_u_in[2:0]</obj_property>
+      <obj_property name="ObjectShortName">signal_type_u_in[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/start_chip_u_in" type="array">
+      <obj_property name="ElementShortName">start_chip_u_in[13:0]</obj_property>
+      <obj_property name="ObjectShortName">start_chip_u_in[13:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/start_epoch_u_in" type="array">
+      <obj_property name="ElementShortName">start_epoch_u_in[4:0]</obj_property>
+      <obj_property name="ObjectShortName">start_epoch_u_in[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/code_len_chip_u_in" type="array">
+      <obj_property name="ElementShortName">code_len_chip_u_in[13:0]</obj_property>
+      <obj_property name="ObjectShortName">code_len_chip_u_in[13:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/code_len_chip_1ms_u_in" type="array">
+      <obj_property name="ElementShortName">code_len_chip_1ms_u_in[13:0]</obj_property>
+      <obj_property name="ObjectShortName">code_len_chip_1ms_u_in[13:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/carr_NCO_increment_u_in" type="array">
+      <obj_property name="ElementShortName">carr_NCO_increment_u_in[31:0]</obj_property>
+      <obj_property name="ObjectShortName">carr_NCO_increment_u_in[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/code_NCO_increment_u_in" type="array">
+      <obj_property name="ElementShortName">code_NCO_increment_u_in[31:0]</obj_property>
+      <obj_property name="ObjectShortName">code_NCO_increment_u_in[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/early_prompt_spacing_u_in" type="array">
+      <obj_property name="ElementShortName">early_prompt_spacing_u_in[5:0]</obj_property>
+      <obj_property name="ObjectShortName">early_prompt_spacing_u_in[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/very_early_prompt_spacing_u_in" type="array">
+      <obj_property name="ElementShortName">very_early_prompt_spacing_u_in[5:0]</obj_property>
+      <obj_property name="ObjectShortName">very_early_prompt_spacing_u_in[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/correlation_length_epochs_u_in" type="array">
+      <obj_property name="ElementShortName">correlation_length_epochs_u_in[4:0]</obj_property>
+      <obj_property name="ObjectShortName">correlation_length_epochs_u_in[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/epoch_length_ms_u_in" type="array">
+      <obj_property name="ElementShortName">epoch_length_ms_u_in[4:0]</obj_property>
+      <obj_property name="ObjectShortName">epoch_length_ms_u_in[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/bit_length_u_in" type="array">
+      <obj_property name="ElementShortName">bit_length_u_in[7:0]</obj_property>
+      <obj_property name="ObjectShortName">bit_length_u_in[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/fast_nco_count_value_u_in" type="array">
+      <obj_property name="ElementShortName">fast_nco_count_value_u_in[3:0]</obj_property>
+      <obj_property name="ObjectShortName">fast_nco_count_value_u_in[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/arm_slave_start_b_in" type="logic">
+      <obj_property name="ElementShortName">arm_slave_start_b_in</obj_property>
+      <obj_property name="ObjectShortName">arm_slave_start_b_in</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/code_NCO_master_u_in" type="array">
+      <obj_property name="ElementShortName">code_NCO_master_u_in[31:0]</obj_property>
+      <obj_property name="ObjectShortName">code_NCO_master_u_in[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/measurement_enable_b_in" type="logic">
+      <obj_property name="ElementShortName">measurement_enable_b_in</obj_property>
+      <obj_property name="ObjectShortName">measurement_enable_b_in</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/code_NCO_start_u_in" type="array">
+      <obj_property name="ElementShortName">code_NCO_start_u_in[31:0]</obj_property>
+      <obj_property name="ObjectShortName">code_NCO_start_u_in[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/ena_bit_count_b_in" type="logic">
+      <obj_property name="ElementShortName">ena_bit_count_b_in</obj_property>
+      <obj_property name="ObjectShortName">ena_bit_count_b_in</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/clr_interrupt_b_u_in" type="logic">
+      <obj_property name="ElementShortName">clr_interrupt_b_u_in</obj_property>
+      <obj_property name="ObjectShortName">clr_interrupt_b_u_in</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/interrupt_b_out" type="logic">
+      <obj_property name="ElementShortName">interrupt_b_out</obj_property>
+      <obj_property name="ObjectShortName">interrupt_b_out</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accumulation_P_I_reg_s_out" type="array">
+      <obj_property name="ElementShortName">accumulation_P_I_reg_s_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_P_I_reg_s_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accumulation_P_Q_reg_s_out" type="array">
+      <obj_property name="ElementShortName">accumulation_P_Q_reg_s_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_P_Q_reg_s_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accumulation_E_I_reg_s_out" type="array">
+      <obj_property name="ElementShortName">accumulation_E_I_reg_s_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_E_I_reg_s_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accumulation_E_Q_reg_s_out" type="array">
+      <obj_property name="ElementShortName">accumulation_E_Q_reg_s_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_E_Q_reg_s_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accumulation_L_I_reg_s_out" type="array">
+      <obj_property name="ElementShortName">accumulation_L_I_reg_s_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_L_I_reg_s_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accumulation_L_Q_reg_s_out" type="array">
+      <obj_property name="ElementShortName">accumulation_L_Q_reg_s_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_L_Q_reg_s_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accumulation_VE_I_reg_s_out" type="array">
+      <obj_property name="ElementShortName">accumulation_VE_I_reg_s_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_VE_I_reg_s_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accumulation_VE_Q_reg_s_out" type="array">
+      <obj_property name="ElementShortName">accumulation_VE_Q_reg_s_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_VE_Q_reg_s_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accumulation_VL_I_reg_s_out" type="array">
+      <obj_property name="ElementShortName">accumulation_VL_I_reg_s_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_VL_I_reg_s_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accumulation_VL_Q_reg_s_out" type="array">
+      <obj_property name="ElementShortName">accumulation_VL_Q_reg_s_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_VL_Q_reg_s_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accm_1ms_P_I_reg_a_s_out" type="array">
+      <obj_property name="ElementShortName">accm_1ms_P_I_reg_a_s_out[19:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">accm_1ms_P_I_reg_a_s_out[19:0][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accm_1ms_P_Q_reg_a_s_out" type="array">
+      <obj_property name="ElementShortName">accm_1ms_P_Q_reg_a_s_out[19:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">accm_1ms_P_Q_reg_a_s_out[19:0][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/RAM_do_u_out" type="array">
+      <obj_property name="ElementShortName">RAM_do_u_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">RAM_do_u_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/meas_code_NCO_u_out" type="array">
+      <obj_property name="ElementShortName">meas_code_NCO_u_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">meas_code_NCO_u_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/meas_chip_count_u_out" type="array">
+      <obj_property name="ElementShortName">meas_chip_count_u_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">meas_chip_count_u_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/meas_epoch_count_u_out" type="array">
+      <obj_property name="ElementShortName">meas_epoch_count_u_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">meas_epoch_count_u_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/meas_carr_NCO_u_out" type="array">
+      <obj_property name="ElementShortName">meas_carr_NCO_u_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">meas_carr_NCO_u_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/meas_cycle_count_u_out" type="array">
+      <obj_property name="ElementShortName">meas_cycle_count_u_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">meas_cycle_count_u_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/meas_bit_count_u_out" type="array">
+      <obj_property name="ElementShortName">meas_bit_count_u_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">meas_bit_count_u_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/meas_sec_count_u_out" type="array">
+      <obj_property name="ElementShortName">meas_sec_count_u_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">meas_sec_count_u_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/code_NCO_master_u_out" type="array">
+      <obj_property name="ElementShortName">code_NCO_master_u_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">code_NCO_master_u_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/carr_NCO_reg_u" type="array">
+      <obj_property name="ElementShortName">carr_NCO_reg_u[31:0]</obj_property>
+      <obj_property name="ObjectShortName">carr_NCO_reg_u[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/code_NCO_reg_u" type="array">
+      <obj_property name="ElementShortName">code_NCO_reg_u[31:0]</obj_property>
+      <obj_property name="ObjectShortName">code_NCO_reg_u[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/carr_replica_sine_i" type="other">
+      <obj_property name="ElementShortName">carr_replica_sine_i</obj_property>
+      <obj_property name="ObjectShortName">carr_replica_sine_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/carr_replica_cosine_i" type="other">
+      <obj_property name="ElementShortName">carr_replica_cosine_i</obj_property>
+      <obj_property name="ObjectShortName">carr_replica_cosine_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/rx_signal_i" type="other">
+      <obj_property name="ElementShortName">rx_signal_i</obj_property>
+      <obj_property name="ObjectShortName">rx_signal_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/post_carr_mix_I_i" type="other">
+      <obj_property name="ElementShortName">post_carr_mix_I_i</obj_property>
+      <obj_property name="ObjectShortName">post_carr_mix_I_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/post_carr_mix_Q_i" type="other">
+      <obj_property name="ElementShortName">post_carr_mix_Q_i</obj_property>
+      <obj_property name="ObjectShortName">post_carr_mix_Q_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/post_carr_code_mix_P_I_i" type="other">
+      <obj_property name="ElementShortName">post_carr_code_mix_P_I_i</obj_property>
+      <obj_property name="ObjectShortName">post_carr_code_mix_P_I_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/post_carr_code_mix_P_Q_i" type="other">
+      <obj_property name="ElementShortName">post_carr_code_mix_P_Q_i</obj_property>
+      <obj_property name="ObjectShortName">post_carr_code_mix_P_Q_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/post_carr_code_mix_E_I_i" type="other">
+      <obj_property name="ElementShortName">post_carr_code_mix_E_I_i</obj_property>
+      <obj_property name="ObjectShortName">post_carr_code_mix_E_I_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/post_carr_code_mix_E_Q_i" type="other">
+      <obj_property name="ElementShortName">post_carr_code_mix_E_Q_i</obj_property>
+      <obj_property name="ObjectShortName">post_carr_code_mix_E_Q_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/post_carr_code_mix_L_I_i" type="other">
+      <obj_property name="ElementShortName">post_carr_code_mix_L_I_i</obj_property>
+      <obj_property name="ObjectShortName">post_carr_code_mix_L_I_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/post_carr_code_mix_L_Q_i" type="other">
+      <obj_property name="ElementShortName">post_carr_code_mix_L_Q_i</obj_property>
+      <obj_property name="ObjectShortName">post_carr_code_mix_L_Q_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/post_carr_code_mix_VE_I_i" type="other">
+      <obj_property name="ElementShortName">post_carr_code_mix_VE_I_i</obj_property>
+      <obj_property name="ObjectShortName">post_carr_code_mix_VE_I_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/post_carr_code_mix_VE_Q_i" type="other">
+      <obj_property name="ElementShortName">post_carr_code_mix_VE_Q_i</obj_property>
+      <obj_property name="ObjectShortName">post_carr_code_mix_VE_Q_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/post_carr_code_mix_VL_I_i" type="other">
+      <obj_property name="ElementShortName">post_carr_code_mix_VL_I_i</obj_property>
+      <obj_property name="ObjectShortName">post_carr_code_mix_VL_I_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/post_carr_code_mix_VL_Q_i" type="other">
+      <obj_property name="ElementShortName">post_carr_code_mix_VL_Q_i</obj_property>
+      <obj_property name="ObjectShortName">post_carr_code_mix_VL_Q_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/code_RAM_word_u" type="array">
+      <obj_property name="ElementShortName">code_RAM_word_u[31:0]</obj_property>
+      <obj_property name="ObjectShortName">code_RAM_word_u[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/code_replica_b" type="logic">
+      <obj_property name="ElementShortName">code_replica_b</obj_property>
+      <obj_property name="ObjectShortName">code_replica_b</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/subcarrier_replica_b" type="logic">
+      <obj_property name="ElementShortName">subcarrier_replica_b</obj_property>
+      <obj_property name="ObjectShortName">subcarrier_replica_b</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/code_chip_count_u" type="array">
+      <obj_property name="ElementShortName">code_chip_count_u[13:0]</obj_property>
+      <obj_property name="ObjectShortName">code_chip_count_u[13:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/code_chip_count_1ms_u" type="array">
+      <obj_property name="ElementShortName">code_chip_count_1ms_u[13:0]</obj_property>
+      <obj_property name="ObjectShortName">code_chip_count_1ms_u[13:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/code_epoch_count_u" type="array">
+      <obj_property name="ElementShortName">code_epoch_count_u[4:0]</obj_property>
+      <obj_property name="ObjectShortName">code_epoch_count_u[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/code_epoch_1ms_count_u" type="array">
+      <obj_property name="ElementShortName">code_epoch_1ms_count_u[4:0]</obj_property>
+      <obj_property name="ObjectShortName">code_epoch_1ms_count_u[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/code_NCO_count_u" type="array">
+      <obj_property name="ElementShortName">code_NCO_count_u[3:0]</obj_property>
+      <obj_property name="ObjectShortName">code_NCO_count_u[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/bit_count_u" type="array">
+      <obj_property name="ElementShortName">bit_count_u[7:0]</obj_property>
+      <obj_property name="ObjectShortName">bit_count_u[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/sec_count_u" type="array">
+      <obj_property name="ElementShortName">sec_count_u[32:0]</obj_property>
+      <obj_property name="ObjectShortName">sec_count_u[32:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/ena_bit_count_b" type="logic">
+      <obj_property name="ElementShortName">ena_bit_count_b</obj_property>
+      <obj_property name="ObjectShortName">ena_bit_count_b</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accumulation_P_I_s" type="array">
+      <obj_property name="ElementShortName">accumulation_P_I_s[24:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_P_I_s[24:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accumulation_P_Q_s" type="array">
+      <obj_property name="ElementShortName">accumulation_P_Q_s[24:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_P_Q_s[24:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accumulation_E_I_s" type="array">
+      <obj_property name="ElementShortName">accumulation_E_I_s[24:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_E_I_s[24:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accumulation_E_Q_s" type="array">
+      <obj_property name="ElementShortName">accumulation_E_Q_s[24:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_E_Q_s[24:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accumulation_L_I_s" type="array">
+      <obj_property name="ElementShortName">accumulation_L_I_s[24:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_L_I_s[24:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accumulation_L_Q_s" type="array">
+      <obj_property name="ElementShortName">accumulation_L_Q_s[24:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_L_Q_s[24:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accumulation_VE_I_s" type="array">
+      <obj_property name="ElementShortName">accumulation_VE_I_s[24:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_VE_I_s[24:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accumulation_VE_Q_s" type="array">
+      <obj_property name="ElementShortName">accumulation_VE_Q_s[24:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_VE_Q_s[24:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accumulation_VL_I_s" type="array">
+      <obj_property name="ElementShortName">accumulation_VL_I_s[24:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_VL_I_s[24:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accumulation_VL_Q_s" type="array">
+      <obj_property name="ElementShortName">accumulation_VL_Q_s[24:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_VL_Q_s[24:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accm_1ms_P_I_s" type="array">
+      <obj_property name="ElementShortName">accm_1ms_P_I_s[24:0]</obj_property>
+      <obj_property name="ObjectShortName">accm_1ms_P_I_s[24:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accm_1ms_P_Q_s" type="array">
+      <obj_property name="ElementShortName">accm_1ms_P_Q_s[24:0]</obj_property>
+      <obj_property name="ObjectShortName">accm_1ms_P_Q_s[24:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accumulation_P_I_reg_s" type="array">
+      <obj_property name="ElementShortName">accumulation_P_I_reg_s[31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_P_I_reg_s[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accumulation_P_Q_reg_s" type="array">
+      <obj_property name="ElementShortName">accumulation_P_Q_reg_s[31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_P_Q_reg_s[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accumulation_E_I_reg_s" type="array">
+      <obj_property name="ElementShortName">accumulation_E_I_reg_s[31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_E_I_reg_s[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accumulation_E_Q_reg_s" type="array">
+      <obj_property name="ElementShortName">accumulation_E_Q_reg_s[31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_E_Q_reg_s[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accumulation_L_I_reg_s" type="array">
+      <obj_property name="ElementShortName">accumulation_L_I_reg_s[31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_L_I_reg_s[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accumulation_L_Q_reg_s" type="array">
+      <obj_property name="ElementShortName">accumulation_L_Q_reg_s[31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_L_Q_reg_s[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accumulation_VE_I_reg_s" type="array">
+      <obj_property name="ElementShortName">accumulation_VE_I_reg_s[31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_VE_I_reg_s[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accumulation_VE_Q_reg_s" type="array">
+      <obj_property name="ElementShortName">accumulation_VE_Q_reg_s[31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_VE_Q_reg_s[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accumulation_VL_I_reg_s" type="array">
+      <obj_property name="ElementShortName">accumulation_VL_I_reg_s[31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_VL_I_reg_s[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accumulation_VL_Q_reg_s" type="array">
+      <obj_property name="ElementShortName">accumulation_VL_Q_reg_s[31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_VL_Q_reg_s[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accm_1ms_P_I_reg_a_s" type="array">
+      <obj_property name="ElementShortName">accm_1ms_P_I_reg_a_s[19:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">accm_1ms_P_I_reg_a_s[19:0][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accm_1ms_P_Q_reg_a_s" type="array">
+      <obj_property name="ElementShortName">accm_1ms_P_Q_reg_a_s[19:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">accm_1ms_P_Q_reg_a_s[19:0][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/RAM_we_b" type="logic">
+      <obj_property name="ElementShortName">RAM_we_b</obj_property>
+      <obj_property name="ObjectShortName">RAM_we_b</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/RAM_en_b" type="logic">
+      <obj_property name="ElementShortName">RAM_en_b</obj_property>
+      <obj_property name="ObjectShortName">RAM_en_b</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/RAM_addr_u" type="array">
+      <obj_property name="ElementShortName">RAM_addr_u[8:0]</obj_property>
+      <obj_property name="ObjectShortName">RAM_addr_u[8:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/arm_start_b" type="logic">
+      <obj_property name="ElementShortName">arm_start_b</obj_property>
+      <obj_property name="ObjectShortName">arm_start_b</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/correlator_enable_b" type="logic">
+      <obj_property name="ElementShortName">correlator_enable_b</obj_property>
+      <obj_property name="ObjectShortName">correlator_enable_b</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/code_subcarr_delay_reg_u" type="array">
+      <obj_property name="ElementShortName">code_subcarr_delay_reg_u[96:0]</obj_property>
+      <obj_property name="ObjectShortName">code_subcarr_delay_reg_u[96:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/carr_cycle_count_u" type="array">
+      <obj_property name="ElementShortName">carr_cycle_count_u[25:0]</obj_property>
+      <obj_property name="ObjectShortName">carr_cycle_count_u[25:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/interrupt_reg_b" type="logic">
+      <obj_property name="ElementShortName">interrupt_reg_b</obj_property>
+      <obj_property name="ObjectShortName">interrupt_reg_b</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/enable_BOC_bool_g" type="other">
+      <obj_property name="ElementShortName">enable_BOC_bool_g</obj_property>
+      <obj_property name="ObjectShortName">enable_BOC_bool_g</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/slave_channel_bool_g" type="other">
+      <obj_property name="ElementShortName">slave_channel_bool_g</obj_property>
+      <obj_property name="ObjectShortName">slave_channel_bool_g</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/ALL_ONES_NCO_U_C" type="array">
+      <obj_property name="ElementShortName">ALL_ONES_NCO_U_C[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ALL_ONES_NCO_U_C[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/code_epoch_master_b_out" type="logic">
+      <obj_property name="ElementShortName">code_epoch_master_b_out</obj_property>
+      <obj_property name="ObjectShortName">code_epoch_master_b_out</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/sample_clk_b_in" type="logic">
+      <obj_property name="ElementShortName">sample_clk_b_in</obj_property>
+      <obj_property name="ObjectShortName">sample_clk_b_in</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/data_FE_sync_u_in" type="array">
+      <obj_property name="ElementShortName">data_FE_sync_u_in[3:0][1:0]</obj_property>
+      <obj_property name="ObjectShortName">data_FE_sync_u_in[3:0][1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/front_end_select_u_in" type="array">
+      <obj_property name="ElementShortName">front_end_select_u_in[1:0]</obj_property>
+      <obj_property name="ObjectShortName">front_end_select_u_in[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/RAM_we_b_in" type="logic">
+      <obj_property name="ElementShortName">RAM_we_b_in</obj_property>
+      <obj_property name="ObjectShortName">RAM_we_b_in</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/RAM_en_b_in" type="logic">
+      <obj_property name="ElementShortName">RAM_en_b_in</obj_property>
+      <obj_property name="ObjectShortName">RAM_en_b_in</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/RAM_addr_u_in" type="array">
+      <obj_property name="ElementShortName">RAM_addr_u_in[8:0]</obj_property>
+      <obj_property name="ObjectShortName">RAM_addr_u_in[8:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/RAM_di_u_in" type="array">
+      <obj_property name="ElementShortName">RAM_di_u_in[31:0]</obj_property>
+      <obj_property name="ObjectShortName">RAM_di_u_in[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/PPS_20ms_b_in" type="logic">
+      <obj_property name="ElementShortName">PPS_20ms_b_in</obj_property>
+      <obj_property name="ObjectShortName">PPS_20ms_b_in</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/start_enable_b_in" type="logic">
+      <obj_property name="ElementShortName">start_enable_b_in</obj_property>
+      <obj_property name="ObjectShortName">start_enable_b_in</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/SW_reset_in" type="logic">
+      <obj_property name="ElementShortName">SW_reset_in</obj_property>
+      <obj_property name="ObjectShortName">SW_reset_in</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/signal_type_u_in" type="array">
+      <obj_property name="ElementShortName">signal_type_u_in[2:0]</obj_property>
+      <obj_property name="ObjectShortName">signal_type_u_in[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/start_chip_u_in" type="array">
+      <obj_property name="ElementShortName">start_chip_u_in[13:0]</obj_property>
+      <obj_property name="ObjectShortName">start_chip_u_in[13:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/start_epoch_u_in" type="array">
+      <obj_property name="ElementShortName">start_epoch_u_in[4:0]</obj_property>
+      <obj_property name="ObjectShortName">start_epoch_u_in[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/code_len_chip_u_in" type="array">
+      <obj_property name="ElementShortName">code_len_chip_u_in[13:0]</obj_property>
+      <obj_property name="ObjectShortName">code_len_chip_u_in[13:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/code_len_chip_1ms_u_in" type="array">
+      <obj_property name="ElementShortName">code_len_chip_1ms_u_in[13:0]</obj_property>
+      <obj_property name="ObjectShortName">code_len_chip_1ms_u_in[13:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/carr_NCO_increment_u_in" type="array">
+      <obj_property name="ElementShortName">carr_NCO_increment_u_in[31:0]</obj_property>
+      <obj_property name="ObjectShortName">carr_NCO_increment_u_in[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/code_NCO_increment_u_in" type="array">
+      <obj_property name="ElementShortName">code_NCO_increment_u_in[31:0]</obj_property>
+      <obj_property name="ObjectShortName">code_NCO_increment_u_in[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/early_prompt_spacing_u_in" type="array">
+      <obj_property name="ElementShortName">early_prompt_spacing_u_in[5:0]</obj_property>
+      <obj_property name="ObjectShortName">early_prompt_spacing_u_in[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/very_early_prompt_spacing_u_in" type="array">
+      <obj_property name="ElementShortName">very_early_prompt_spacing_u_in[5:0]</obj_property>
+      <obj_property name="ObjectShortName">very_early_prompt_spacing_u_in[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/correlation_length_epochs_u_in" type="array">
+      <obj_property name="ElementShortName">correlation_length_epochs_u_in[4:0]</obj_property>
+      <obj_property name="ObjectShortName">correlation_length_epochs_u_in[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/epoch_length_ms_u_in" type="array">
+      <obj_property name="ElementShortName">epoch_length_ms_u_in[4:0]</obj_property>
+      <obj_property name="ObjectShortName">epoch_length_ms_u_in[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/bit_length_u_in" type="array">
+      <obj_property name="ElementShortName">bit_length_u_in[7:0]</obj_property>
+      <obj_property name="ObjectShortName">bit_length_u_in[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/fast_nco_count_value_u_in" type="array">
+      <obj_property name="ElementShortName">fast_nco_count_value_u_in[3:0]</obj_property>
+      <obj_property name="ObjectShortName">fast_nco_count_value_u_in[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/arm_slave_start_b_in" type="logic">
+      <obj_property name="ElementShortName">arm_slave_start_b_in</obj_property>
+      <obj_property name="ObjectShortName">arm_slave_start_b_in</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/code_epoch_slave_b_in" type="logic">
+      <obj_property name="ElementShortName">code_epoch_slave_b_in</obj_property>
+      <obj_property name="ObjectShortName">code_epoch_slave_b_in</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/code_NCO_master_u_in" type="array">
+      <obj_property name="ElementShortName">code_NCO_master_u_in[31:0]</obj_property>
+      <obj_property name="ObjectShortName">code_NCO_master_u_in[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/measurement_enable_b_in" type="logic">
+      <obj_property name="ElementShortName">measurement_enable_b_in</obj_property>
+      <obj_property name="ObjectShortName">measurement_enable_b_in</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/code_NCO_start_u_in" type="array">
+      <obj_property name="ElementShortName">code_NCO_start_u_in[31:0]</obj_property>
+      <obj_property name="ObjectShortName">code_NCO_start_u_in[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/ena_bit_count_b_in" type="logic">
+      <obj_property name="ElementShortName">ena_bit_count_b_in</obj_property>
+      <obj_property name="ObjectShortName">ena_bit_count_b_in</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/clr_interrupt_b_u_in" type="logic">
+      <obj_property name="ElementShortName">clr_interrupt_b_u_in</obj_property>
+      <obj_property name="ObjectShortName">clr_interrupt_b_u_in</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/interrupt_b_out" type="logic">
+      <obj_property name="ElementShortName">interrupt_b_out</obj_property>
+      <obj_property name="ObjectShortName">interrupt_b_out</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accumulation_P_I_reg_s_out" type="array">
+      <obj_property name="ElementShortName">accumulation_P_I_reg_s_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_P_I_reg_s_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accumulation_P_Q_reg_s_out" type="array">
+      <obj_property name="ElementShortName">accumulation_P_Q_reg_s_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_P_Q_reg_s_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accumulation_E_I_reg_s_out" type="array">
+      <obj_property name="ElementShortName">accumulation_E_I_reg_s_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_E_I_reg_s_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accumulation_E_Q_reg_s_out" type="array">
+      <obj_property name="ElementShortName">accumulation_E_Q_reg_s_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_E_Q_reg_s_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accumulation_L_I_reg_s_out" type="array">
+      <obj_property name="ElementShortName">accumulation_L_I_reg_s_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_L_I_reg_s_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accumulation_L_Q_reg_s_out" type="array">
+      <obj_property name="ElementShortName">accumulation_L_Q_reg_s_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_L_Q_reg_s_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accumulation_VE_I_reg_s_out" type="array">
+      <obj_property name="ElementShortName">accumulation_VE_I_reg_s_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_VE_I_reg_s_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accumulation_VE_Q_reg_s_out" type="array">
+      <obj_property name="ElementShortName">accumulation_VE_Q_reg_s_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_VE_Q_reg_s_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accumulation_VL_I_reg_s_out" type="array">
+      <obj_property name="ElementShortName">accumulation_VL_I_reg_s_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_VL_I_reg_s_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accumulation_VL_Q_reg_s_out" type="array">
+      <obj_property name="ElementShortName">accumulation_VL_Q_reg_s_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_VL_Q_reg_s_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accm_1ms_P_I_reg_a_s_out" type="array">
+      <obj_property name="ElementShortName">accm_1ms_P_I_reg_a_s_out[19:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">accm_1ms_P_I_reg_a_s_out[19:0][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accm_1ms_P_Q_reg_a_s_out" type="array">
+      <obj_property name="ElementShortName">accm_1ms_P_Q_reg_a_s_out[19:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">accm_1ms_P_Q_reg_a_s_out[19:0][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/RAM_do_u_out" type="array">
+      <obj_property name="ElementShortName">RAM_do_u_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">RAM_do_u_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/meas_code_NCO_u_out" type="array">
+      <obj_property name="ElementShortName">meas_code_NCO_u_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">meas_code_NCO_u_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/meas_chip_count_u_out" type="array">
+      <obj_property name="ElementShortName">meas_chip_count_u_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">meas_chip_count_u_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/meas_epoch_count_u_out" type="array">
+      <obj_property name="ElementShortName">meas_epoch_count_u_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">meas_epoch_count_u_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/meas_carr_NCO_u_out" type="array">
+      <obj_property name="ElementShortName">meas_carr_NCO_u_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">meas_carr_NCO_u_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/meas_cycle_count_u_out" type="array">
+      <obj_property name="ElementShortName">meas_cycle_count_u_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">meas_cycle_count_u_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/meas_bit_count_u_out" type="array">
+      <obj_property name="ElementShortName">meas_bit_count_u_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">meas_bit_count_u_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/meas_sec_count_u_out" type="array">
+      <obj_property name="ElementShortName">meas_sec_count_u_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">meas_sec_count_u_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/code_NCO_master_u_out" type="array">
+      <obj_property name="ElementShortName">code_NCO_master_u_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">code_NCO_master_u_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/code_epoch_master_b_out" type="logic">
+      <obj_property name="ElementShortName">code_epoch_master_b_out</obj_property>
+      <obj_property name="ObjectShortName">code_epoch_master_b_out</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/carr_NCO_reg_u" type="array">
+      <obj_property name="ElementShortName">carr_NCO_reg_u[31:0]</obj_property>
+      <obj_property name="ObjectShortName">carr_NCO_reg_u[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/code_NCO_reg_u" type="array">
+      <obj_property name="ElementShortName">code_NCO_reg_u[31:0]</obj_property>
+      <obj_property name="ObjectShortName">code_NCO_reg_u[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/carr_replica_sine_i" type="other">
+      <obj_property name="ElementShortName">carr_replica_sine_i</obj_property>
+      <obj_property name="ObjectShortName">carr_replica_sine_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/carr_replica_cosine_i" type="other">
+      <obj_property name="ElementShortName">carr_replica_cosine_i</obj_property>
+      <obj_property name="ObjectShortName">carr_replica_cosine_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/rx_signal_i" type="other">
+      <obj_property name="ElementShortName">rx_signal_i</obj_property>
+      <obj_property name="ObjectShortName">rx_signal_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/post_carr_mix_I_i" type="other">
+      <obj_property name="ElementShortName">post_carr_mix_I_i</obj_property>
+      <obj_property name="ObjectShortName">post_carr_mix_I_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/post_carr_mix_Q_i" type="other">
+      <obj_property name="ElementShortName">post_carr_mix_Q_i</obj_property>
+      <obj_property name="ObjectShortName">post_carr_mix_Q_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/post_carr_code_mix_P_I_i" type="other">
+      <obj_property name="ElementShortName">post_carr_code_mix_P_I_i</obj_property>
+      <obj_property name="ObjectShortName">post_carr_code_mix_P_I_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/post_carr_code_mix_P_Q_i" type="other">
+      <obj_property name="ElementShortName">post_carr_code_mix_P_Q_i</obj_property>
+      <obj_property name="ObjectShortName">post_carr_code_mix_P_Q_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/post_carr_code_mix_E_I_i" type="other">
+      <obj_property name="ElementShortName">post_carr_code_mix_E_I_i</obj_property>
+      <obj_property name="ObjectShortName">post_carr_code_mix_E_I_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/post_carr_code_mix_E_Q_i" type="other">
+      <obj_property name="ElementShortName">post_carr_code_mix_E_Q_i</obj_property>
+      <obj_property name="ObjectShortName">post_carr_code_mix_E_Q_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/post_carr_code_mix_L_I_i" type="other">
+      <obj_property name="ElementShortName">post_carr_code_mix_L_I_i</obj_property>
+      <obj_property name="ObjectShortName">post_carr_code_mix_L_I_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/post_carr_code_mix_L_Q_i" type="other">
+      <obj_property name="ElementShortName">post_carr_code_mix_L_Q_i</obj_property>
+      <obj_property name="ObjectShortName">post_carr_code_mix_L_Q_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/post_carr_code_mix_VE_I_i" type="other">
+      <obj_property name="ElementShortName">post_carr_code_mix_VE_I_i</obj_property>
+      <obj_property name="ObjectShortName">post_carr_code_mix_VE_I_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/post_carr_code_mix_VE_Q_i" type="other">
+      <obj_property name="ElementShortName">post_carr_code_mix_VE_Q_i</obj_property>
+      <obj_property name="ObjectShortName">post_carr_code_mix_VE_Q_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/post_carr_code_mix_VL_I_i" type="other">
+      <obj_property name="ElementShortName">post_carr_code_mix_VL_I_i</obj_property>
+      <obj_property name="ObjectShortName">post_carr_code_mix_VL_I_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/post_carr_code_mix_VL_Q_i" type="other">
+      <obj_property name="ElementShortName">post_carr_code_mix_VL_Q_i</obj_property>
+      <obj_property name="ObjectShortName">post_carr_code_mix_VL_Q_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/code_RAM_word_u" type="array">
+      <obj_property name="ElementShortName">code_RAM_word_u[31:0]</obj_property>
+      <obj_property name="ObjectShortName">code_RAM_word_u[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/code_replica_b" type="logic">
+      <obj_property name="ElementShortName">code_replica_b</obj_property>
+      <obj_property name="ObjectShortName">code_replica_b</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/subcarrier_replica_b" type="logic">
+      <obj_property name="ElementShortName">subcarrier_replica_b</obj_property>
+      <obj_property name="ObjectShortName">subcarrier_replica_b</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/code_chip_count_u" type="array">
+      <obj_property name="ElementShortName">code_chip_count_u[13:0]</obj_property>
+      <obj_property name="ObjectShortName">code_chip_count_u[13:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/code_chip_count_1ms_u" type="array">
+      <obj_property name="ElementShortName">code_chip_count_1ms_u[13:0]</obj_property>
+      <obj_property name="ObjectShortName">code_chip_count_1ms_u[13:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/code_epoch_count_u" type="array">
+      <obj_property name="ElementShortName">code_epoch_count_u[4:0]</obj_property>
+      <obj_property name="ObjectShortName">code_epoch_count_u[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/code_epoch_1ms_count_u" type="array">
+      <obj_property name="ElementShortName">code_epoch_1ms_count_u[4:0]</obj_property>
+      <obj_property name="ObjectShortName">code_epoch_1ms_count_u[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/code_NCO_count_u" type="array">
+      <obj_property name="ElementShortName">code_NCO_count_u[3:0]</obj_property>
+      <obj_property name="ObjectShortName">code_NCO_count_u[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/bit_count_u" type="array">
+      <obj_property name="ElementShortName">bit_count_u[7:0]</obj_property>
+      <obj_property name="ObjectShortName">bit_count_u[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/sec_count_u" type="array">
+      <obj_property name="ElementShortName">sec_count_u[32:0]</obj_property>
+      <obj_property name="ObjectShortName">sec_count_u[32:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/ena_bit_count_b" type="logic">
+      <obj_property name="ElementShortName">ena_bit_count_b</obj_property>
+      <obj_property name="ObjectShortName">ena_bit_count_b</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accumulation_P_I_s" type="array">
+      <obj_property name="ElementShortName">accumulation_P_I_s[24:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_P_I_s[24:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accumulation_P_Q_s" type="array">
+      <obj_property name="ElementShortName">accumulation_P_Q_s[24:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_P_Q_s[24:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accumulation_E_I_s" type="array">
+      <obj_property name="ElementShortName">accumulation_E_I_s[24:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_E_I_s[24:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accumulation_E_Q_s" type="array">
+      <obj_property name="ElementShortName">accumulation_E_Q_s[24:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_E_Q_s[24:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accumulation_L_I_s" type="array">
+      <obj_property name="ElementShortName">accumulation_L_I_s[24:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_L_I_s[24:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accumulation_L_Q_s" type="array">
+      <obj_property name="ElementShortName">accumulation_L_Q_s[24:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_L_Q_s[24:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accumulation_VE_I_s" type="array">
+      <obj_property name="ElementShortName">accumulation_VE_I_s[24:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_VE_I_s[24:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accumulation_VE_Q_s" type="array">
+      <obj_property name="ElementShortName">accumulation_VE_Q_s[24:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_VE_Q_s[24:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accumulation_VL_I_s" type="array">
+      <obj_property name="ElementShortName">accumulation_VL_I_s[24:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_VL_I_s[24:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accumulation_VL_Q_s" type="array">
+      <obj_property name="ElementShortName">accumulation_VL_Q_s[24:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_VL_Q_s[24:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accm_1ms_P_I_s" type="array">
+      <obj_property name="ElementShortName">accm_1ms_P_I_s[24:0]</obj_property>
+      <obj_property name="ObjectShortName">accm_1ms_P_I_s[24:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accm_1ms_P_Q_s" type="array">
+      <obj_property name="ElementShortName">accm_1ms_P_Q_s[24:0]</obj_property>
+      <obj_property name="ObjectShortName">accm_1ms_P_Q_s[24:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accumulation_P_I_reg_s" type="array">
+      <obj_property name="ElementShortName">accumulation_P_I_reg_s[31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_P_I_reg_s[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accumulation_P_Q_reg_s" type="array">
+      <obj_property name="ElementShortName">accumulation_P_Q_reg_s[31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_P_Q_reg_s[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accumulation_E_I_reg_s" type="array">
+      <obj_property name="ElementShortName">accumulation_E_I_reg_s[31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_E_I_reg_s[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accumulation_E_Q_reg_s" type="array">
+      <obj_property name="ElementShortName">accumulation_E_Q_reg_s[31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_E_Q_reg_s[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accumulation_L_I_reg_s" type="array">
+      <obj_property name="ElementShortName">accumulation_L_I_reg_s[31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_L_I_reg_s[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accumulation_L_Q_reg_s" type="array">
+      <obj_property name="ElementShortName">accumulation_L_Q_reg_s[31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_L_Q_reg_s[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accumulation_VE_I_reg_s" type="array">
+      <obj_property name="ElementShortName">accumulation_VE_I_reg_s[31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_VE_I_reg_s[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accumulation_VE_Q_reg_s" type="array">
+      <obj_property name="ElementShortName">accumulation_VE_Q_reg_s[31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_VE_Q_reg_s[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accumulation_VL_I_reg_s" type="array">
+      <obj_property name="ElementShortName">accumulation_VL_I_reg_s[31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_VL_I_reg_s[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accumulation_VL_Q_reg_s" type="array">
+      <obj_property name="ElementShortName">accumulation_VL_Q_reg_s[31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_VL_Q_reg_s[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accm_1ms_P_I_reg_a_s" type="array">
+      <obj_property name="ElementShortName">accm_1ms_P_I_reg_a_s[19:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">accm_1ms_P_I_reg_a_s[19:0][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/accm_1ms_P_Q_reg_a_s" type="array">
+      <obj_property name="ElementShortName">accm_1ms_P_Q_reg_a_s[19:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">accm_1ms_P_Q_reg_a_s[19:0][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/RAM_we_b" type="logic">
+      <obj_property name="ElementShortName">RAM_we_b</obj_property>
+      <obj_property name="ObjectShortName">RAM_we_b</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/RAM_en_b" type="logic">
+      <obj_property name="ElementShortName">RAM_en_b</obj_property>
+      <obj_property name="ObjectShortName">RAM_en_b</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/RAM_addr_u" type="array">
+      <obj_property name="ElementShortName">RAM_addr_u[8:0]</obj_property>
+      <obj_property name="ObjectShortName">RAM_addr_u[8:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/arm_start_b" type="logic">
+      <obj_property name="ElementShortName">arm_start_b</obj_property>
+      <obj_property name="ObjectShortName">arm_start_b</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/correlator_enable_b" type="logic">
+      <obj_property name="ElementShortName">correlator_enable_b</obj_property>
+      <obj_property name="ObjectShortName">correlator_enable_b</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/code_subcarr_delay_reg_u" type="array">
+      <obj_property name="ElementShortName">code_subcarr_delay_reg_u[96:0]</obj_property>
+      <obj_property name="ObjectShortName">code_subcarr_delay_reg_u[96:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/carr_cycle_count_u" type="array">
+      <obj_property name="ElementShortName">carr_cycle_count_u[25:0]</obj_property>
+      <obj_property name="ObjectShortName">carr_cycle_count_u[25:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/interrupt_reg_b" type="logic">
+      <obj_property name="ElementShortName">interrupt_reg_b</obj_property>
+      <obj_property name="ObjectShortName">interrupt_reg_b</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/enable_BOC_bool_g" type="other">
+      <obj_property name="ElementShortName">enable_BOC_bool_g</obj_property>
+      <obj_property name="ObjectShortName">enable_BOC_bool_g</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/slave_channel_bool_g" type="other">
+      <obj_property name="ElementShortName">slave_channel_bool_g</obj_property>
+      <obj_property name="ObjectShortName">slave_channel_bool_g</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(0)\/trackingChannel_X/ALL_ONES_NCO_U_C" type="array">
+      <obj_property name="ElementShortName">ALL_ONES_NCO_U_C[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ALL_ONES_NCO_U_C[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/sample_clk_b_in" type="logic">
+      <obj_property name="ElementShortName">sample_clk_b_in</obj_property>
+      <obj_property name="ObjectShortName">sample_clk_b_in</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/data_FE_sync_u_in" type="array">
+      <obj_property name="ElementShortName">data_FE_sync_u_in[3:0][1:0]</obj_property>
+      <obj_property name="ObjectShortName">data_FE_sync_u_in[3:0][1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/front_end_select_u_in" type="array">
+      <obj_property name="ElementShortName">front_end_select_u_in[1:0]</obj_property>
+      <obj_property name="ObjectShortName">front_end_select_u_in[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/RAM_we_b_in" type="logic">
+      <obj_property name="ElementShortName">RAM_we_b_in</obj_property>
+      <obj_property name="ObjectShortName">RAM_we_b_in</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/RAM_en_b_in" type="logic">
+      <obj_property name="ElementShortName">RAM_en_b_in</obj_property>
+      <obj_property name="ObjectShortName">RAM_en_b_in</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/RAM_addr_u_in" type="array">
+      <obj_property name="ElementShortName">RAM_addr_u_in[8:0]</obj_property>
+      <obj_property name="ObjectShortName">RAM_addr_u_in[8:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/RAM_di_u_in" type="array">
+      <obj_property name="ElementShortName">RAM_di_u_in[31:0]</obj_property>
+      <obj_property name="ObjectShortName">RAM_di_u_in[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/PPS_20ms_b_in" type="logic">
+      <obj_property name="ElementShortName">PPS_20ms_b_in</obj_property>
+      <obj_property name="ObjectShortName">PPS_20ms_b_in</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/start_enable_b_in" type="logic">
+      <obj_property name="ElementShortName">start_enable_b_in</obj_property>
+      <obj_property name="ObjectShortName">start_enable_b_in</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/SW_reset_in" type="logic">
+      <obj_property name="ElementShortName">SW_reset_in</obj_property>
+      <obj_property name="ObjectShortName">SW_reset_in</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/signal_type_u_in" type="array">
+      <obj_property name="ElementShortName">signal_type_u_in[2:0]</obj_property>
+      <obj_property name="ObjectShortName">signal_type_u_in[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/start_chip_u_in" type="array">
+      <obj_property name="ElementShortName">start_chip_u_in[13:0]</obj_property>
+      <obj_property name="ObjectShortName">start_chip_u_in[13:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/start_epoch_u_in" type="array">
+      <obj_property name="ElementShortName">start_epoch_u_in[4:0]</obj_property>
+      <obj_property name="ObjectShortName">start_epoch_u_in[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/code_len_chip_u_in" type="array">
+      <obj_property name="ElementShortName">code_len_chip_u_in[13:0]</obj_property>
+      <obj_property name="ObjectShortName">code_len_chip_u_in[13:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/code_len_chip_1ms_u_in" type="array">
+      <obj_property name="ElementShortName">code_len_chip_1ms_u_in[13:0]</obj_property>
+      <obj_property name="ObjectShortName">code_len_chip_1ms_u_in[13:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/carr_NCO_increment_u_in" type="array">
+      <obj_property name="ElementShortName">carr_NCO_increment_u_in[31:0]</obj_property>
+      <obj_property name="ObjectShortName">carr_NCO_increment_u_in[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/code_NCO_increment_u_in" type="array">
+      <obj_property name="ElementShortName">code_NCO_increment_u_in[31:0]</obj_property>
+      <obj_property name="ObjectShortName">code_NCO_increment_u_in[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/early_prompt_spacing_u_in" type="array">
+      <obj_property name="ElementShortName">early_prompt_spacing_u_in[5:0]</obj_property>
+      <obj_property name="ObjectShortName">early_prompt_spacing_u_in[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/very_early_prompt_spacing_u_in" type="array">
+      <obj_property name="ElementShortName">very_early_prompt_spacing_u_in[5:0]</obj_property>
+      <obj_property name="ObjectShortName">very_early_prompt_spacing_u_in[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/correlation_length_epochs_u_in" type="array">
+      <obj_property name="ElementShortName">correlation_length_epochs_u_in[4:0]</obj_property>
+      <obj_property name="ObjectShortName">correlation_length_epochs_u_in[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/epoch_length_ms_u_in" type="array">
+      <obj_property name="ElementShortName">epoch_length_ms_u_in[4:0]</obj_property>
+      <obj_property name="ObjectShortName">epoch_length_ms_u_in[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/bit_length_u_in" type="array">
+      <obj_property name="ElementShortName">bit_length_u_in[7:0]</obj_property>
+      <obj_property name="ObjectShortName">bit_length_u_in[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/fast_nco_count_value_u_in" type="array">
+      <obj_property name="ElementShortName">fast_nco_count_value_u_in[3:0]</obj_property>
+      <obj_property name="ObjectShortName">fast_nco_count_value_u_in[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/arm_slave_start_b_in" type="logic">
+      <obj_property name="ElementShortName">arm_slave_start_b_in</obj_property>
+      <obj_property name="ObjectShortName">arm_slave_start_b_in</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/code_epoch_slave_b_in" type="logic">
+      <obj_property name="ElementShortName">code_epoch_slave_b_in</obj_property>
+      <obj_property name="ObjectShortName">code_epoch_slave_b_in</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/code_NCO_master_u_in" type="array">
+      <obj_property name="ElementShortName">code_NCO_master_u_in[31:0]</obj_property>
+      <obj_property name="ObjectShortName">code_NCO_master_u_in[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/measurement_enable_b_in" type="logic">
+      <obj_property name="ElementShortName">measurement_enable_b_in</obj_property>
+      <obj_property name="ObjectShortName">measurement_enable_b_in</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/code_NCO_start_u_in" type="array">
+      <obj_property name="ElementShortName">code_NCO_start_u_in[31:0]</obj_property>
+      <obj_property name="ObjectShortName">code_NCO_start_u_in[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/ena_bit_count_b_in" type="logic">
+      <obj_property name="ElementShortName">ena_bit_count_b_in</obj_property>
+      <obj_property name="ObjectShortName">ena_bit_count_b_in</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/clr_interrupt_b_u_in" type="logic">
+      <obj_property name="ElementShortName">clr_interrupt_b_u_in</obj_property>
+      <obj_property name="ObjectShortName">clr_interrupt_b_u_in</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/interrupt_b_out" type="logic">
+      <obj_property name="ElementShortName">interrupt_b_out</obj_property>
+      <obj_property name="ObjectShortName">interrupt_b_out</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/accumulation_P_I_reg_s_out" type="array">
+      <obj_property name="ElementShortName">accumulation_P_I_reg_s_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_P_I_reg_s_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/accumulation_P_Q_reg_s_out" type="array">
+      <obj_property name="ElementShortName">accumulation_P_Q_reg_s_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_P_Q_reg_s_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/accumulation_E_I_reg_s_out" type="array">
+      <obj_property name="ElementShortName">accumulation_E_I_reg_s_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_E_I_reg_s_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/accumulation_E_Q_reg_s_out" type="array">
+      <obj_property name="ElementShortName">accumulation_E_Q_reg_s_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_E_Q_reg_s_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/accumulation_L_I_reg_s_out" type="array">
+      <obj_property name="ElementShortName">accumulation_L_I_reg_s_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_L_I_reg_s_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/accumulation_L_Q_reg_s_out" type="array">
+      <obj_property name="ElementShortName">accumulation_L_Q_reg_s_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_L_Q_reg_s_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/accumulation_VE_I_reg_s_out" type="array">
+      <obj_property name="ElementShortName">accumulation_VE_I_reg_s_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_VE_I_reg_s_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/accumulation_VE_Q_reg_s_out" type="array">
+      <obj_property name="ElementShortName">accumulation_VE_Q_reg_s_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_VE_Q_reg_s_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/accumulation_VL_I_reg_s_out" type="array">
+      <obj_property name="ElementShortName">accumulation_VL_I_reg_s_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_VL_I_reg_s_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/accumulation_VL_Q_reg_s_out" type="array">
+      <obj_property name="ElementShortName">accumulation_VL_Q_reg_s_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_VL_Q_reg_s_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/accm_1ms_P_I_reg_a_s_out" type="array">
+      <obj_property name="ElementShortName">accm_1ms_P_I_reg_a_s_out[19:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">accm_1ms_P_I_reg_a_s_out[19:0][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/accm_1ms_P_Q_reg_a_s_out" type="array">
+      <obj_property name="ElementShortName">accm_1ms_P_Q_reg_a_s_out[19:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">accm_1ms_P_Q_reg_a_s_out[19:0][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/RAM_do_u_out" type="array">
+      <obj_property name="ElementShortName">RAM_do_u_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">RAM_do_u_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/meas_code_NCO_u_out" type="array">
+      <obj_property name="ElementShortName">meas_code_NCO_u_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">meas_code_NCO_u_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/meas_chip_count_u_out" type="array">
+      <obj_property name="ElementShortName">meas_chip_count_u_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">meas_chip_count_u_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/meas_epoch_count_u_out" type="array">
+      <obj_property name="ElementShortName">meas_epoch_count_u_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">meas_epoch_count_u_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/meas_carr_NCO_u_out" type="array">
+      <obj_property name="ElementShortName">meas_carr_NCO_u_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">meas_carr_NCO_u_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/meas_cycle_count_u_out" type="array">
+      <obj_property name="ElementShortName">meas_cycle_count_u_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">meas_cycle_count_u_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/meas_bit_count_u_out" type="array">
+      <obj_property name="ElementShortName">meas_bit_count_u_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">meas_bit_count_u_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/meas_sec_count_u_out" type="array">
+      <obj_property name="ElementShortName">meas_sec_count_u_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">meas_sec_count_u_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/code_NCO_master_u_out" type="array">
+      <obj_property name="ElementShortName">code_NCO_master_u_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">code_NCO_master_u_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/code_epoch_master_b_out" type="logic">
+      <obj_property name="ElementShortName">code_epoch_master_b_out</obj_property>
+      <obj_property name="ObjectShortName">code_epoch_master_b_out</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/carr_NCO_reg_u" type="array">
+      <obj_property name="ElementShortName">carr_NCO_reg_u[31:0]</obj_property>
+      <obj_property name="ObjectShortName">carr_NCO_reg_u[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/code_NCO_reg_u" type="array">
+      <obj_property name="ElementShortName">code_NCO_reg_u[31:0]</obj_property>
+      <obj_property name="ObjectShortName">code_NCO_reg_u[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/carr_replica_sine_i" type="other">
+      <obj_property name="ElementShortName">carr_replica_sine_i</obj_property>
+      <obj_property name="ObjectShortName">carr_replica_sine_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/carr_replica_cosine_i" type="other">
+      <obj_property name="ElementShortName">carr_replica_cosine_i</obj_property>
+      <obj_property name="ObjectShortName">carr_replica_cosine_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/rx_signal_i" type="other">
+      <obj_property name="ElementShortName">rx_signal_i</obj_property>
+      <obj_property name="ObjectShortName">rx_signal_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/post_carr_mix_I_i" type="other">
+      <obj_property name="ElementShortName">post_carr_mix_I_i</obj_property>
+      <obj_property name="ObjectShortName">post_carr_mix_I_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/post_carr_mix_Q_i" type="other">
+      <obj_property name="ElementShortName">post_carr_mix_Q_i</obj_property>
+      <obj_property name="ObjectShortName">post_carr_mix_Q_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/post_carr_code_mix_P_I_i" type="other">
+      <obj_property name="ElementShortName">post_carr_code_mix_P_I_i</obj_property>
+      <obj_property name="ObjectShortName">post_carr_code_mix_P_I_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/post_carr_code_mix_P_Q_i" type="other">
+      <obj_property name="ElementShortName">post_carr_code_mix_P_Q_i</obj_property>
+      <obj_property name="ObjectShortName">post_carr_code_mix_P_Q_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/post_carr_code_mix_E_I_i" type="other">
+      <obj_property name="ElementShortName">post_carr_code_mix_E_I_i</obj_property>
+      <obj_property name="ObjectShortName">post_carr_code_mix_E_I_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/post_carr_code_mix_E_Q_i" type="other">
+      <obj_property name="ElementShortName">post_carr_code_mix_E_Q_i</obj_property>
+      <obj_property name="ObjectShortName">post_carr_code_mix_E_Q_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/post_carr_code_mix_L_I_i" type="other">
+      <obj_property name="ElementShortName">post_carr_code_mix_L_I_i</obj_property>
+      <obj_property name="ObjectShortName">post_carr_code_mix_L_I_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/post_carr_code_mix_L_Q_i" type="other">
+      <obj_property name="ElementShortName">post_carr_code_mix_L_Q_i</obj_property>
+      <obj_property name="ObjectShortName">post_carr_code_mix_L_Q_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/post_carr_code_mix_VE_I_i" type="other">
+      <obj_property name="ElementShortName">post_carr_code_mix_VE_I_i</obj_property>
+      <obj_property name="ObjectShortName">post_carr_code_mix_VE_I_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/post_carr_code_mix_VE_Q_i" type="other">
+      <obj_property name="ElementShortName">post_carr_code_mix_VE_Q_i</obj_property>
+      <obj_property name="ObjectShortName">post_carr_code_mix_VE_Q_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/post_carr_code_mix_VL_I_i" type="other">
+      <obj_property name="ElementShortName">post_carr_code_mix_VL_I_i</obj_property>
+      <obj_property name="ObjectShortName">post_carr_code_mix_VL_I_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/post_carr_code_mix_VL_Q_i" type="other">
+      <obj_property name="ElementShortName">post_carr_code_mix_VL_Q_i</obj_property>
+      <obj_property name="ObjectShortName">post_carr_code_mix_VL_Q_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/code_RAM_word_u" type="array">
+      <obj_property name="ElementShortName">code_RAM_word_u[31:0]</obj_property>
+      <obj_property name="ObjectShortName">code_RAM_word_u[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/code_replica_b" type="logic">
+      <obj_property name="ElementShortName">code_replica_b</obj_property>
+      <obj_property name="ObjectShortName">code_replica_b</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/subcarrier_replica_b" type="logic">
+      <obj_property name="ElementShortName">subcarrier_replica_b</obj_property>
+      <obj_property name="ObjectShortName">subcarrier_replica_b</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/code_chip_count_u" type="array">
+      <obj_property name="ElementShortName">code_chip_count_u[13:0]</obj_property>
+      <obj_property name="ObjectShortName">code_chip_count_u[13:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/code_chip_count_1ms_u" type="array">
+      <obj_property name="ElementShortName">code_chip_count_1ms_u[13:0]</obj_property>
+      <obj_property name="ObjectShortName">code_chip_count_1ms_u[13:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/code_epoch_count_u" type="array">
+      <obj_property name="ElementShortName">code_epoch_count_u[4:0]</obj_property>
+      <obj_property name="ObjectShortName">code_epoch_count_u[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/code_epoch_1ms_count_u" type="array">
+      <obj_property name="ElementShortName">code_epoch_1ms_count_u[4:0]</obj_property>
+      <obj_property name="ObjectShortName">code_epoch_1ms_count_u[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/code_NCO_count_u" type="array">
+      <obj_property name="ElementShortName">code_NCO_count_u[3:0]</obj_property>
+      <obj_property name="ObjectShortName">code_NCO_count_u[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/bit_count_u" type="array">
+      <obj_property name="ElementShortName">bit_count_u[7:0]</obj_property>
+      <obj_property name="ObjectShortName">bit_count_u[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/sec_count_u" type="array">
+      <obj_property name="ElementShortName">sec_count_u[32:0]</obj_property>
+      <obj_property name="ObjectShortName">sec_count_u[32:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/ena_bit_count_b" type="logic">
+      <obj_property name="ElementShortName">ena_bit_count_b</obj_property>
+      <obj_property name="ObjectShortName">ena_bit_count_b</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/accumulation_P_I_s" type="array">
+      <obj_property name="ElementShortName">accumulation_P_I_s[24:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_P_I_s[24:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/accumulation_P_Q_s" type="array">
+      <obj_property name="ElementShortName">accumulation_P_Q_s[24:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_P_Q_s[24:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/accumulation_E_I_s" type="array">
+      <obj_property name="ElementShortName">accumulation_E_I_s[24:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_E_I_s[24:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/accumulation_E_Q_s" type="array">
+      <obj_property name="ElementShortName">accumulation_E_Q_s[24:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_E_Q_s[24:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/accumulation_L_I_s" type="array">
+      <obj_property name="ElementShortName">accumulation_L_I_s[24:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_L_I_s[24:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/accumulation_L_Q_s" type="array">
+      <obj_property name="ElementShortName">accumulation_L_Q_s[24:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_L_Q_s[24:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/accumulation_VE_I_s" type="array">
+      <obj_property name="ElementShortName">accumulation_VE_I_s[24:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_VE_I_s[24:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/accumulation_VE_Q_s" type="array">
+      <obj_property name="ElementShortName">accumulation_VE_Q_s[24:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_VE_Q_s[24:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/accumulation_VL_I_s" type="array">
+      <obj_property name="ElementShortName">accumulation_VL_I_s[24:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_VL_I_s[24:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/accumulation_VL_Q_s" type="array">
+      <obj_property name="ElementShortName">accumulation_VL_Q_s[24:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_VL_Q_s[24:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/accm_1ms_P_I_s" type="array">
+      <obj_property name="ElementShortName">accm_1ms_P_I_s[24:0]</obj_property>
+      <obj_property name="ObjectShortName">accm_1ms_P_I_s[24:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/accm_1ms_P_Q_s" type="array">
+      <obj_property name="ElementShortName">accm_1ms_P_Q_s[24:0]</obj_property>
+      <obj_property name="ObjectShortName">accm_1ms_P_Q_s[24:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/accumulation_P_I_reg_s" type="array">
+      <obj_property name="ElementShortName">accumulation_P_I_reg_s[31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_P_I_reg_s[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/accumulation_P_Q_reg_s" type="array">
+      <obj_property name="ElementShortName">accumulation_P_Q_reg_s[31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_P_Q_reg_s[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/accumulation_E_I_reg_s" type="array">
+      <obj_property name="ElementShortName">accumulation_E_I_reg_s[31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_E_I_reg_s[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/accumulation_E_Q_reg_s" type="array">
+      <obj_property name="ElementShortName">accumulation_E_Q_reg_s[31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_E_Q_reg_s[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/accumulation_L_I_reg_s" type="array">
+      <obj_property name="ElementShortName">accumulation_L_I_reg_s[31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_L_I_reg_s[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/accumulation_L_Q_reg_s" type="array">
+      <obj_property name="ElementShortName">accumulation_L_Q_reg_s[31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_L_Q_reg_s[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/accumulation_VE_I_reg_s" type="array">
+      <obj_property name="ElementShortName">accumulation_VE_I_reg_s[31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_VE_I_reg_s[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/accumulation_VE_Q_reg_s" type="array">
+      <obj_property name="ElementShortName">accumulation_VE_Q_reg_s[31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_VE_Q_reg_s[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/accumulation_VL_I_reg_s" type="array">
+      <obj_property name="ElementShortName">accumulation_VL_I_reg_s[31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_VL_I_reg_s[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/accumulation_VL_Q_reg_s" type="array">
+      <obj_property name="ElementShortName">accumulation_VL_Q_reg_s[31:0]</obj_property>
+      <obj_property name="ObjectShortName">accumulation_VL_Q_reg_s[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/accm_1ms_P_I_reg_a_s" type="array">
+      <obj_property name="ElementShortName">accm_1ms_P_I_reg_a_s[19:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">accm_1ms_P_I_reg_a_s[19:0][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/accm_1ms_P_Q_reg_a_s" type="array">
+      <obj_property name="ElementShortName">accm_1ms_P_Q_reg_a_s[19:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">accm_1ms_P_Q_reg_a_s[19:0][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/RAM_we_b" type="logic">
+      <obj_property name="ElementShortName">RAM_we_b</obj_property>
+      <obj_property name="ObjectShortName">RAM_we_b</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/RAM_en_b" type="logic">
+      <obj_property name="ElementShortName">RAM_en_b</obj_property>
+      <obj_property name="ObjectShortName">RAM_en_b</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/RAM_addr_u" type="array">
+      <obj_property name="ElementShortName">RAM_addr_u[8:0]</obj_property>
+      <obj_property name="ObjectShortName">RAM_addr_u[8:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/arm_start_b" type="logic">
+      <obj_property name="ElementShortName">arm_start_b</obj_property>
+      <obj_property name="ObjectShortName">arm_start_b</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/correlator_enable_b" type="logic">
+      <obj_property name="ElementShortName">correlator_enable_b</obj_property>
+      <obj_property name="ObjectShortName">correlator_enable_b</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/code_subcarr_delay_reg_u" type="array">
+      <obj_property name="ElementShortName">code_subcarr_delay_reg_u[96:0]</obj_property>
+      <obj_property name="ObjectShortName">code_subcarr_delay_reg_u[96:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/carr_cycle_count_u" type="array">
+      <obj_property name="ElementShortName">carr_cycle_count_u[25:0]</obj_property>
+      <obj_property name="ObjectShortName">carr_cycle_count_u[25:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/interrupt_reg_b" type="logic">
+      <obj_property name="ElementShortName">interrupt_reg_b</obj_property>
+      <obj_property name="ObjectShortName">interrupt_reg_b</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/enable_BOC_bool_g" type="other">
+      <obj_property name="ElementShortName">enable_BOC_bool_g</obj_property>
+      <obj_property name="ObjectShortName">enable_BOC_bool_g</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/slave_channel_bool_g" type="other">
+      <obj_property name="ElementShortName">slave_channel_bool_g</obj_property>
+      <obj_property name="ObjectShortName">slave_channel_bool_g</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/\trackingChannelGen(1)\/trackingChannel_X/ALL_ONES_NCO_U_C" type="array">
+      <obj_property name="ElementShortName">ALL_ONES_NCO_U_C[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ALL_ONES_NCO_U_C[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/arm_slave_start_a_b" type="array">
+      <obj_property name="ElementShortName">arm_slave_start_a_b[21:0]</obj_property>
+      <obj_property name="ObjectShortName">arm_slave_start_a_b[21:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/trackChannel_X_AXI_inst/S_AXI_ACLK" type="logic">
+      <obj_property name="ElementShortName">S_AXI_ACLK</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_ACLK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/trackChannel_X_AXI_inst/S_AXI_ARESETN" type="logic">
+      <obj_property name="ElementShortName">S_AXI_ARESETN</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_ARESETN</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/trackChannel_X_AXI_inst/S_AXI_AWADDR" type="array">
+      <obj_property name="ElementShortName">S_AXI_AWADDR[8:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_AWADDR[8:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/trackChannel_X_AXI_inst/S_AXI_AWPROT" type="array">
+      <obj_property name="ElementShortName">S_AXI_AWPROT[2:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_AWPROT[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/trackChannel_X_AXI_inst/S_AXI_AWVALID" type="logic">
+      <obj_property name="ElementShortName">S_AXI_AWVALID</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_AWVALID</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/trackChannel_X_AXI_inst/S_AXI_AWREADY" type="logic">
+      <obj_property name="ElementShortName">S_AXI_AWREADY</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_AWREADY</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/trackChannel_X_AXI_inst/S_AXI_WDATA" type="array">
+      <obj_property name="ElementShortName">S_AXI_WDATA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_WDATA[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/trackChannel_X_AXI_inst/S_AXI_WSTRB" type="array">
+      <obj_property name="ElementShortName">S_AXI_WSTRB[3:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_WSTRB[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/trackChannel_X_AXI_inst/S_AXI_WVALID" type="logic">
+      <obj_property name="ElementShortName">S_AXI_WVALID</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_WVALID</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/trackChannel_X_AXI_inst/S_AXI_WREADY" type="logic">
+      <obj_property name="ElementShortName">S_AXI_WREADY</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_WREADY</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/trackChannel_X_AXI_inst/S_AXI_BRESP" type="array">
+      <obj_property name="ElementShortName">S_AXI_BRESP[1:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_BRESP[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/trackChannel_X_AXI_inst/S_AXI_BVALID" type="logic">
+      <obj_property name="ElementShortName">S_AXI_BVALID</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_BVALID</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/trackChannel_X_AXI_inst/S_AXI_BREADY" type="logic">
+      <obj_property name="ElementShortName">S_AXI_BREADY</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_BREADY</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/trackChannel_X_AXI_inst/S_AXI_ARADDR" type="array">
+      <obj_property name="ElementShortName">S_AXI_ARADDR[8:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_ARADDR[8:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/trackChannel_X_AXI_inst/S_AXI_ARPROT" type="array">
+      <obj_property name="ElementShortName">S_AXI_ARPROT[2:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_ARPROT[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/trackChannel_X_AXI_inst/S_AXI_ARVALID" type="logic">
+      <obj_property name="ElementShortName">S_AXI_ARVALID</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_ARVALID</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/trackChannel_X_AXI_inst/S_AXI_ARREADY" type="logic">
+      <obj_property name="ElementShortName">S_AXI_ARREADY</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_ARREADY</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/trackChannel_X_AXI_inst/S_AXI_RDATA" type="array">
+      <obj_property name="ElementShortName">S_AXI_RDATA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_RDATA[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/trackChannel_X_AXI_inst/S_AXI_RRESP" type="array">
+      <obj_property name="ElementShortName">S_AXI_RRESP[1:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_RRESP[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/trackChannel_X_AXI_inst/S_AXI_RVALID" type="logic">
+      <obj_property name="ElementShortName">S_AXI_RVALID</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_RVALID</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/trackChannel_X_AXI_inst/S_AXI_RREADY" type="logic">
+      <obj_property name="ElementShortName">S_AXI_RREADY</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_RREADY</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/trackChannel_X_AXI_inst/PRN_data_u_in" type="array">
+      <obj_property name="ElementShortName">PRN_data_u_in[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PRN_data_u_in[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/trackChannel_X_AXI_inst/PRN_read_b_in" type="logic">
+      <obj_property name="ElementShortName">PRN_read_b_in</obj_property>
+      <obj_property name="ObjectShortName">PRN_read_b_in</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/trackChannel_X_AXI_inst/read_reg_a_u_in" type="array">
+      <obj_property name="ElementShortName">read_reg_a_u_in[0:79][31:0]</obj_property>
+      <obj_property name="ObjectShortName">read_reg_a_u_in[0:79][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/trackChannel_X_AXI_inst/write_reg_a_u_out" type="array">
+      <obj_property name="ElementShortName">write_reg_a_u_out[0:22][31:0]</obj_property>
+      <obj_property name="ObjectShortName">write_reg_a_u_out[0:22][31:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/trackChannel_X_AXI_inst/axi_awaddr" type="array">
+      <obj_property name="ElementShortName">axi_awaddr[8:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_awaddr[8:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/trackChannel_X_AXI_inst/axi_awready" type="logic">
+      <obj_property name="ElementShortName">axi_awready</obj_property>
+      <obj_property name="ObjectShortName">axi_awready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/trackChannel_X_AXI_inst/axi_wready" type="logic">
+      <obj_property name="ElementShortName">axi_wready</obj_property>
+      <obj_property name="ObjectShortName">axi_wready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/trackChannel_X_AXI_inst/axi_bresp" type="array">
+      <obj_property name="ElementShortName">axi_bresp[1:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_bresp[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/trackChannel_X_AXI_inst/axi_bvalid" type="logic">
+      <obj_property name="ElementShortName">axi_bvalid</obj_property>
+      <obj_property name="ObjectShortName">axi_bvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/trackChannel_X_AXI_inst/axi_araddr" type="array">
+      <obj_property name="ElementShortName">axi_araddr[8:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_araddr[8:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/trackChannel_X_AXI_inst/axi_arready" type="logic">
+      <obj_property name="ElementShortName">axi_arready</obj_property>
+      <obj_property name="ObjectShortName">axi_arready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/trackChannel_X_AXI_inst/axi_rdata" type="array">
+      <obj_property name="ElementShortName">axi_rdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_rdata[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/trackChannel_X_AXI_inst/axi_rresp" type="array">
+      <obj_property name="ElementShortName">axi_rresp[1:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_rresp[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/trackChannel_X_AXI_inst/axi_rvalid" type="logic">
+      <obj_property name="ElementShortName">axi_rvalid</obj_property>
+      <obj_property name="ObjectShortName">axi_rvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/trackChannel_X_AXI_inst/slv_reg_a_u" type="array">
+      <obj_property name="ElementShortName">slv_reg_a_u[0:127][31:0]</obj_property>
+      <obj_property name="ObjectShortName">slv_reg_a_u[0:127][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/trackChannel_X_AXI_inst/slv_reg_rden" type="logic">
+      <obj_property name="ElementShortName">slv_reg_rden</obj_property>
+      <obj_property name="ObjectShortName">slv_reg_rden</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/trackChannel_X_AXI_inst/slv_reg_wren" type="logic">
+      <obj_property name="ElementShortName">slv_reg_wren</obj_property>
+      <obj_property name="ObjectShortName">slv_reg_wren</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/trackChannel_X_AXI_inst/reg_data_out" type="array">
+      <obj_property name="ElementShortName">reg_data_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">reg_data_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/trackChannel_X_AXI_inst/byte_index" type="other">
+      <obj_property name="ElementShortName">byte_index</obj_property>
+      <obj_property name="ObjectShortName">byte_index</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/trackChannel_X_AXI_inst/aw_en" type="logic">
+      <obj_property name="ElementShortName">aw_en</obj_property>
+      <obj_property name="ObjectShortName">aw_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/trackChannel_X_AXI_inst/C_S_AXI_DATA_WIDTH" type="other">
+      <obj_property name="ElementShortName">C_S_AXI_DATA_WIDTH</obj_property>
+      <obj_property name="ObjectShortName">C_S_AXI_DATA_WIDTH</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/trackChannel_X_AXI_inst/C_S_AXI_ADDR_WIDTH" type="other">
+      <obj_property name="ElementShortName">C_S_AXI_ADDR_WIDTH</obj_property>
+      <obj_property name="ObjectShortName">C_S_AXI_ADDR_WIDTH</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/trackChannel_X_AXI_inst/C_S_AXI_NUM_READ_ONLY_REGS" type="other">
+      <obj_property name="ElementShortName">C_S_AXI_NUM_READ_ONLY_REGS</obj_property>
+      <obj_property name="ObjectShortName">C_S_AXI_NUM_READ_ONLY_REGS</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/trackChannel_X_AXI_inst/C_S_AXI_NUM_TOTAL_REGS" type="other">
+      <obj_property name="ElementShortName">C_S_AXI_NUM_TOTAL_REGS</obj_property>
+      <obj_property name="ObjectShortName">C_S_AXI_NUM_TOTAL_REGS</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/trackChannel_X_AXI_inst/ADDR_LSB" type="other">
+      <obj_property name="ElementShortName">ADDR_LSB</obj_property>
+      <obj_property name="ObjectShortName">ADDR_LSB</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/trackChannel_X_AXI_inst/OPT_MEM_ADDR_BITS" type="other">
+      <obj_property name="ElementShortName">OPT_MEM_ADDR_BITS</obj_property>
+      <obj_property name="ObjectShortName">OPT_MEM_ADDR_BITS</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_trackingChannelInterface/uut/trackChannel_X_AXI_inst/NUM_ADDR_i_C" type="other">
+      <obj_property name="ElementShortName">NUM_ADDR_i_C</obj_property>
+      <obj_property name="ObjectShortName">NUM_ADDR_i_C</obj_property>
+   </wvobject>
+</wave_config>

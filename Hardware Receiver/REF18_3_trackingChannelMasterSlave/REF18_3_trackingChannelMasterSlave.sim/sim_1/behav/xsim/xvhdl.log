@@ -1,0 +1,15 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/dataSandbox/trackingChannelMasterSlaveV2/trackingChannelMasterSlave/tracking/receiverConfigurationPackage.vhd" into library xil_defaultlib
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/dataSandbox/trackingChannelMasterSlaveV2/trackingChannelMasterSlave/tracking/tracking_channel/RAM_PRN.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity RAM_PRN
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/dataSandbox/trackingChannelMasterSlaveV2/trackingChannelMasterSlave/tracking/tracking_channel/trackingChannel.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity trackingChannel
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/dataSandbox/trackingChannelMasterSlaveV2/trackingChannelMasterSlave/tracking/interface/trackingChannelAXI.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity trackingChannelAXI
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/dataSandbox/trackingChannelMasterSlaveV2/trackingChannelMasterSlave/tracking/snapshot/snapshot_module.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity snapshot_module
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/dataSandbox/trackingChannelMasterSlaveV2/trackingChannelMasterSlave/tracking/snapshot/trk_interrupt_snapshot.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity trk_interrupt_snapshot
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/dataSandbox/trackingChannelMasterSlaveV2/trackingChannelMasterSlave/tracking/trackingChannelInterface.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity trackingChannelInterface
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/dataSandbox/trackingChannelMasterSlaveV2/trackingChannelMasterSlave/trackingChannelMasterSlave.srcs/sim_1/new/TB_trackingChannelInterface.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity TB_trackingChannelInterface

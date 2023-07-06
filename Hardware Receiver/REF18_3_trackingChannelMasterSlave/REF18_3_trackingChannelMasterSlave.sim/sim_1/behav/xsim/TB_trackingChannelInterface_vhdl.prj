@@ -1,0 +1,13 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../tracking/receiverConfigurationPackage.vhd" \
+"../../../../tracking/tracking_channel/RAM_PRN.vhd" \
+"../../../../tracking/tracking_channel/trackingChannel.vhd" \
+"../../../../tracking/interface/trackingChannelAXI.vhd" \
+"../../../../tracking/snapshot/snapshot_module.vhdl" \
+"../../../../tracking/snapshot/trk_interrupt_snapshot.vhd" \
+"../../../../tracking/trackingChannelInterface.vhd" \
+"../../../../trackingChannelMasterSlave.srcs/sim_1/new/TB_trackingChannelInterface.vhd" \
+
+# Do not sort compile order
+nosort
