@@ -78,6 +78,7 @@ signal      s_axi_rresp         : std_logic_vector(1 downto 0);
 signal      s_axi_rvalid        : std_logic;
 signal      s_axi_rready        : std_logic;
            
+--           99.38382MHz
 constant AXI_ACLK_period : time := 10062 ps; 
 begin
 

@@ -197,13 +197,13 @@ BEGIN
     wait; -- will wait forever
 end process;
 
-  read_data_input :  process (sample_clk_b_in, areset_n_b_in) is
+read_data_input :  process (sample_clk_b_in, areset_n_b_in) is
     use STD.TEXTIO.all;
 --  file F: TEXT is in "quantised_noise_fs_99p375_MHz_0p1_s.txt";  -- VHDL'87
     file F: TEXT open READ_MODE is "quantised_noise_fs_99p375_MHz_0p1_s.txt";
     variable L: LINE;
     variable value: integer;
- begin
+begin
     if (areset_n_b_in = '0') then
         data_FE_sync_u_in <= (others => (others => '0'));
         measurement_enable_b_in <= '0';
@@ -232,5 +232,5 @@ end process;
         end if;
     end if;
     
-  end process read_data_input;
+    end process read_data_input;
 end Behavioral;

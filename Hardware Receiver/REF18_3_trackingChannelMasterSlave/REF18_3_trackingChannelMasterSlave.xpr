@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Product Version: Vivado v2018.3.1 (64-bit)              -->
+<!-- Product Version: Vivado v2018.3 (64-bit)              -->
 <!--                                                         -->
-<!-- Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.   -->
+<!-- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="39" Path="E:/Users/benji/OneDrive/Project/MSc-Project/Hardware Receiver/REF18_3_trackingChannelMasterSlave/REF18_3_trackingChannelMasterSlave.xpr">
+<Project Version="7" Minor="39" Path="C:/Users/eexyh39/OneDrive/Project/MSc-Project/Hardware Receiver/REF18_3_trackingChannelMasterSlave/REF18_3_trackingChannelMasterSlave.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="b315facc24f64a2bac07106c0b62cee8"/>
@@ -22,6 +22,7 @@
     <Option Name="ActiveSimSet" Val="sim_1"/>
     <Option Name="DefaultLib" Val="xil_defaultlib"/>
     <Option Name="ProjectType" Val="Default"/>
+    <Option Name="IPOutputRepo" Val="$PCACHEDIR/ip"/>
     <Option Name="IPCachePermission" Val="read"/>
     <Option Name="IPCachePermission" Val="write"/>
     <Option Name="EnableCoreContainer" Val="FALSE"/>
@@ -32,7 +33,7 @@
     <Option Name="DSAVendor" Val="xilinx"/>
     <Option Name="DSABoardId" Val="zc702"/>
     <Option Name="DSANumComputeUnits" Val="60"/>
-    <Option Name="WTXSimLaunchSim" Val="43"/>
+    <Option Name="WTXSimLaunchSim" Val="53"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
@@ -147,6 +148,13 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+      <File Path="$PSRCDIR/sim_1/new/tb_RAM_PRN.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <File Path="$PSRCDIR/sim_1/imports/REF_trackingChannelMasterSlave/TB_trackingChannelInterface_behav.wcfg">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../REF_trackingChannelMasterSlave/TB_trackingChannelInterface_behav.wcfg"/>
@@ -158,6 +166,13 @@
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../REF_trackingChannelMasterSlave/TB_trackingChannelInterface_behav1.wcfg"/>
           <Attr Name="ImportTime" Val="1565904934"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sim_1/new/tb_NCO.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>

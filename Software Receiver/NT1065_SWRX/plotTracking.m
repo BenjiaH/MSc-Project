@@ -118,7 +118,7 @@ for channelNr = channelList
         grid  (handles(3, 1));
         axis  (handles(3, 1), 'tight');
         xlabel(handles(3, 1), 'Time (s)');
-        ylabel(handles(3, 1), 'Amplitude');
+        ylabel(handles(3, 1), 'Amplitude? Frequency');
         title (handles(3, 1), 'Filtered PLL discriminator');
 
         %----- DLL discriminator unfiltered--------------------------------

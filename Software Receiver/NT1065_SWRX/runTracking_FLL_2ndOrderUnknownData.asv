@@ -41,5 +41,5 @@ if (fid > 0)
     if settings.plotTracking
         plotTracking(1:settings.numberOfChannels, trackResults, settings);
     end
-    disp ('   Done!');
+    disp ('   Ploting results...');
 end

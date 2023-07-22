@@ -30,13 +30,9 @@
 %% Clean up the environment first =========================================
 clear; close all; clc;
 
-% =========================================
 device_type = 'WVD';
-% device_type = 'PC';
-% device_type = 'N/A';
-% =========================================
+save('device_type', device_type);
 
-save('device_type.mat',"device_type");
 format ('compact');
 format ('long', 'g');
 
