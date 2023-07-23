@@ -1,23 +1,82 @@
 \chapter{Introduction}
+In an era where precise positioning, navigation, and timing have become fundamental requirements for numerous applications, the \textit{Global Navigation Satellite System} (GNSS) has emerged as a transformative technology. \textit{Global Positioning System}, commonly known as GPS, has revolutionized the way we navigate, communicate, and interact with our surroundings. As the demand for accurate and reliable GNSS positioning continues to grow, there is an increasing need to explore innovative methods to develop advanced GNSS receivers capable of handling diverse and challenging environments.
 
-GNSS stands for \textit{Global Navigation Satellite System}. It is a constellation of satellites that provides geolocation and time information to users anywhere on Earth. The system works by transmitting signals from multiple satellites in space, which are then received by GNSS receivers on the ground. By analyzing the signals from several satellites, these receivers can determine the user's precise location, velocity, and time. GNSS technology has become an integral part of modern society and plays a crucial role in various applications.
-
-Setting out the aims and objectives of your project, explaining the overall intention of the project and specific steps that will be taken to achieve that intention.
+The aim of this project is to design and develop a GPS/GNSS receiver, focusing on the critical component of correlators, which form the backbone of any GNSS receiver. Correlators play a vital role in the tracking part of the GNSS positioning process, making them a key element in the overall receiver architecture.
 
 \section{Background}
+The GNSS has become an integral part of modern life, transforming how we navigate, communicate, and interact with the world around us. As the demand for accurate and reliable positioning information continues to grow, there is a constant need for advancements in GNSS receiver technology. The receiver's tracking module, responsible for extracting precise positioning data from satellite signals, plays a critical role in ensuring the accuracy and robustness of the overall GNSS positioning process.
 
-Explaining the problem being solved.
+\begin{itemize}
+    \item Increasing Reliance on GNSS: In recent years, there has been a substantial increase in the reliance on GNSS technology across various sectors and industries. From commercial transportation and aviation to precision agriculture, emergency response, and scientific research, GNSS has become a ubiquitous tool in countless applications. The accurate positioning and timing information provided by GNSS have not only improved operational efficiency but have also enabled the development of innovative services and solutions.
+    \item Importance of the Tracking Module: The tracking module is a vital component of any GNSS receiver, responsible for acquiring and locking onto the weak satellite signals and maintaining their synchronization. Efficient tracking algorithms can increase SNR (\textit{Signal-to-Noise-Ratio}) which are essential for accurate and real-time positioning, especially in dynamic environments where satellite signals may be temporarily obscured or weakened. Optimizing the tracking module's performance is crucial to enhancing the overall receiver's sensitivity, accuracy, and responsiveness to varying environmental conditions.
+    \item Opportunities for Hardware Optimization: As the demand for high-performance GNSS receivers increases, there are opportunities to explore hardware optimization techniques to improve tracking capabilities. Implementing the tracking module using VHDL (\textit{Very High-Speed Integrated Circuit Hardware Description Language}) offers advantages such as parallel processing and hardware acceleration, allowing for real-time tracking and reduced power consumption. The utilization of VHDL enables the development of customized \textit{Application-Specific Integrated Circuits} (ASICs) or \textit{Field-Programmable Gate Arrays} (FPGAs) tailored to the tracking function, leading to more efficient and specialized GNSS receivers.
+\end{itemize}
 
+\section{GNSS/GPS}
+GNSS consists of a constellation of satellites orbiting the Earth, transmitting continuous signals containing precise timing and positioning information. Each GNSS satellite is equipped with atomic clocks, ensuring high accuracy in the signals it emits. The GNSS constellation comprises multiple satellites, typically in \textit{Medium Earth Orbit} (MEO), providing global coverage to ensure that a sufficient number of satellites are visible from any point on Earth at any given time.
 
-\section{GNSS}
+\subsection{Functioning of GNSS}
+A GNSS receiver on the ground intercepts signals from multiple satellites in the constellation. By analysing the timing and phase information in these signals, the receiver can calculate the distance between itself and each satellite. By triangulating the distances from multiple satellites, the receiver can determine its precise three-dimensional position (latitude, longitude, and altitude). Additionally, the receiver can synchronize its internal clock with the highly accurate satellite atomic clocks, providing precise timing information.
 
-Aims and Objectives here.
+\subsection{Key Components of GNSS/GPS}
+Satellites: The heart of GNSS is the constellation of satellites orbiting the Earth. Each satellite broadcasts signals carrying unique identification information and precise timing data.
+
+GNSS Receivers: GNSS receivers are devices that intercept and process the satellite signals to calculate the user's position, velocity, and time. These receivers can be integrated into various devices, such as smartphones, car navigation systems, aviation equipment, and scientific instruments.
+
+Control Segment: The control segment consists of ground-based monitoring stations and control centres responsible for monitoring the health of the satellites, maintaining their orbits, and ensuring accurate timing information.
+
+User Segment: The user segment encompasses the GNSS receivers used by individuals, industries, and organizations to access positioning, navigation, and timing services.
+
+\subsection{Applications of GNSS/GPS}
+
+The applications of GNSS are diverse and far-reaching, permeating nearly every aspect of modern life. Some key applications include:
+\begin{itemize}
+    \item Navigation: GNSS enables precise and real-time navigation for land, sea, and air transportation, making it a critical component of navigation systems in vehicles, ships, and aircraft.
+    \item Surveying and Mapping: GNSS is widely used in geodetic surveying, mapping, and cartography to obtain accurate geographic data for urban planning, construction, and land management.
+    \item Precision Agriculture: GNSS-based systems optimize agricultural processes by providing precise positioning for automated machinery, crop monitoring, and targeted application of resources like fertilizers and pesticides.
+    \item Emergency and Disaster Response: GNSS aids emergency services in locating and coordinating responses during disasters, enabling efficient search-and-rescue operations.
+    \item Timing and Synchronization: GNSS provides highly accurate timing information, essential for the synchronization of critical infrastructure, such as power grids, telecommunication networks, and financial systems.
+    \item Scientific Research: GNSS data is used in scientific research, including the study of tectonic movements, sea level changes, atmospheric monitoring, and climate research.
+\end{itemize}
+
+In conclusion, GNSS/GPS has transformed the way we navigate and interact with our environment. By leveraging signals from a constellation of satellites, GNSS provides precise positioning, navigation, and timing services, powering applications across diverse sectors and enriching various aspects of modern life. As technology continues to evolve, GNSS is expected to play an increasingly critical role in shaping our interconnected world.
 
 \section{FPGA}
+FPGA is a type of integrated circuit that allows users to configure its hardware functionality after manufacturing. Unlike ASICs, which are designed for specific tasks and cannot be reconfigured, FPGAs offer flexibility and programmability. This characteristic makes FPGAs suitable for a wide range of applications, including digital signal processing, communication systems, image and video processing, and in this case, GNSS receiver design.
 
+Here are the advantages of using FPGA in the project:
+\begin{itemize}
+    \item Hardware Customization: FPGAs allow customization of hardware functionality, tailoring specific algorithms and designs for the GNSS tracking module. This flexibility optimizes hardware resources, resulting in a specialized and efficient GNSS receiver.
+    \item Real-Time Processing: FPGAs excel in parallel processing, enabling real-time data processing with low latency. This is crucial for continuous and accurate GNSS positioning, especially in dynamic environments with intermittent satellite signals.
+    \item Power Efficiency: FPGA designs can be optimized for high performance with low power consumption. This is essential for battery-operated GNSS devices, extending battery life and improving overall device usability.
+    \item Rapid Prototyping and Iteration: FPGA development allows quick prototyping and iterative design refinement. Changes can be implemented and tested rapidly, speeding up development and performance improvements.
+    \item Adaptability and Future Upgrades: The programmable nature of FPGAs allows easy updates and future upgrades. GNSS algorithms can be incorporated without hardware changes as technology advances.
+    \item Cost-Effectiveness: FPGAs offer a cost-effective solution for custom hardware design compared to ASICs. They are suitable for smaller-scale projects or research without requiring expensive fabrication.
+\end{itemize}
+
+
+\section{Aims and Objectives}
+\subsection{Aims}
+The project has three aims: first, to design a tracking processor for GNSS receivers using VHDL; second, to verify the results using MATLAB; and third, to learn about GNSS signal acquisition and tracking by reading papers, books, etc.
+
+\subsection{Objectives}
+\begin{itemize}
+    \item Literature survey on GNSS signal processing and tracking
+    \item Be familiar with the principles of correlation functions, correlators, VHDL and Vivado
+    \item Write a literature review
+    \item Create and verify a set of correlators model in MATLAB
+    \item Write the RTL (\textit{Register Transfer Level}) code of the correlator in VHDL
+    \item Write the testbench code of the correlator in VHDL
+    \item Instance several times (e.g. three times) of the correlator VHDL code to implement the tracking part of the GNSS receiver
+    \item Write the testbench code of the project
+    \item Compare the results from VHDL with those from MATLAB
+    \item Record and analyse the VHDL results against the MATLAB results
+    \item Complete the final dissertation
+\end{itemize}
 
 \section{Description of the work}
+I will design the correlators of the receiver using VHDL.I plan to design a set of correlators in an FPGA. The correlators can be used to capture GNSS signals to allow subsequent devices to perform ranging and positioning. My front-end device will acquire the GNSS signal and transmit it to me. During the acquisition process I can receive at least one GNSS signal. I will extract the ranging code from it and compare it with the ranging code generated by the receiver, i.e. using a correlator.
 
-Explaining what your project is meant to achieve, how it is meant to function, perhaps even a functional specification.
+
 
 
