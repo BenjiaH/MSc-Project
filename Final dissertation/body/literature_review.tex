@@ -1,3 +1,47 @@
 \chapter{Literature Review}
 
 The literature review chapter serves as a critical foundation for this project, offering an in-depth exploration of the existing research, developments, and advancements in the field of GNSS receivers, with a particular focus on the tracking module. This chapter aims to identify the key theories, methodologies, and technologies that have shaped the evolution of GNSS tracking and provide valuable insights for the design and development of the FPGA-based GNSS tracking module.
+
+\section{Interface Control Document\texorpdfstring{\cite{RN170, RN171, RN172, RN174, RN173, RN175}}{}}
+In complex engineering projects and systems development, clear and effective communication between various subsystems and components is essential for successful integration and operation. The \textit{Interface Control Document} (ICD) of GNSS provides the basic information of the system, such as intermediate frequency, modulation scheme, code frequency , etc. 
+
+After reviewing the interface control documents of some systems, I have summarised the parameters of each system in Tbl. \ref{tab:spec_gnss}. 
+
+\begin{landscape}
+% \vspace*{\fill}
+\begin{center}
+\begin{table}
+    \centering
+    \caption{Specifications of Systems}\label{tab:spec_gnss}
+    \begin{tabular}{ccccc}
+    \toprule
+    Specifications & GPS & Glonass & Galileo & BeiDou\\
+    \midrule
+    \thead{Frequenc\\band} & \thead{L1: 1575.42 MHz\\L2: 1227.6 MHz\\L5: 1176.45 MHz} & \thead{L1: 1602MHz\\L2: 1246MHz\\(14 channels)} & \thead{E1: 1575.420MHz\\E6: 1278.750MHz\\E5a: 1176.450MHz\\E5b: 1207.140MHz} & \thead{B1c : 1575.42MHz\\B2a: 1176.45MHz\\B2b: 1207.14MHz\\B1I: 1561.098MHz\\B3I: 1268.52MHz}\\
+    \thead{Band\\width} & \thead{Block IIR, IIRM, and IIF:\\20.46 MHz\\GPS III, GPS IIIF, and subsequent:\\30.69 MHz} & \thead{L1: 7.875MHz(562.5 kHz each)\\L2: 6.125MHz(437.5 kHz each)} & \thead{E1: 24.552MHz\\E6: 40.920MHz\\E5a: 20.460MHz\\E5b: 20.460MHz} & \thead{B1c: 32.736MHz\\B2a: 20.46MHz\\B2b: 20.46MHz\\B1I: 4.092MHz\\B3I: 20.46MHz}\\
+    \thead{Modulation\\scheme} & BPSK & \thead{Modulo-2 addition\\CDMA}& \thead{E1: CBOC\\E5: AltBOC\\E6: BOC} & \thead{B1c: QMBOC(6, 1, 4/33)\\Others: BPSK}\\
+    \thead{Antenna\\polarization} & \multicolumn{4}{c}{RHCP*}\\
+    \thead{Chip\\rate} & \thead{L1 C/A \& P: 1.023MHz\\L2 CL \& CM: 511.5 kHz\\L5 data \& channel: 10.23 MHz} & \thead{L1 C/A: 0.511MHz\\L1 P: 5.11MHz\\L2 C/A: 0.511MHz\\L2 P: 5.11MHz} & \thead{E1 ranging Code: 1.023MHz\\E6: 5.115MHz\\E5: 10.230MHz} & \thead{B1c ranging code: 1.023MHz\\B2a ranging code: 10.23MHz\\B2b ranging code: 10.23MHz\\B1l ranging code: 2.046MHz\\B3l ranging code: 10.23MHz}\\
+    \bottomrule
+    \end{tabular}
+    \footnotesize Note: *RHCP: \textit{Right Hand Circularly Polarized}
+\end{table}
+\end{center}
+% \vspace*{\fill}
+\end{landscape}
+Given that the GPS system was the first to be deployed, it possesses a relatively straightforward structure. As a result, the GPS L1 signal has been selected as the primary target signal for this project. Furthermore, it is important to highlight that the L5 signal exhibits ten times the bandwidth of L1. Thus, in the event that the utilization of the L5 signal becomes necessary, the adjustments required for its implementation would be minimal.
+
+\section{Book from P. D. Groves\texorpdfstring{\cite{RN178}}{}}
+This book is a comprehensive textbook on navigation systems that integrates GNSS, \textit{Inertial Navigation Systems} (INS), and other sensors to provide accurate \textit{positioning, navigation, and timing} (PNT) information. Paul D. Groves and Kayton M. Ned, are both highly regarded experts in the field of navigation systems. Paul D. Groves is a professor of satellite navigation at the University College London, and his research focuses on the development of advanced navigation algorithms and technologies. Kayton M. Ned was a professor of aeronautics and astronautics at Stanford University, and his research focused on navigation and control systems for aerospace applications. Their extensive experience and expertise make them well-suited to author a comprehensive textbook on navigation systems.
+
+Section 8.1 describes the fundamentals of GNSS systems which will help us to have a basic understanding. It tells us how to get the distance between the satellite and the receiver.
+
+User equipment in chapter 9 refers to the receiver. It describes the design of GNSS receivers. An GNSS receiver contains an antenna, a receiver hardware, a ranging processor, and a navigation processor. My work focuses on the tracking part of the ranging processor. This chapter points out that a common typical receiver design contains six correlators and that more than six correlators are often used in order to speed up signal capture. A complete capture flowchart is also provided to clearly describe the capture process.
+
+Overall, as this book is a textbook, it provides a very authoritative and accurate introduction to GNSS-related technologies. It is reliable and thought-provoking.
+
+\section{Book from E. D. Kaplan and C. Hegarty\texorpdfstring{\cite{RN177}}{}}
+
+
+
+This book provides a systematic introduction to the various navigation systems (chapters 3 to 7), including: GPS, Glonass, Galileo, BeiDou, etc. It is a great help for the background part of the project. In Chapter 8, it details the design of the receiver and introduces the antenna, RF front-end, acquisition and tracking respectively, as well as the design of the loop filter. This part was extremely helpful to my understanding. It describes the GNSS working principle and process through numerous mathematical equations.

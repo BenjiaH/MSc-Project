@@ -15,14 +15,13 @@
 \usepackage{textcomp}
 \usepackage{pgfgantt}
 \usepackage{pdflscape}
-\usepackage[paper=portrait,pagesize]{typearea}
-\usepackage{pdfpages}
+
 \usepackage{color}
-\usepackage{fancyhdr}
-\usepackage{draftwatermark}
+\usepackage[numbers, sort&compress]{natbib}
 
 
 % Set position of page number
+\usepackage{fancyhdr}
 \newcommand{\pageHeaderNumPos}[1]{
     \fancypagestyle{plain}{
     \fancyhf{}
@@ -44,6 +43,31 @@
 % \setmainfont{Times New Roman}
 
 % Set watermark
+\usepackage{draftwatermark}
 \SetWatermarkText{DRAFT}
 \SetWatermarkLightness{0.9}
 \SetWatermarkScale{7}
+
+% % [NOT RECOMMENDED]Configue landscape/portrait pages with header and footer
+% \usepackage[paper=portrait, pagesize]{typearea}
+% \usepackage{pdfpages}
+% \BeforeRestoreareas{\cleardoublepage}
+% \newcommand*\uselandscape[2]{
+%     \pagebreak
+%     \cleardoublepage
+%     \KOMAoptions{paper=landscape}
+%     \recalctypearea
+%     \areaset{#1\textwidth}{#2\textheight}% adjust here: \areaset{<text body width>}{<text body height>}
+% }
+
+% \AtBeginDocument{
+%     \storeareas\normalpapersize
+% }
+% \newcommand*\useportrait{
+%     \pagebreak
+%     \normalpapersize
+% }
+
+% Rotate the table
+\usepackage[figuresright]{rotating}
+% https://blog.csdn.net/haifeng_gu/article/details/108563975
