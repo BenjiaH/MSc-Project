@@ -41,7 +41,15 @@ User equipment in chapter 9 refers to the receiver. It describes the design of G
 Overall, as this book is a textbook, it provides a very authoritative and accurate introduction to GNSS-related technologies. It is reliable and thought-provoking.
 
 \section{Book from E. D. Kaplan and C. Hegarty\texorpdfstring{\cite{RN177}}{}}
+The book delves into the fundamental principles underlying GNSS technology, including GPS, GLONASS, Galileo, BeiDou, and others. It explores the concepts of satellite orbits, signal structure, receiver design, and various positioning techniques used in GNSS applications.
 
+Chapters 3 to 7 provide a systematic introduction to the various navigation systems, including: GPS, Glonass, Galileo, BeiDou, etc. It is a great help for the background part of the project. In Chapter 8, it details the design of the receiver and introduces the antenna, RF front-end, acquisition and tracking respectively, as well as the design of the loop filter. This part was extremely helpful to my understanding. It describes the GNSS working principle and process through numerous mathematical equations.
 
+\section{Paper from J. C. Juang, Y. H. Chen et al.,\texorpdfstring{\cite{RN147}}{}}
+The author of the paper \textit{Design and implementation of an adaptive code discriminator in a DSP/FPGA-based Galileo receiver} are Jyh-Ching Juang, Yu-Hsuan Chen, Tsai-Ling Kao and Yung-Fu Tsai from National Cheng Kung University. 
 
-This book provides a systematic introduction to the various navigation systems (chapters 3 to 7), including: GPS, Glonass, Galileo, BeiDou, etc. It is a great help for the background part of the project. In Chapter 8, it details the design of the receiver and introduces the antenna, RF front-end, acquisition and tracking respectively, as well as the design of the loop filter. This part was extremely helpful to my understanding. It describes the GNSS working principle and process through numerous mathematical equations.
+In their design of a GNSS receiver, the tracking performance depends on the coded tracking loop and the associated discriminator. To improve tracking performance, their proposed scheme was implemented on a digital signal processor/field-programmable gate array board and experiments were conducted to process the GIOVE-A signal. The test results show the advantages of the proposed code tracking architecture and discriminator design.
+
+The paper presents a proposed design methodology for an adaptive coding discriminator that was implemented and tested. The design approach is framed as an optimization problem, and two discriminators were developed. The adaptive \textit{noncoherent multi-correlator} (NMC) discriminator was then implemented and tested, demonstrating enhancements in transient response and tracking error.
+
+This article gives detailed mathematical principles of capture, tracking and other processes, and also describes the design ideas of the correlator. A number of test results are also given for correlators based on the new idea. It has been a great reference for my MSc project.
