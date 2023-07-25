@@ -45,11 +45,22 @@ The book delves into the fundamental principles underlying GNSS technology, incl
 
 Chapters 3 to 7 provide a systematic introduction to the various navigation systems, including: GPS, Glonass, Galileo, BeiDou, etc. It is a great help for the background part of the project. In Chapter 8, it details the design of the receiver and introduces the antenna, RF front-end, acquisition and tracking respectively, as well as the design of the loop filter. This part was extremely helpful to my understanding. It describes the GNSS working principle and process through numerous mathematical equations.
 
-\section{Paper from J. C. Juang, Y. H. Chen et al.,\texorpdfstring{\cite{RN147}}{}}
-The author of the paper \textit{Design and implementation of an adaptive code discriminator in a DSP/FPGA-based Galileo receiver} are Jyh-Ching Juang, Yu-Hsuan Chen, Tsai-Ling Kao and Yung-Fu Tsai from National Cheng Kung University. 
+\section{Paper from J. C. Juang, Y. H. Chen et al.\texorpdfstring{\cite{RN147}}{}}
+The author of the paper \textit{Design and implementation of an adaptive code discriminator in a DSP/FPGA-based Galileo receiver} are Jyh Ching Juang, Yu Hsuan Chen, Tsai Ling Kao and Yung Fu Tsai from National Cheng Kung University. 
 
 In their design of a GNSS receiver, the tracking performance depends on the coded tracking loop and the associated discriminator. To improve tracking performance, their proposed scheme was implemented on a digital signal processor/field-programmable gate array board and experiments were conducted to process the GIOVE-A signal. The test results show the advantages of the proposed code tracking architecture and discriminator design.
 
 The paper presents a proposed design methodology for an adaptive coding discriminator that was implemented and tested. The design approach is framed as an optimization problem, and two discriminators were developed. The adaptive \textit{noncoherent multi-correlator} (NMC) discriminator was then implemented and tested, demonstrating enhancements in transient response and tracking error.
 
 This article gives detailed mathematical principles of capture, tracking and other processes, and also describes the design ideas of the correlator. A number of test results are also given for correlators based on the new idea. It has been a great reference for my MSc project.
+
+\section{Paper from O. Jakubov, P. Kovar et al.\texorpdfstring{\cite{RN155}}{}}
+The article is entitled: \textit{The Witch Navigator - A Low Cost GNSS Software Receiver for Advanced Processing Techniques} and its authors are O. Jakubov, P. Kovar, P. Kacmarik, F. Vejrazka from the Czech Technical University in Prague.
+
+In order to develop advanced GNSS signal processing algorithms such as multi-constellation, multi-frequency and multi-antenna navigation, an easily reprogrammable software-defined radio solution is required. To this end, various receiver architectures have been introduced. They have chosen and constructed an RF front-end that includes an FPGA universal correlator and is mounted on an ExpressCard that is directly connected to a PC. GNSS researchers and engineers can write signal processing algorithms, such as tracking, acquisition, and localization, in a Linux application programming interface and easily change the RF front-end via a PC programme thanks to this special hardware setup. The number of RF channels, correlators, or antennas can be increased as more of these ExpressCards are attached to the PC to further boost computational capability.
+
+They have implemented a GNSS receiver by using the SDR platform. This approach has one of the most intuitive advantages: low cost. It has extremely high software customisation and can be readily upgraded in terms of arithmetic power. The article also describes a generic FPGA-based GNSS receiver. The comparison also gives us an idea of the advantages and disadvantages of the different approaches.
+
+Their work culminated in a prototype of the Witch Navigator receiver. The correlator and RF front-end were successfully tested on Galileo E5, E1b and E1c signals. the communication between the FPGA and the PC has been fully resolved and all the corresponding controllers and drivers have been developed and tested.
+
+The article analyses in detail the ideas and principles of designing receivers based on FPGAs. The design of the SDR platform can also be used to verify the correctness of the FPGA platform using MATLAB simulations.
