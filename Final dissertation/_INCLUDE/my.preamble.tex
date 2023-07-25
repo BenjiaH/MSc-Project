@@ -1,5 +1,5 @@
 % Include packages
-% \usepackage{graphicx}
+\usepackage{graphicx}
 \usepackage{caption}
 % \usepackage{subfigure}
 \usepackage{hyperref}
@@ -25,6 +25,7 @@
 \newcommand{\pageHeaderNumPos}[1]{
     \fancypagestyle{plain}{
     \fancyhf{}
+    % Hide line
     \renewcommand{\headrulewidth}{0pt}
     \renewcommand{\footrulewidth}{0pt}
     \fancyhead[#1]{\thepage}}
@@ -33,20 +34,25 @@
 \newcommand{\pageFooterNumPos}[1]{
     \fancypagestyle{plain}{
     \fancyhf{}
+    % Hide line
     \renewcommand{\headrulewidth}{0pt}
     \renewcommand{\footrulewidth}{0pt}
     \fancyfoot[#1]{\thepage}}
     \pagestyle{plain}}
 
-% Set font
+% % Set font
 % \usepackage{fontspec}
 % \setmainfont{Times New Roman}
 
-% Set watermark
-\usepackage{draftwatermark}
-\SetWatermarkText{DRAFT}
-\SetWatermarkLightness{0.9}
-\SetWatermarkScale{7}
+% Set draft watermark
+\newcommand{\watermarkEnable}{
+    \usepackage{draftwatermark}
+    \SetWatermarkText{DRAFT}
+    \SetWatermarkLightness{0.8}
+    \SetWatermarkScale{7}
+}
+\watermarkEnable
+
 
 % % [NOT RECOMMENDED]Configue landscape/portrait pages with header and footer
 % \usepackage[paper=portrait, pagesize]{typearea}
@@ -70,4 +76,7 @@
 
 % Rotate the table
 \usepackage[figuresright]{rotating}
-% https://blog.csdn.net/haifeng_gu/article/details/108563975
+% Ref: https://blog.csdn.net/haifeng_gu/article/details/108563975
+
+% % Indent control
+% \setlength{\parindent}{0pt}	      % don't indent first lines of paragraphs
