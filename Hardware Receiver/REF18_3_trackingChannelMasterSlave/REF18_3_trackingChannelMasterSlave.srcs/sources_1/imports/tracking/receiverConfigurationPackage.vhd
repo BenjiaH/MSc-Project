@@ -107,15 +107,19 @@ constant E5a_Q_SIGNAL       : integer := 6;
 constant BYTE_LENGTH_C      : integer := 8;
 
 constant MEAS_COUNT_SIZE_I_C : integer := integer(ceil(log2(real(SAMPLES_PER_TIC))));
- 
+
+-- !!!!REF: https://www.youtube.com/watch?v=bWHe_PBEPdU
 -- carrier NCO increment to produce 14.58 MHz, increment = freq*(2^NCO_length)/sampling_freq
 constant CARR_NCO_INCR_CA_E1B_U_C : unsigned((CARR_NCO_LENGTH_C -1) downto 0) := x"258F3E7B"; -- (14.58MHz * (2 ^ 32)) / 99.375MHz = 630144635.730113
--- code NCO increment to produce 1.023 MHz, increment = freq*(2^NCO_length)/sampling_freq 
-constant CODE_NCO_INCR_CA_E1B_U_C : unsigned((CODE_NCO_LENGTH_C -1) downto 0) := x"02A2A65C";
--- carrier NCO increment to produce 13.55 MHz, increment = freq*(2^NCO_length)/sampling_freq
-constant CARR_NCO_INCR_E5_L5_U_C : unsigned((CARR_NCO_LENGTH_C -1) downto 0) := x"22E7FA55";
+
+---- code NCO increment to produce 1.023 MHz, increment = freq*(2^NCO_length)/sampling_freq 
+--constant CODE_NCO_INCR_CA_E1B_U_C : unsigned((CODE_NCO_LENGTH_C -1) downto 0) := x"02A2A65C";
+---- carrier NCO increment to produce 13.55 MHz, increment = freq*(2^NCO_length)/sampling_freq
+--constant CARR_NCO_INCR_E5_L5_U_C : unsigned((CARR_NCO_LENGTH_C -1) downto 0) := x"22E7FA55";
+
 -- code NCO increment to produce 10.23 MHz, increment = freq*(2^NCO_length)/sampling_freq 
-constant CODE_NCO_INCR_E5_L5_U_C : unsigned((CODE_NCO_LENGTH_C -1) downto 0) := x"1A5A7F98";
+--constant CODE_NCO_INCR_E5_L5_U_C : unsigned((CODE_NCO_LENGTH_C -1) downto 0) := x"1A5A7F98";
+constant CODE_NCO_INCR_E5_L5_U_C : unsigned((CODE_NCO_LENGTH_C -1) downto 0) := x"02A2A65C"; -- 1.023MHz
 
 constant FE_SELECT_SIZE : integer := integer(ceil(log2(real(NUM_FE_INPUTS_C))));
 
