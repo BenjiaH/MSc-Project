@@ -458,8 +458,10 @@ if rising_edge(sample_clk_b_in) then
                 end if;
                                     
                 -- check for overflow of the code NCO MSB on next cycle
+                -- ALL_ONES_NCO_U_C - unsigned(code_NCO_increment_u_in) = FD5D 59A3 4,250,753,443
                 if code_NCO_reg_u > (ALL_ONES_NCO_U_C - unsigned(code_NCO_increment_u_in)) then                      
                     if (code_NCO_count_u = (unsigned(fast_nco_count_value_u_in) - 1)) then
+--                    if (code_NCO_count_u = (unsigned(fast_nco_count_value_u_in) - 1)) then
                         
                         code_NCO_count_u <= (others=>'0');
                         

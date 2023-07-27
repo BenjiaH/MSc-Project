@@ -118,8 +118,8 @@ constant CARR_NCO_INCR_CA_E1B_U_C : unsigned((CARR_NCO_LENGTH_C -1) downto 0) :=
 --constant CARR_NCO_INCR_E5_L5_U_C : unsigned((CARR_NCO_LENGTH_C -1) downto 0) := x"22E7FA55";
 
 -- code NCO increment to produce 10.23 MHz, increment = freq*(2^NCO_length)/sampling_freq 
---constant CODE_NCO_INCR_E5_L5_U_C : unsigned((CODE_NCO_LENGTH_C -1) downto 0) := x"1A5A7F98";
-constant CODE_NCO_INCR_E5_L5_U_C : unsigned((CODE_NCO_LENGTH_C -1) downto 0) := x"02A2A65C"; -- 1.023MHz
+constant CODE_NCO_INCR_E5_L5_U_C : unsigned((CODE_NCO_LENGTH_C -1) downto 0) := x"1A5A7F98";
+--constant CODE_NCO_INCR_E5_L5_U_C : unsigned((CODE_NCO_LENGTH_C -1) downto 0) := x"02A2A65C"; -- 1.023MHz  44,213,852
 
 constant FE_SELECT_SIZE : integer := integer(ceil(log2(real(NUM_FE_INPUTS_C))));
 
@@ -189,7 +189,9 @@ constant CODE_DELAY_MID_POINT_I_C   : integer := integer(ceil(real(CODE_DELAY_SI
 constant CODE_DELAY_LEN_I_C         : integer := integer(ceil(log2(real(CODE_DELAY_MID_POINT_I_C))));
 
 -- max_count value for fast NCO (ratio of fastest code rate to slowest) 
+--constant FAST_NCO_COUNT_MAX_C          : integer := 10;
 constant FAST_NCO_COUNT_MAX_C          : integer := 10;
+
 constant MAX_NCO_COUNT_LENGTH_C        : integer := integer(ceil(log2(real(FAST_NCO_COUNT_MAX_C))));
 
 
