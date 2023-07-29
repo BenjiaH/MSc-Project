@@ -37,6 +37,7 @@ device_type = 'WVD';
 % =========================================
 
 save('device_type.mat',"device_type");
+
 format ('compact');
 format ('long', 'g');
 

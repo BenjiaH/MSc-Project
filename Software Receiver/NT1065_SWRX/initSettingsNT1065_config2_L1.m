@@ -28,7 +28,7 @@ settings.numberOfChannels   = 1;
 % processing at any point in the data record (e.g. for long records). fseek
 % function is used to move the file read point, therefore advance is byte
 % based only. 
-settings.skipNumberOfBytes     = 46000;
+settings.skipNumberOfBytes     = 46500;
 % settings.skipNumberOfBytes     = 100e6;
 
 %% Raw signal file name and other parameter ===============================
