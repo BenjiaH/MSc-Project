@@ -374,6 +374,8 @@ if rising_edge(sample_clk_b_in) then
                 
                 carr_NCO_reg_use_u <= carr_NCO_reg_u((CARR_NCO_LENGTH_C - 1) downto (CARR_NCO_LENGTH_C - 3));
                 
+                
+                -- LUT
                 -- carr_replica_sine_u/ cocarr_replica_sine_u mapping (2bit)
                 case carr_NCO_reg_u((CARR_NCO_LENGTH_C - 1) downto (CARR_NCO_LENGTH_C - 3)) is           
                     when "000" 	=> 	    carr_replica_sine_i <= -1;

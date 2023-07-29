@@ -189,8 +189,8 @@ constant CODE_DELAY_MID_POINT_I_C   : integer := integer(ceil(real(CODE_DELAY_SI
 constant CODE_DELAY_LEN_I_C         : integer := integer(ceil(log2(real(CODE_DELAY_MID_POINT_I_C))));
 
 -- max_count value for fast NCO (ratio of fastest code rate to slowest) 
---constant FAST_NCO_COUNT_MAX_C          : integer := 10;
 constant FAST_NCO_COUNT_MAX_C          : integer := 10;
+--constant FAST_NCO_COUNT_MAX_C          : integer := 1;
 
 constant MAX_NCO_COUNT_LENGTH_C        : integer := integer(ceil(log2(real(FAST_NCO_COUNT_MAX_C))));
 
