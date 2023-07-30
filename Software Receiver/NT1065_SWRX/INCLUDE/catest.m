@@ -1,7 +1,7 @@
 clc;
 clear;
 
-vhdlHexPRN = 'FF7BAD12';
+vhdlHexPRN = 'FBAC78DB';
 vhdlPRN = dec2bin(hex2dec(vhdlHexPRN), 32);
 vhdlPRN = strrep(vhdlPRN,' ','');
 vhdlPRN = strrep(vhdlPRN,'1','2');

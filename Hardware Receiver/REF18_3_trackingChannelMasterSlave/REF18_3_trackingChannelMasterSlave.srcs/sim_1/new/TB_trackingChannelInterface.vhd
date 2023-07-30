@@ -77,6 +77,9 @@ signal      s_axi_rdata         : std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0
 signal      s_axi_rresp         : std_logic_vector(1 downto 0);
 signal      s_axi_rvalid        : std_logic;
 signal      s_axi_rready        : std_logic;
+
+signal      areset_n_b_in       : std_logic;
+signal measurement_count_u      : unsigned((MEAS_COUNT_SIZE_I_C -1) downto 0);
            
 --           99.38382MHz
 constant AXI_ACLK_period : time := 10062 ps; 
@@ -141,7 +144,10 @@ s_axi_aclk <= sample_clk_b_in;
 
 tb : PROCESS
 BEGIN
-    -- asignments		
+    -- asignments	
+    areset_n_b_in <= '0';	
+    wait for 2 * AXI_ACLK_period;
+    areset_n_b_in <= '1';
     s_axi_aresetn <= '0';
     data_FE_sync_u_in <= (others => (others => '0'));
     measurement_enable_b_in <= '0';
@@ -366,4 +372,43 @@ BEGIN
     wait; -- will wait forever
 end process;    
     
+   
+read_data_input :  process (sample_clk_b_in, areset_n_b_in) is
+    use STD.TEXTIO.all;
+--  file F: TEXT is in "quantised_noise_fs_99p375_MHz_0p1_s.txt";  -- VHDL'87
+--    file F: TEXT open READ_MODE is "quantised_noise_fs_99p375_MHz_0p1_s.txt";
+    file F: TEXT open READ_MODE is "FE_fs_99p375_MHz_skip_46500_int8.txt";
+    variable L: LINE;
+    variable value: integer;
+begin
+    if (areset_n_b_in = '0') then
+        data_FE_sync_u_in <= (others => (others => '0'));
+        measurement_enable_b_in <= '0';
+        measurement_count_u <= (others => '0');
+    elsif rising_edge(sample_clk_b_in) then
+        READLINE (F, L);
+        READ (L, value);
+        for i in 0 to (NUM_FE_INPUTS_C-1) loop
+            if value = 3 then
+                data_FE_sync_u_in(i) <=  "01";
+            elsif value = 1 then
+                data_FE_sync_u_in(i) <=  "00";
+            elsif value = -1 then
+                data_FE_sync_u_in(i) <=  "10"; 
+            else
+                data_FE_sync_u_in(i) <=  "11";
+            end if;
+        end loop;
+        -- create a faster measurement TIC than 0.1 s
+        if (measurement_count_u = (SAMPLES_PER_EPOCH_1MS_C)) then
+            measurement_count_u <= (others => '0');
+            measurement_enable_b_in <= '1';
+        else
+            measurement_count_u <= measurement_count_u + 1;
+            measurement_enable_b_in <= '0';
+        end if;
+    end if;
+end process read_data_input;
+    
+   
 end Behavioral;
