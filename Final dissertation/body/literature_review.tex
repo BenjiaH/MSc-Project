@@ -1,11 +1,11 @@
 \chapter{Literature Review}
 
-The literature review chapter serves as a critical foundation for this project, offering an in-depth exploration of the existing research, developments, and advancements in the field of GNSS receivers, with a particular focus on the tracking module. This chapter aims to identify the key theories, methodologies, and technologies that have shaped the evolution of GNSS tracking and provide valuable insights for the design and development of the FPGA-based GNSS tracking module.
+The literature review chapter serves as a critical foundation for this project, offering an in-depth exploration of existing research, developments, and advances in the field of GNSS receivers, with a particular focus on the tracking module. This chapter aims to identify the key theories, methodologies, and technologies that have shaped the evolution of GNSS tracking and provide valuable information for the design and development of the FPGA-based GNSS tracking module.
 
 \section{Interface Control Document\texorpdfstring{\cite{RN170, RN171, RN172, RN174, RN173, RN175}}{}}
-In complex engineering projects and systems development, clear and effective communication between various subsystems and components is essential for successful integration and operation. The \textit{Interface Control Document} (ICD) of GNSS provides the basic information of the system, such as intermediate frequency, modulation scheme, code frequency , etc. 
+In complex engineering projects and system development, clear and effective communication between various subsystems and components is essential for successful integration and operation. The \textit{Interface Control Document} (ICD) of GNSS provides the basic information of the system, such as intermediate frequency, modulation scheme, code frequency, etc. 
 
-After reviewing the interface control documents of some systems, I have summarised the parameters of each system in Tbl. \ref{tab:spec_gnss}. 
+After reviewing the interface control documents of some systems, we have summarised the parameters of each system in Tbl. \ref{tab:spec_gnss}. 
 
 \begin{landscape}
 % \vspace*{\fill}
@@ -15,7 +15,7 @@ After reviewing the interface control documents of some systems, I have summaris
     \caption{Specifications of Systems}\label{tab:spec_gnss}
     \begin{tabular}{ccccc}
     \toprule
-    Specifications & GPS & Glonass & Galileo & BeiDou\\
+    Specifications & GPS & GLONASS & Galileo & BeiDou\\
     \midrule
     \thead{Frequenc\\band} & \thead{L1: 1575.42 MHz\\L2: 1227.6 MHz\\L5: 1176.45 MHz} & \thead{L1: 1602MHz\\L2: 1246MHz\\(14 channels)} & \thead{E1: 1575.420MHz\\E6: 1278.750MHz\\E5a: 1176.450MHz\\E5b: 1207.140MHz} & \thead{B1c : 1575.42MHz\\B2a: 1176.45MHz\\B2b: 1207.14MHz\\B1I: 1561.098MHz\\B3I: 1268.52MHz}\\
     \thead{Band\\width} & \thead{Block IIR, IIRM, and IIF:\\20.46 MHz\\GPS III, GPS IIIF, and subsequent:\\30.69 MHz} & \thead{L1: 7.875MHz(562.5 kHz each)\\L2: 6.125MHz(437.5 kHz each)} & \thead{E1: 24.552MHz\\E6: 40.920MHz\\E5a: 20.460MHz\\E5b: 20.460MHz} & \thead{B1c: 32.736MHz\\B2a: 20.46MHz\\B2b: 20.46MHz\\B1I: 4.092MHz\\B3I: 20.46MHz}\\
@@ -29,32 +29,32 @@ After reviewing the interface control documents of some systems, I have summaris
 \end{center}
 % \vspace*{\fill}
 \end{landscape}
-Given that the GPS system was the first to be deployed, it possesses a relatively straightforward structure. As a result, the GPS L1 signal has been selected as the primary target signal for this project. Furthermore, it is important to highlight that the L5 signal exhibits ten times the bandwidth of L1. Thus, in the event that the utilization of the L5 signal becomes necessary, the adjustments required for its implementation would be minimal.
+Given that the GPS system was the first to be deployed, it possesses a relatively straightforward structure. As a result, the GPS L1 signal has been selected as the primary target signal for this project. Furthermore, it is important to note that the L5 signal has ten times the bandwidth of L1. Thus, in the event that the utilisation of the L5 signal becomes necessary, the adjustments required for its implementation would be minimal.
 
 \section{Book from P. D. Groves\texorpdfstring{\cite{RN178}}{}}
-This book presents a comprehensive textbook that covers navigation systems, encompassing GNSS, \textit{Inertial Navigation Systems} (INS), and other sensors to deliver precise \textit{positioning, navigation, and timing} (PNT) information. The esteemed authors behind this work are Paul D. Groves and Kayton M. Ned, both recognized experts in the field of navigation systems.
+This book offers a thorough textbook on navigation systems, which make use of GNSS, \textit{Intelligent Navigation Systems} (INS), and other sensors to deliver precise \textit{positioning, navigation, and timing} (PNT) data. Paul D. Groves and Kayton M. Ned, two renowned authorities in the subject of navigation systems, are the esteemed authors behind this work.
 
-Paul D. Groves holds the position of a professor of satellite navigation at the University College London, where his research focuses on advanced navigation algorithms and technologies. On the other hand, Kayton M. Ned, a former professor of aeronautics and astronautics at Stanford University, specialized in navigation and control systems for aerospace applications. With their extensive experience and expertise, they are well-suited to provide a comprehensive and authoritative textbook on navigation systems.
+Professor of satellite navigation at University College London, Paul D. Groves' research focuses on navigation algorithms and technology. Kayton M. Ned, on the other hand, was an expert in navigation and control systems for aerospace applications and was a former Stanford University professor of aeronautics and astronautics. With their wealth of knowledge and experience, they are qualified to write a thorough and reliable textbook on navigation systems.
 
-Section 8.1 describes the fundamentals of GNSS systems which will help us to have a basic understanding. It tells us how to get the distance between the satellite and the receiver.
+The basics of GNSS systems are described in Section 8.1, which will provide us a foundational understanding. It explains how to find the receiver's distance from the satellite.
 
-User equipment in chapter 9 refers to the receiver. It describes the design of GNSS receivers. An GNSS receiver contains an antenna, a receiver hardware, a ranging processor, and a navigation processor. My work focuses on the tracking part of the ranging processor. This chapter points out that a common typical receiver design contains six correlators and that more than six correlators are often used in order to speed up signal capture. A complete capture flowchart is also provided to clearly describe the capture process.
+The user equipment in Chapter 9 refers to the receiver. It describes how GNSS receivers are made. An antenna, reception hardware, range processor, and navigation processor are all components of a GNSS receiver. The tracking component of the ranging processor is the main focus of my work. This chapter makes note of the six correlators that make up a basic receiver design and the frequent use of additional correlators to quicken signal collection. There is also a comprehensive flowchart of the capture procedure available.
 
-Overall, as this book is a textbook, it provides a very authoritative and accurate introduction to GNSS-related technologies. It is reliable and thought-provoking.
+In general, as this book is a textbook, it provides a very authoritative and accurate introduction to GNSS-related technologies. It is reliable and thought-provoking.
 
 \section{Book from E. D. Kaplan and C. Hegarty\texorpdfstring{\cite{RN177}}{}}
 Elliott D. Kaplan has made significant contributions to the development and understanding of GNSS technology. Christopher J. Hegarty is also a prominent figure in the GNSS community. He has extensive experience with GPS and other satellite navigation systems. They have been associated with the MITRE Corporation and contributed to the advancement of GNSS technology and its applications.
 
-The book delves into the fundamental principles underlying GNSS technology, including GPS, Glonass, Galileo, BeiDou, and others. It explores the concepts of satellite orbits, signal structure, receiver design, and various positioning techniques used in GNSS applications.
+The book delves into the fundamental principles underlying GNSS technology, including GPS, GLONASS, Galileo, BeiDou, and others. It explores the concepts of satellite orbits, signal structure, receiver design, and various positioning techniques used in GNSS applications.
 
-Chapters 3 to 7 provide a systematic introduction to the various navigation systems, including: GPS, Glonass, Galileo, BeiDou, etc. It is a great help for the background part of the project. In Chapter 8, it details the design of the receiver and introduces the antenna, RF front-end, acquisition and tracking respectively, as well as the design of the loop filter. This part was extremely helpful to my understanding. It describes the GNSS working principle and process through numerous mathematical equations.
+Chapters 3 to 7 provide a systematic introduction to the various navigation systems, including GPS, GLONASS, Galileo, BeiDou, etc. It is of great help for the background part of the project. Chapter 8 details the design of the receiver and introduces the antenna, RF front-end, acquisition and tracking respectively, as well as the design of the loop filter. This part was extremely helpful to my understanding. It describes the working principle and the GNSS process through numerous mathematical equations.
 
 \section{Paper from J. C. Juang, Y. H. Chen et al.\texorpdfstring{\cite{RN147}}{}}
 The paper titled "\textit{Design and implementation of an adaptive code discriminator in a DSP/FPGA-based Galileo receiver}" is authored by Jyh Ching Juang, Yu Hsuan Chen, Tsai Ling Kao, and Yung Fu Tsai from National Cheng Kung University.
 
-In their work on GNSS receiver design, the tracking performance heavily relies on the coded tracking loop and the associated discriminator. To enhance the tracking performance, the authors proposed a scheme that was implemented on a digital signal processor/field-programmable gate array board. Experiments were conducted using the GIOVE-A signal for testing, and the results demonstrated the advantages of their proposed code tracking architecture and discriminator design.
+The coded tracking loop and its related discriminator play a significant role in the tracking performance of their work on the GNSS receiver design. The authors suggested a plan that was put into practice on a DSP/FPGA board to improve tracking performance. The GIOVE-A signal was used for testing in experiments, and the outcomes showed the benefits of their suggested code tracking architecture and discriminator design.
 
-The paper presents a well-defined design methodology for an adaptive coding discriminator, which was subsequently implemented and thoroughly tested. This design approach is framed as an optimization problem, leading to the development of two discriminators. Notably, the adaptive \textit{noncoherent multi-correlator} (NMC) discriminator showcased improvements in transient response and tracking error.
+The paper presents a well-defined design methodology for an adaptive coding discriminator, which was subsequently implemented and thoroughly tested. This design approach is framed as an optimisation problem leading to the development of two discriminators. Notably, the adaptive \textit{noncoherent multi-correlator} (NMC) discriminator showcased improvements in transient response and tracking error.
 
 Throughout the article, detailed mathematical principles of capture, tracking, and other processes are elaborated, along with a description of the correlator's design ideas. Numerous test results for correlators based on the new approach are provided, making this paper a valuable reference for my MSc project.
 
@@ -63,24 +63,32 @@ To develop advanced GNSS signal processing algorithms, such as multi-constellati
 
 Utilizing the SDR platform, they have successfully implemented a GNSS receiver, offering significant advantages, including low cost, high software customization, and the potential for straightforward upgrades in computational power. The article also discusses a generic FPGA-based GNSS receiver, allowing a comparison of the different approaches' advantages and disadvantages.
 
-The outcome of their work is the prototype of the Witch Navigator receiver. They have conducted successful tests on Galileo E5, E1b, and E1c signals with the correlator and RF front-end. Moreover, they have fully addressed the communication between the FPGA and the PC, developing and testing all the corresponding controllers and drivers.
+The outcome of their work is the prototype of the Witch Navigator receiver. They have conducted successful tests on Galileo E5, E1b, and E1c signals with the correlator and the RF front-end. Moreover, they have fully addressed the communication between the FPGA and the PC, developing and testing all the corresponding controllers and drivers.
 
-The article provides a comprehensive analysis of the design principles for receivers based on FPGAs, and the SDR platform enables validation of the FPGA platform through MATLAB simulations. This combination of approaches facilitates the development of advanced and adaptable GNSS signal processing algorithms for future navigation systems.
+The article provides a comprehensive analysis of the design principles for receivers based on FPGAs, and the SDR platform enables the validation of the FPGA platform through MATLAB simulations. This combination of approaches facilitates the development of advanced and adaptable GNSS signal processing algorithms for future navigation systems.
 
-\section{Presentation Sildes from J. Parker\texorpdfstring{\cite{RN146}}{}}
-This presentation was delivered at the "\textit{International Colloquium on Scientific and Fundamental Aspects of GNSS}" on 4$^{th}$ Sep. 2019. The author, Joel Parker, is a flight dynamics engineer at NASA Goddard Space Flight Center, with expertise in spacecraft mission design, astrodynamics, space navigation, software development, and space policy. He actively contributes to the flight dynamics team for the "\textit{Transiting Exoplanet Survey Satellite}" (TESS) mission, which aims to search for planets in the habitable zones of other stars and commenced in 2017.
+\section{Presentation Slides from J. Parker\texorpdfstring{\cite{RN146}}{}}
+On 4$^{th}$ September 2019, this lecture was given at the "\textit{International Colloquium on Scientific and Fundamental Aspects of GNSS}". Spacecraft mission design, astrodynamics, space navigation, software development, and space politics are among the areas of competence of the author, Joel Parker, a flight dynamics engineer at NASA Goddard Space Flight Center. The "\textit{Transiting Exoplanet Survey Satellite}" (TESS) project, which started in 2017, seeks to find planets in the habitable zones of other stars. He actively participates in the flight dynamics team for this mission.
 
 The presentation provides a comprehensive overview of the history and scope of GNSS/GPS, as well as its potential future applications in lunar exploration and beyond.
 
-Numerous flight examples are presented to illustrate the indispensable role of GPS in the space sector. This underscores the critical importance of GNSS technology in space missions. The author then delves into new areas of GPS application, specifically focusing on lunar exploration. The concept of a GNSS receiver designed for the Artemis Project is introduced.
+Numerous flight examples are presented to illustrate the indispensable role of GPS in the space sector. This underscores the critical importance of GNSS technology in space missions. The author then delves into new areas of GPS application, specifically focussing on lunar exploration. The concept of a GNSS receiver designed for the Artemis Project is introduced.
 
 The report concludes with a summary of key development directions:
 \begin{itemize}
-    \item Research into GNSS capabilities and enhancements for lunar applications.
-    \item Collaboration with the user and supplier community, both internally and through the ICG (\textit{International Committee on GNSS}), to ensure signal performance and availability of relevant data.
-    \item Utilizing proven receiver and antenna technologies to address technical challenges.
-    \item Conducting flight demonstrations in the global expansion of lunar exploration activities.
-    \item Working with operational programs to maximize the benefits of science and exploration.
+    \item Studying GNSS improvements and capabilities for use on the moon
+    \item Internal and external cooperation with the user and supplier communities via the ICG (\textit{International Committee on GNSS}), to guarantee signal quality and data availability
+    \item Making use of tried-and-true antenna and receiver technology to solve technical problems
+    \item Making flight demonstrations as moon exploration efforts are stepped up internationally
+    \item Using operational programs to optimize the advantages of exploration and science
 \end{itemize}
 
-The presentation showcases a high level of professionalism and will undoubtedly prove valuable for your MSc project, particularly in providing a thorough introduction to the background of GNSS/GPS and its ongoing development.
+% \begin{itemize}
+%     \item Research into GNSS capabilities and enhancements for lunar applications.
+%     \item Collaboration with the user and supplier community, both internally and through the ICG (\textit{International Committee on GNSS}), to ensure signal performance and availability of relevant data.
+%     \item Utilising proven receiver and antenna technologies to address technical challenges.
+%     \item Conducting flight demonstrations in the global expansion of lunar exploration activities.
+%     \item Working with operational programs to maximize the benefits of science and exploration.
+% \end{itemize}
+
+The presentation showcases a high level of professionalism and will undoubtedly prove valuable for your MSc. project, particularly in providing a thorough introduction to the background of GNSS/GPS and its ongoing development.
