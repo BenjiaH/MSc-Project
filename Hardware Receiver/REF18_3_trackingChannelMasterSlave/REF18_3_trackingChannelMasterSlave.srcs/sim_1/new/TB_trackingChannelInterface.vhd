@@ -42,7 +42,7 @@ architecture Behavioral of TB_trackingChannelInterface is
 constant    C_S_AXI_DATA_WIDTH	            : integer	:= REG_WIDTH_C;
 constant    AXI_addr_width_all_chan_i_g     : integer   := AXI_ADDR_WIDTH_ALL_CHAN_I_C;
 signal      sample_clk_b_in                 : std_logic;
-signal      data_FE_sync_u_in               : data_FE_type;
+signal      data_FE_sync_u               : data_FE_type;
 signal      measurement_enable_b_in         : std_logic;
 signal      PP20ms_b_in                     : std_logic;
 signal      interrupt_a_u_out               : trk_interrupt_type;
@@ -79,7 +79,10 @@ signal      s_axi_rvalid        : std_logic;
 signal      s_axi_rready        : std_logic;
 
 signal      areset_n_b_in       : std_logic;
-signal measurement_count_u      : unsigned((MEAS_COUNT_SIZE_I_C -1) downto 0);
+signal      measurement_count_u : unsigned((MEAS_COUNT_SIZE_I_C -1) downto 0);
+           
+signal FERawValue :  unsigned(NUM_FE_BITS_C - 1 downto 0);
+signal FEValue :  std_logic_vector(NUM_FE_BITS_C - 1 downto 0);
            
 --           99.38382MHz
 constant AXI_ACLK_period : time := 10062 ps; 
@@ -87,11 +90,11 @@ begin
 
 uut: entity work.trackingChannelInterface 
 
-    generic map(    C_S_AXI_DATA_WIDTH	            => REG_WIDTH_C,
-                AXI_addr_width_all_chan_i_g     => AXI_ADDR_WIDTH_ALL_CHAN_I_C)
+--    generic map(    C_S_AXI_DATA_WIDTH	            => REG_WIDTH_C,
+--                AXI_addr_width_all_chan_i_g     => AXI_ADDR_WIDTH_ALL_CHAN_I_C)
     Port map (      
                 sample_clk_b_in                 => sample_clk_b_in,
-                data_FE_sync_u_in               => data_FE_sync_u_in,
+                data_FE_sync_u_in               => data_FE_sync_u,
                 measurement_enable_b_in         => measurement_enable_b_in,
                 PP20ms_b_in                     => PP20ms_b_in,
                 interrupt_a_u_out               => interrupt_a_u_out,
@@ -145,11 +148,15 @@ s_axi_aclk <= sample_clk_b_in;
 tb : PROCESS
 BEGIN
     -- asignments	
-    areset_n_b_in <= '0';	
+    areset_n_b_in <= '0';
+    wait for 3 * AXI_ACLK_period;
+    areset_n_b_in <= '1';
     wait for 2 * AXI_ACLK_period;
+    areset_n_b_in <= '0';
+    wait for 20 * AXI_ACLK_period;
     areset_n_b_in <= '1';
     s_axi_aresetn <= '0';
-    data_FE_sync_u_in <= (others => (others => '0'));
+--    data_FE_sync_u <= (others => (others => '0'));
     measurement_enable_b_in <= '0';
     PP20ms_b_in <= '0';
     
@@ -372,43 +379,83 @@ BEGIN
     wait; -- will wait forever
 end process;    
     
-   
-read_data_input :  process (sample_clk_b_in, areset_n_b_in) is
-    use STD.TEXTIO.all;
---  file F: TEXT is in "quantised_noise_fs_99p375_MHz_0p1_s.txt";  -- VHDL'87
---    file F: TEXT open READ_MODE is "quantised_noise_fs_99p375_MHz_0p1_s.txt";
+  
+read_data_input: process is
+use STD.TEXTIO.all;
     file F: TEXT open READ_MODE is "FE_fs_99p375_MHz_skip_46500_int8.txt";
     variable L: LINE;
     variable value: integer;
-begin
+    begin
+    
     if (areset_n_b_in = '0') then
-        data_FE_sync_u_in <= (others => (others => '0'));
-        measurement_enable_b_in <= '0';
-        measurement_count_u <= (others => '0');
-    elsif rising_edge(sample_clk_b_in) then
-        READLINE (F, L);
-        READ (L, value);
-        for i in 0 to (NUM_FE_INPUTS_C-1) loop
-            if value = 3 then
-                data_FE_sync_u_in(i) <=  "01";
-            elsif value = 1 then
-                data_FE_sync_u_in(i) <=  "00";
-            elsif value = -1 then
-                data_FE_sync_u_in(i) <=  "10"; 
-            else
-                data_FE_sync_u_in(i) <=  "11";
-            end if;
-        end loop;
-        -- create a faster measurement TIC than 0.1 s
-        if (measurement_count_u = (SAMPLES_PER_EPOCH_1MS_C)) then
-            measurement_count_u <= (others => '0');
-            measurement_enable_b_in <= '1';
-        else
-            measurement_count_u <= measurement_count_u + 1;
-            measurement_enable_b_in <= '0';
-        end if;
+        data_FE_sync_u <= (others => (others => '0'));
+        FEValue <= (others => '0');
+        FERawValue <= (others => '0');
     end if;
+    while not ENDFILE(F)  loop
+        wait until rising_edge(sample_clk_b_in);
+        wait for 10 ns;
+
+        READLINE(F, L);
+        READ(L, value);
+        FERawValue <= to_unsigned(value, NUM_FE_BITS_C);
+--        for i in 0 to (NUM_FE_INPUTS_C-1) loop
+            if value = 3 then
+                FEValue <=  "01";
+                data_FE_sync_u(0) <=  "01";
+            elsif value = 1 then
+                FEValue <=  "00";
+                data_FE_sync_u(0) <=  "00";
+            elsif value = -1 then
+                FEValue <=  "10";
+                data_FE_sync_u(0) <=  "10";
+            else
+                FEValue <=  "11";
+                data_FE_sync_u(0) <=  "11";
+            end if;
+--        end loop;
+    end loop;
 end process read_data_input;
+
+
+
+--read_data_input :  process (sample_clk_b_in, areset_n_b_in) is
+--    use STD.TEXTIO.all;
+----  file F: TEXT is in "quantised_noise_fs_99p375_MHz_0p1_s.txt";  -- VHDL'87
+----    file F: TEXT open READ_MODE is "quantised_noise_fs_99p375_MHz_0p1_s.txt";
+--    file F: TEXT open READ_MODE is "FE_fs_99p375_MHz_skip_46500_int8.txt";
+--    variable L: LINE;
+--    variable value: integer;
+--begin
+--    if (areset_n_b_in = '0') then
+--        data_FE_sync_u_in <= (others => (others => '0'));
+--        measurement_enable_b_in <= '0';
+--        measurement_count_u <= (others => '0');
+--    elsif rising_edge(sample_clk_b_in) then
+--        READLINE (F, L);
+--        READ (L, value);
+--        FERawValue <= to_unsigned(value, NUM_FE_BITS_C);
+--        for i in 0 to (NUM_FE_INPUTS_C-1) loop
+--            if value = 3 then
+--                data_FE_sync_u_in(i) <=  "01";
+--            elsif value = 1 then
+--                data_FE_sync_u_in(i) <=  "00";
+--            elsif value = -1 then
+--                data_FE_sync_u_in(i) <=  "10"; 
+--            else
+--                data_FE_sync_u_in(i) <=  "11";
+--            end if;
+--        end loop;
+--        -- create a faster measurement TIC than 0.1 s
+--        if (measurement_count_u = (SAMPLES_PER_EPOCH_1MS_C)) then
+--            measurement_count_u <= (others => '0');
+--            measurement_enable_b_in <= '1';
+--        else
+--            measurement_count_u <= measurement_count_u + 1;
+--            measurement_enable_b_in <= '0';
+--        end if;
+--    end if;
+--end process read_data_input;
     
    
 end Behavioral;

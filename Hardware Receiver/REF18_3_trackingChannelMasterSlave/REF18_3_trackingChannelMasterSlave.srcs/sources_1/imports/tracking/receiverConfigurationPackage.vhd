@@ -53,7 +53,7 @@ package receiverConfigurationPackage is
 -- General
 -----------------------------------------------------------------------
 -- number of front end inputs   
-constant NUM_FE_INPUTS_C : integer := 4;
+constant NUM_FE_INPUTS_C : integer := 1;
 -- width in bits of front end inputs
 constant NUM_FE_BITS_C : integer := 2;
 -- number of levels and therefore counters required by front end monitor
@@ -118,7 +118,8 @@ constant CARR_NCO_INCR_CA_E1B_U_C : unsigned((CARR_NCO_LENGTH_C -1) downto 0) :=
 --constant CARR_NCO_INCR_E5_L5_U_C : unsigned((CARR_NCO_LENGTH_C -1) downto 0) := x"22E7FA55";
 
 -- code NCO increment to produce 10.23 MHz, increment = freq*(2^NCO_length)/sampling_freq 
-constant CODE_NCO_INCR_E5_L5_U_C : unsigned((CODE_NCO_LENGTH_C -1) downto 0) := x"1A5A7F98";
+--constant CODE_NCO_INCR_E5_L5_U_C : unsigned((CODE_NCO_LENGTH_C -1) downto 0) := x"1A5A7F98";
+constant CODE_NCO_INCR_E5_L5_U_C : unsigned((CODE_NCO_LENGTH_C -1) downto 0) := x"1A5DCBBB"; -- 10.23Mhz + 5000Hz
 --constant CODE_NCO_INCR_E5_L5_U_C : unsigned((CODE_NCO_LENGTH_C -1) downto 0) := x"02A2A65C"; -- 1.023MHz  44,213,852
 
 constant FE_SELECT_SIZE : integer := integer(ceil(log2(real(NUM_FE_INPUTS_C))));
