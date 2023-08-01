@@ -22,7 +22,7 @@
 
     \begin{logo}
         \raggedleft
-        \includegraphics[width=0.5\columnwidth]{_IMAGES/logo/UoN black single colour logo CMYK.jpg}
+        \includegraphics[width=0.4\columnwidth]{_IMAGES/logo/UoN black single colour logo CMYK.jpg}
     \end{logo}
 
     \vskip 0.3in \par
@@ -35,10 +35,19 @@
     \vskip 1.5in \par
 
     % \vskip 0.3in \par
-    \large {\bf Author: \@author(\@studentid)} \par
-    \large {\bf Supervisor: \@supervisor} \par
-    \large {\bf Moderator: \@moderator} \par
-    \large {\bf Date: \@submitdate} \par
+    \large{\bf{
+        \begin{center}
+        \begin{tabular}{l@{\hspace{2cm}}l}
+        Author & \@author(\@studentid)  \\
+        Supervisor & \@supervisor \\
+        Moderator & \@moderator \\
+        Date & \@submitdate
+        \end{tabular}
+    \end{center}}}
+    % \large {\bf Author: \@author(\@studentid)} \par
+    % \large {\bf Supervisor: \@supervisor} \par
+    % \large {\bf Moderator: \@moderator} \par
+    % \large {\bf Date: \@submitdate} \par
     \vskip 0.3in \par
 
     % \vskip 0.5in \par
@@ -57,13 +66,15 @@
     \vskip 0.4in \par
     \vfill
     % \normalsize {I hereby declare that I have all necessary rights and consents to publicly distribute this dissertation via the University of Nottingham's e-dissertation archive.}
-    \normalsize{Project thesis submitted in part fulfilment of the requirements for the degree of Master of Science \bf{\@degree}}\normalsize{, The University of Nottingham.}
+    \begin{flushleft}
+        \normalsize{Project thesis submitted in part fulfilment of the requirements for the degree of Master of Science \bf{\@degree}}\normalsize{, The University of Nottingham.}
+    \end{flushleft}
 
     %%%%%%%%%%
     %Only include this sentence below if there is some reason why your dissertation should not be accessible for some period of time, for example if it contains information which is commercially sensitive or might compromise an Intellectual Property claim. If included, fill in the date from which access should be allowed.
     %%%%%%%%%%
 
-    \vskip 0.4in \par
+    % \vskip 0.4in \par
     % \normalsize {Public access to this dissertation is restricted until: DD/MM/YYYY}
     \normalsize {}
     
