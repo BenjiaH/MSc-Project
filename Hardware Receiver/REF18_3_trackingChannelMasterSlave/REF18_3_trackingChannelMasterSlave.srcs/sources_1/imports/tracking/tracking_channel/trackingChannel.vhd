@@ -278,7 +278,7 @@ file LogFile : text open write_mode is LOG_FILE_NAME;
 variable l : line;
 -- pragma translate_on
 begin
-		
+
 if rising_edge(sample_clk_b_in) then   
         -- software reset of the correlator
         if SW_reset_in = '1' then
@@ -365,6 +365,7 @@ if rising_edge(sample_clk_b_in) then
                 
                 if (enable_BOC_bool_g = true) then 
                     -- generate sine phased subcarrier for E1 signal
+                    -- False by default
                     if (signal_type_u_in = std_logic_vector(to_unsigned(E1B_SIGNAL, SIGNAL_TYPE_SIZE_I_C))) then
                         subcarrier_replica_b <= code_NCO_reg_u(code_NCO_reg_u'left);
                     else
@@ -372,8 +373,8 @@ if rising_edge(sample_clk_b_in) then
                     end if;
                 end if;
                 
+                -- For test only
                 carr_NCO_reg_use_u <= carr_NCO_reg_u((CARR_NCO_LENGTH_C - 1) downto (CARR_NCO_LENGTH_C - 3));
-                
                 
                 -- LUT
                 -- carr_replica_sine_u/ cocarr_replica_sine_u mapping (2bit)
@@ -411,6 +412,7 @@ if rising_edge(sample_clk_b_in) then
                 post_carr_mix_Q_i <= rx_signal_i * carr_replica_sine_i;
                 
                 -- code and subcarrier mixing and delay shift register
+                -- 97-1 downto 0 
                 code_subcarr_delay_reg_u <= code_subcarr_delay_reg_u((code_subcarr_delay_reg_u'left - 1) downto 0) & (code_replica_b xor subcarrier_replica_b);
                 
                 -- prompt mixing
@@ -463,12 +465,11 @@ if rising_edge(sample_clk_b_in) then
                 -- ALL_ONES_NCO_U_C - unsigned(code_NCO_increment_u_in) = FD5D 59A3 4,250,753,443
                 if code_NCO_reg_u > (ALL_ONES_NCO_U_C - unsigned(code_NCO_increment_u_in)) then                      
                     if (code_NCO_count_u = (unsigned(fast_nco_count_value_u_in) - 1)) then
---                    if (code_NCO_count_u = (unsigned(fast_nco_count_value_u_in) - 1)) then
-                        
                         code_NCO_count_u <= (others=>'0');
                         
                         -- check for a 1 ms boundary
                         if (code_chip_count_1ms_u = (unsigned(code_len_chip_1ms_u_in) - 1) ) then
+                        -- reset
                             if (code_epoch_1ms_count_u = (unsigned (epoch_length_ms_u_in) - 1)) then
                                 code_epoch_1ms_count_u <= (others => '0');
                             else
@@ -489,7 +490,7 @@ if rising_edge(sample_clk_b_in) then
                             -- 1ms 
                             code_chip_count_1ms_u <= code_chip_count_1ms_u + 1; 
                             accm_1ms_P_I_s <= accm_1ms_P_I_s + post_carr_code_mix_P_I_i;
-                            accm_1ms_P_Q_s <= accm_1ms_P_Q_s + post_carr_code_mix_P_Q_i;                          
+                            accm_1ms_P_Q_s <= accm_1ms_P_Q_s + post_carr_code_mix_P_Q_i;
                         end if;
                                
                         if (code_chip_count_u = (unsigned(code_len_chip_u_in) - 1)) then
@@ -498,14 +499,14 @@ if rising_edge(sample_clk_b_in) then
                             
                             if (code_epoch_count_u = (unsigned(correlation_length_epochs_u_in) - 1)) then
                                 -- update the bit counter
-                                if bit_count_u = (unsigned(bit_length_u_in) - 1) and ena_bit_count_b = '1' then                                
+                                if bit_count_u = (unsigned(bit_length_u_in) - 1) and ena_bit_count_b = '1' then
                                     bit_count_u <= (others => '0'); 
                                     
                                     sec_count_u <= sec_count_u + 1; -- count to overflow
-                                                               
-                                elsif ena_bit_count_b = '1' then                           
-                                    bit_count_u <= bit_count_u + 1;                                
-                                end if;                                                        
+
+                                elsif ena_bit_count_b = '1' then
+                                    bit_count_u <= bit_count_u + 1;
+                                end if;
                                 -- pragma translate_off
                                 write(l, to_integer(accumulation_P_I_s));
                                 write(l, string'(", "));

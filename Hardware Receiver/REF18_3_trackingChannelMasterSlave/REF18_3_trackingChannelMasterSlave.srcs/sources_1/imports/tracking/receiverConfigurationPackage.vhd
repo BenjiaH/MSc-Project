@@ -122,7 +122,8 @@ constant CARR_NCO_INCR_CA_E1B_U_C : unsigned((CARR_NCO_LENGTH_C -1) downto 0) :=
 constant CODE_NCO_INCR_E5_L5_U_C : unsigned((CODE_NCO_LENGTH_C -1) downto 0) := x"1A5DCBBB"; -- 10.23Mhz + 5000Hz
 --constant CODE_NCO_INCR_E5_L5_U_C : unsigned((CODE_NCO_LENGTH_C -1) downto 0) := x"02A2A65C"; -- 1.023MHz  44,213,852
 
-constant FE_SELECT_SIZE : integer := integer(ceil(log2(real(NUM_FE_INPUTS_C))));
+--constant FE_SELECT_SIZE : integer := integer(ceil(log2(real(NUM_FE_INPUTS_C))));
+constant FE_SELECT_SIZE : integer := 1;
 
 
 -- number of master channels 
@@ -183,7 +184,7 @@ constant SIGNAL_TYPE_SIZE_I_C : integer := integer(ceil(log2(real(E5a_Q_SIGNAL))
 -- max_chip count length for correlator
 constant MAX_CHIP_COUNT_LENGTH_C        : integer := integer(ceil(log2(real(CODE_LENGTH_E5a_I_C))));
 constant MAX_CORR_LEN_MS_I_C : integer := 20;
-constant MAX_CORR_LEN_SIZE_I_C : integer := integer(ceil(log2(real(MAX_CORR_LEN_MS_I_C))));
+constant MAX_CORR_LEN_SIZE_I_C : integer := integer(ceil(log2(real(MAX_CORR_LEN_MS_I_C)))); -- 5
 -- code delay size, VE to VL is 1 chip for BOC(1,1)
 constant CODE_DELAY_SIZE_I_C        : integer := integer(ceil(real(SAMPLE_FREQ_C/CODE_FREQ_CA_E1B_i_C))); -- 98
 constant CODE_DELAY_MID_POINT_I_C   : integer := integer(ceil(real(CODE_DELAY_SIZE_I_C/2))); -- 49
@@ -212,9 +213,9 @@ constant ACCUMULATOR_MAX_VALUE_I_C    : integer := MAX_CORR_LEN_MS_I_C * SAMPLES
 -- size is double the max value for signed
 constant ACCUMULATOR_SIZE_I_C         : integer := integer(ceil(log2(real(2*ACCUMULATOR_MAX_VALUE_I_C))));
 -- max value of the 1 ms length accumulators
-constant ACCM_1MS_MAX_VALUE_I_C    : integer := MAX_CORR_LEN_MS_I_C * SAMPLES_PER_EPOCH_1MS_C * MAX_INPUT_AMP_C * MAX_CARR_AMP_C;
+constant ACCM_1MS_MAX_VALUE_I_C    : integer := MAX_CORR_LEN_MS_I_C * SAMPLES_PER_EPOCH_1MS_C * MAX_INPUT_AMP_C * MAX_CARR_AMP_C; -- 11925000
 -- size is double the max value for signed
-constant ACC_1MS_SIZE_I_C         : integer := integer(ceil(log2(real(2*ACCM_1MS_MAX_VALUE_I_C))));
+constant ACC_1MS_SIZE_I_C         : integer := integer(ceil(log2(real(2*ACCM_1MS_MAX_VALUE_I_C)))); -- 24
 constant WORD_ADDR_BITS_I_C : integer := integer(ceil(log2(real(REG_WIDTH_C))));
 
 type accm_1ms_array_type is array ((MAX_CORR_LEN_MS_I_C - 1) downto 0) of std_logic_vector((REG_WIDTH_C - 1) downto 0);
@@ -236,7 +237,7 @@ type early_prompt_spacing_type              is array ((MAX_CHAN_I_C - 1) downto 
 type very_early_prompt_spacing_type         is array ((MAX_CHAN_I_C - 1) downto 0) of std_logic_vector((CODE_DELAY_LEN_I_C - 1) downto 0);
 type correlation_length_epochs_type         is array ((MAX_CHAN_I_C - 1) downto 0) of std_logic_vector((MAX_CORR_LEN_SIZE_I_C - 1) downto 0);
 type epoch_length_ms_type                   is array ((MAX_CHAN_I_C - 1) downto 0) of std_logic_vector((MAX_CORR_LEN_SIZE_I_C - 1) downto 0);
-type bit_length_type                  is array ((MAX_CHAN_I_C - 1) downto 0) of std_logic_vector((SEC_CODE_COUNT_SIZE_C - 1) downto 0);
+type bit_length_type                        is array ((MAX_CHAN_I_C - 1) downto 0) of std_logic_vector((SEC_CODE_COUNT_SIZE_C - 1) downto 0);
 type accumulation_type                      is array ((MAX_CHAN_I_C - 1) downto 0) of std_logic_vector((REG_WIDTH_C -1) downto 0);
 type accm_1ms_type                          is array ((MAX_CHAN_I_C - 1) downto 0) of accm_1ms_array_type;
 type RAM_do_type                            is array ((MAX_CHAN_I_C - 1) downto 0) of std_logic_vector((REG_WIDTH_C -1) downto 0);
@@ -481,6 +482,76 @@ x"2C416686",
 x"9618C869",
 x"69082998",
 x"F67AFD2D",
+x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
+x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
+x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
+x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
+x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
+x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
+x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
+x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
+x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
+x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
+x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
+x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
+x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
+x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
+x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
+x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
+x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
+x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
+x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
+x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
+x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
+x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
+x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
+x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
+x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
+x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
+x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
+x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
+x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
+x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
+x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
+x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
+x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
+x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
+x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
+x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000");
+
+constant CODE_PRN2_REVERSE_ROM_CA_C : track_code_ram_type :=(
+x"997C1C27",
+x"2FF4D3F6",
+x"C78D110D",
+x"C4710E60",
+x"4B0B41E5",
+x"3B1F070F",
+x"58F01D63",
+x"CB666274",
+x"315247A0",
+x"90790550",
+x"2AD5DFFE",
+x"C48554A8",
+x"0ECA4284",
+x"783B2A9C",
+x"3AD11037",
+x"BEDC992B",
+x"3439E906",
+x"BA40D62C",
+x"CDA5DA51",
+x"14B51107",
+x"D7C49B97",
+x"6575C6F7",
+x"83D74ACF",
+x"67C5EDF7",
+x"C2D6847B",
+x"0860CD33",
+x"5CCBE6BF",
+x"05F30BD1",
+x"D3BE9979",
+x"69E73796",
+x"96F7D667",
+x"098502D2",
 x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
 x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
 x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",

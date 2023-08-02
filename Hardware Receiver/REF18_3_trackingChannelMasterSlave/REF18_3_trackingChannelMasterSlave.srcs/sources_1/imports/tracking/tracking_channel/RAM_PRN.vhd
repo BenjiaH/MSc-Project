@@ -64,7 +64,8 @@ end RAM_PRN;
 architecture syn of RAM_PRN is
 
 --signal RAM : track_code_ram_type := CODE_PRN1_ROM_CA_C;
-signal RAM : track_code_ram_type := CODE_PRN2_ROM_CA_C;
+--signal RAM : track_code_ram_type := CODE_PRN2_ROM_CA_C;
+signal RAM : track_code_ram_type := CODE_PRN2_REVERSE_ROM_CA_C;
 
 begin
 
