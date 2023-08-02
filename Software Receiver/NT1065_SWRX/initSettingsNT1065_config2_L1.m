@@ -28,15 +28,16 @@ settings.numberOfChannels   = 1;
 % processing at any point in the data record (e.g. for long records). fseek
 % function is used to move the file read point, therefore advance is byte
 % based only. 
-settings.skipNumberOfBytes     = 46500;
+load('skipNumberOfBytes.mat','skipNumberOfBytes');
+settings.skipNumberOfBytes     = skipNumberOfBytes;
 % settings.skipNumberOfBytes     = 100e6;
 
 %% Raw signal file name and other parameter ===============================
 % This is a "default" name of the data file (signal record) to be used in
 % the post-processing mode
 
-load('device_type.mat','device_type');
-switch device_type
+load('deviceType.mat','deviceType');
+switch deviceType
     case 'PC'
         settings.fileName   = 'E:\Users\benji\OneDrive\Project\MSc-Project\Software Receiver\CH1SIM12p5MHzconfig2_int8.dat';
     case 'WVD'

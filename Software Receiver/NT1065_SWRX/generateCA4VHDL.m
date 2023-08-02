@@ -3,10 +3,18 @@ clear;
 
 addpath include
 
+% Init
+% mappingEnable = true;
+mappingEnable = false;
 PRNId = 2;
+
+
 fprintf('PRN No.%d for VHDL:\n', PRNId);
 rawCaCode = generateCAcode(PRNId);
 caCode = [rawCaCode, 0];
+caCodeBin = caCode;
+caCodeBin(caCodeBin == -1) = 0;
+caCode(caCode == -1) = 0;
 lenCACode = length(caCode);
 
 % Create CA code for VHDL
@@ -20,10 +28,11 @@ for i = 1: lenCAWord
     t = mat2str(t);
     t = t(2 : end -1);
     % Map to VHDL
-    t = strrep(t,'-1','0');
-    t = strrep(t,'1','#');
-    t = strrep(t,'0','1');
-    t = strrep(t,'#','0');
+    if mappingEnable
+        t = strrep(t,'1','#');
+        t = strrep(t,'0','1');
+        t = strrep(t,'#','0');
+    end
     t = strrep(t,' ','');
     % Make it big endian
     t = reverse(t);

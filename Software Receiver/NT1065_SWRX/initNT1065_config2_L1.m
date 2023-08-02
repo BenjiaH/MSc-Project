@@ -31,12 +31,14 @@
 clear; close all; clc;
 
 % =========================================
-device_type = 'WVD';
+deviceType = 'WVD';
+skipNumberOfBytes = 46500;
 % device_type = 'PC';
 % device_type = 'N/A';
 % =========================================
 
-save('device_type.mat',"device_type");
+save('deviceType.mat',"deviceType");
+save('skipNumberOfBytes.mat',"skipNumberOfBytes");
 
 format ('compact');
 format ('long', 'g');
