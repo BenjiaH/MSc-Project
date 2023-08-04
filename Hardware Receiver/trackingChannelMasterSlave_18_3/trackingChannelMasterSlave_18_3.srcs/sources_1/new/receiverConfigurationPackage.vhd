@@ -379,7 +379,8 @@ x"9a",x"31",x"a9",x"3d",x"84",x"25",x"99",x"96",x"64",x"27",x"c4",x"09",
 x"f4",x"4e",x"d2",x"6f",x"3b",x"80",x"df",x"86");
 
 -- big_endian
-type track_code_ram_type is array (0 to ADDR_WORDS_E5a_I_C) of std_logic_vector(0 to 31);
+-- type track_code_ram_type is array (0 to ADDR_WORDS_E5a_I_C) of std_logic_vector(0 to 31);
+type track_code_ram_type is array (0 to ADDR_WORDS_E5a_I_C) of std_logic_vector(31 downto 0);
 constant CODE_PRN1_ROM_CA_C : track_code_ram_type :=(
 x"586D63EC",
 x"5675A837",
