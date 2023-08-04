@@ -2,7 +2,7 @@ clc;
 clear;
 
 
-device_type = "WVD";
+device_type = "PC";
 switch device_type
     case 'PC'
         settings.fileName   = 'E:\Users\benji\OneDrive\Project\MSc-Project\Software Receiver\CH1SIM12p5MHzconfig2_int8.dat';
@@ -29,6 +29,7 @@ samplesPerCode = round(settings.samplingFreq / (settings.codeFreqBasis / setting
 % Read data for acquisition. 11ms of signal are needed for the fine
 % frequency estimation
 data = fread(fid, 101*samplesPerCode, settings.dataType)';
+% data = fread(fid, 1*samplesPerCode, settings.dataType)';
 % o = data(1:10)';
 % disp(o);
 savedFileName = sprintf("FE_fs_99p375_MHz_skip_%d_int8.txt", settings.skipNumberOfBytes);

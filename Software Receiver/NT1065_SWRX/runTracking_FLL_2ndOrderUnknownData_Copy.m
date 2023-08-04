@@ -14,7 +14,7 @@ if (fid > 0)
         showChannelStatus(channel, settings);
     else
         % No satellites to track, exit
-        disp('No GNSS signals detected, signal processing finished.');
+        disp('No GNSS signals detected, DEBUG_ENABLE = true;signal processing finished.');
         trackResults = [];
         return;
     end
@@ -24,7 +24,7 @@ if (fid > 0)
     disp (['   Tracking started at ', datestr(startTime)]);
     
     % Process all channels for given data block
-    [trackResults, channel] = tracking_PLL_2ndOrderUnknownDataO(fid, channel, settings);
+    [trackResults, channel] = tracking_FLL_2ndOrderUnknownData(fid, channel, settings);
 
     % Close the data file
     fclose(fid);
@@ -41,4 +41,5 @@ if (fid > 0)
     if settings.plotTracking
         plotTracking(1:settings.numberOfChannels, trackResults, settings);
     end
+    disp ('   Done!');
 end

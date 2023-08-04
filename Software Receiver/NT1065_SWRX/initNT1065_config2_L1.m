@@ -31,10 +31,12 @@
 clear; close all; clc;
 
 % =========================================
-deviceType = 'WVD';
 skipNumberOfBytes = 46500;
-% device_type = 'PC';
-% device_type = 'N/A';
+% deviceType = 'WVD';
+deviceType = 'PC';
+% deviceType = 'N/A';
+DEBUG_ENABLE = false;
+% DEBUG_ENABLE = true;
 % =========================================
 
 save('deviceType.mat',"deviceType");
@@ -54,6 +56,10 @@ fprintf('                   -------------------------------\n\n');
 
 %% Initialize constants, settings =========================================
 [settings, EKF_track] = initSettingsNT1065_config2_L1();
+
+if ~DEBUG_ENABLE
+    clearvars skipNumberOfBytes deviceType
+end
 
 %% Generate plot of raw data and ask if ready to start processing =========
 try
