@@ -110,7 +110,8 @@ constant MEAS_COUNT_SIZE_I_C : integer := integer(ceil(log2(real(SAMPLES_PER_TIC
 
 -- !!!!REF: https://www.youtube.com/watch?v=bWHe_PBEPdU
 -- carrier NCO increment to produce 14.58 MHz, increment = freq*(2^NCO_length)/sampling_freq
-constant CARR_NCO_INCR_CA_E1B_U_C : unsigned((CARR_NCO_LENGTH_C -1) downto 0) := x"258F3E7B"; -- (14.58MHz * (2 ^ 32)) / 99.375MHz = 630144635.730113
+-- constant CARR_NCO_INCR_CA_E1B_U_C : unsigned((CARR_NCO_LENGTH_C -1) downto 0) := x"258F3E7B"; -- (14.58MHz * (2 ^ 32)) / 99.375MHz = 630144635.730113
+constant CARR_NCO_INCR_CA_E1B_U_C : unsigned((CARR_NCO_LENGTH_C -1) downto 0) := x"258DCB10"; -- (14.58MHz-2200Hz * (2 ^ 32)) / 99.375MHz = 630144635.730113
 
 ---- code NCO increment to produce 1.023 MHz, increment = freq*(2^NCO_length)/sampling_freq 
 --constant CODE_NCO_INCR_CA_E1B_U_C : unsigned((CODE_NCO_LENGTH_C -1) downto 0) := x"02A2A65C";

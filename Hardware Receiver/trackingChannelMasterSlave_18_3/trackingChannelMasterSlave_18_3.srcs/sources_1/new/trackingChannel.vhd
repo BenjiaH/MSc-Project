@@ -511,7 +511,6 @@ if rising_edge(sample_clk_b_in) then
                                 write(l, to_integer(accumulation_P_I_s));
                                 write(l, string'(", "));
                                 write(l, to_integer(accumulation_P_Q_s));
-                
                                 writeline(LogFile, l);
                                 -- pragma translate_on
                                 
