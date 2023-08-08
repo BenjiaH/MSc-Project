@@ -59,7 +59,7 @@ if (fid > 0)
     trackResults.pllDiscr       = inf(1, settings.msToProcess);
     trackResults.pllDiscrFilt   = inf(1, settings.msToProcess);
     trackResults.carrierDoppler = inf(1, settings.msToProcess);
-    trackResults.codeDoppler   = inf(1, settings.msToProcess);
+    trackResults.codeDoppler    = inf(1, settings.msToProcess);
     trackResults.I_P_D          = zeros(1, settings.msToProcess);
     trackResults.Q_P_D          = zeros(1, settings.msToProcess);
     trackResults.CdLi           = zeros(1, settings.msToProcess);
@@ -203,7 +203,8 @@ if (fid > 0)
                 [rawSignal, samplesRead] = fread(fid, ...
                                                  blksize, settings.dataType);
                 rawSignal = rawSignal';  %transpose vector
-%                 if loopCnt < 10 && loopCnt > 0
+                DEBUG_COUNT = 10;
+%                 if loopCnt < DEBUG_COUNT && loopCnt > 0
 %                     disp(rawSignal(1 : 10));
 %                 end
                 
@@ -224,20 +225,41 @@ if (fid > 0)
                 tcode2      = ceil(tcode) + 1;
                 earlyCode   = caCode(tcode2);
                 
+
+                if loopCnt < DEBUG_COUNT && loopCnt > 0
+                    fprintf("Early@%d\n", loopCnt);
+%                     disp(tcode(1 : 10));
+                    disp(tcode2(1 : 10));
+                    disp(earlyCode(1 : 10));
+                end
+
                 % Define index into late code vector
                 tcode       = (remCodePhase+earlyLateSpc) : ...
                               codePhaseStep : ...
                               ((blksize-1)*codePhaseStep+remCodePhase+earlyLateSpc);
                 tcode2      = ceil(tcode) + 1;
                 lateCode    = caCode(tcode2);
-                
+                 if loopCnt < DEBUG_COUNT && loopCnt > 0
+                    fprintf("Late@%d\n", loopCnt);
+%                     disp(tcode(1 : 10));
+                    disp(tcode2(1 : 10));
+                    disp(lateCode(1 : 10));
+                end
+
+
                 % Define index into prompt code vector
                 tcode       = remCodePhase : ...
                               codePhaseStep : ...
                               ((blksize-1)*codePhaseStep+remCodePhase);
                 tcode2      = ceil(tcode) + 1;
                 promptCode  = caCode(tcode2);
-                
+                 if loopCnt < DEBUG_COUNT && loopCnt > 0
+                    fprintf("Prompt@%d\n", loopCnt);
+%                     disp(tcode(1 : 10));
+                    disp(tcode2(1 : 10));
+                    disp(promptCode(1 : 10));
+                end
+
                 remCodePhase = (tcode(blksize) + codePhaseStep) - 1023.0;
     
     %% Generate the carrier frequency to mix the signal to baseband -----------
