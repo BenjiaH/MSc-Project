@@ -1,22 +1,34 @@
 \chapter{Methodology}
 The methodology chapter is a pivotal component of this research, unveiling the systematic approach taken to address the specific goals and inquiries of the project. Within this chapter, an in-depth description of the research design, data collection methodologies, and analytical techniques deployed is meticulously presented. By offering a transparent and methodical account of the research process, this chapter safeguards the robustness and integrity of the study's outcomes.
 
-\section{GPS/GNSS}
+\section{GPS L1 Signal Plan}
 
 \section{Tracking}
-A complete GPS/GNSS work process that includes: acquisition, tracking and navigation. My project is mainly focused on the tracking stage.
+A complete GPS/GNSS work process includes acquisition, tracking and navigation. My project is mainly focused on the tracking stage.
 
-After the acquisition phase, where the receiver identifies and locks onto the satellite signals, the tracking phase begins. During this phase, the receiver closely monitors the received signals and tracks their variations in order to accurately determine the user's position, velocity, and timing information. This involves maintaining a stable lock on the satellite signals despite various challenges, such as signal degradation due to atmospheric conditions, obstructions, and interference.
+After the acquisition phase, where the receiver identifies and locks onto the satellite signals, the tracking phase begins. During this phase, the receiver closely monitors the received signals and tracks their variations to accurately determine the user's position, velocity, and timing information. This involves maintaining a stable lock on the satellite signals despite various challenges, such as signal degradation due to atmospheric conditions, obstructions, and interference.
+
+The following figure \ref{fig:tracking_digram} shows the basic architecture of the tracking module. The signal is received by the RF front-end and is filtered and fed to the ranging processor. At the same time, the NCO (\textit{Numerically Controlled Oscillator}) generates a GPS L1 IF carrier and a carrier for the C/A (\textit{Coarse Acquisition}) code. The GPS signal is first modulated to IF and then multiplied with the C/A code and finally integrated. Using the principle of the cross-correlation function, the C/A carrier frequency is continuously adjusted to synchronise with the C/A code in the GPS signal. And finally, complete the tracking.
+\begin{figure}[!h]
+    \centering
+    \includesvg[width=0.7\textwidth]{_IMAGES/PPT2SVG/tracking_diagram.svg}
+    \caption{Tracking Module Architecture}
+    \label{fig:tracking_digram}
+    % \footnotesize Note: *NCO: \textit{Numerically Controlled Oscillator}
+\end{figure}
+
+\subsection{NCO}
 
 
 
 \subsection{Code Generator}
 
-\subsection{NCO}
+
 
 \subsection{Correlator}
 \subsubsection{Cross-Correlation}
 
+\subsection{Doppler}
 
 \section{Verification}
 \subsection{Behavioral Simulation}
