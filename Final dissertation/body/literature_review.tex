@@ -1,75 +1,42 @@
 \chapter{Literature Review}
 The literature review chapter serves as a critical foundation for this project, offering an in-depth exploration of existing research, developments, and advances in the field of GNSS receivers, with a particular focus on the tracking module. This chapter aims to identify the key theories, methodologies, and technologies that have shaped the evolution of GNSS tracking and provide valuable information for the design and development of the FPGA-based GNSS tracking module.
 
-\section{Interface Control Document\texorpdfstring{\cite{RN170, RN171, RN172, RN174, RN173, RN175}}{}}
-In complex engineering projects and system development, clear and effective communication between various subsystems and components is essential for successful integration and operation. The \textit{Interface Control Document} (ICD) of GNSS provides the basic information of the system, such as intermediate frequency, modulation scheme, code frequency, etc. 
+\section{GPS/GNSS}
+GPS/GNSS consists of a constellation of satellites orbiting the Earth, transmitting continuous signals containing precise timing and positioning information. Each GNSS satellite is equipped with atomic clocks, ensuring high accuracy in the signals it emits. The GNSS constellation comprises multiple satellites, typically in \textit{Medium Earth Orbit} (MEO) \cite{RN187}, providing global coverage to ensure that a sufficient number of satellites are visible from any point on Earth at any given time.
 
-After reviewing the interface control documents of some systems, we have summarised the parameters of each system in Tbl. \ref{tab:spec_gnss}. 
+\subsection{Functioning of GNSS}
 
-\begin{landscape}
-% \vspace*{\fill}
-\begin{center}
-\begin{table}
-    \centering
-    \caption{Specifications of Systems}\label{tab:spec_gnss}
-    \begin{tabular}{ccccc}
-    \toprule
-    Specifications & GPS & GLONASS & Galileo & BeiDou\\
-    \midrule
-    \thead{Frequenc\\band} & \thead{L1: 1575.42 MHz\\L2: 1227.6 MHz\\L5: 1176.45 MHz} & \thead{L1: 1602MHz\\L2: 1246MHz\\(14 channels)} & \thead{E1: 1575.420MHz\\E6: 1278.750MHz\\E5a: 1176.450MHz\\E5b: 1207.140MHz} & \thead{B1c : 1575.42MHz\\B2a: 1176.45MHz\\B2b: 1207.14MHz\\B1I: 1561.098MHz\\B3I: 1268.52MHz}\\
-    \thead{Band\\width} & \thead{Block IIR, IIRM, and IIF:\\20.46 MHz\\GPS III, GPS IIIF, and subsequent:\\30.69 MHz} & \thead{L1: 7.875MHz(562.5 kHz each)\\L2: 6.125MHz(437.5 kHz each)} & \thead{E1: 24.552MHz\\E6: 40.920MHz\\E5a: 20.460MHz\\E5b: 20.460MHz} & \thead{B1c: 32.736MHz\\B2a: 20.46MHz\\B2b: 20.46MHz\\B1I: 4.092MHz\\B3I: 20.46MHz}\\
-    \thead{Modulation\\scheme} & BPSK & \thead{Modulo-2 addition\\CDMA}& \thead{E1: CBOC\\E5: AltBOC\\E6: BOC} & \thead{B1c: QMBOC(6, 1, 4/33)\\Others: BPSK}\\
-    \thead{Antenna\\polarization} & \multicolumn{4}{c}{RHCP*}\\
-    \thead{Chip\\rate} & \thead{L1 C/A \& P: 1.023MHz\\L2 CL \& CM: 511.5 kHz\\L5 data \& channel: 10.23 MHz} & \thead{L1 C/A: 0.511MHz\\L1 P: 5.11MHz\\L2 C/A: 0.511MHz\\L2 P: 5.11MHz} & \thead{E1 ranging Code: 1.023MHz\\E6: 5.115MHz\\E5: 10.230MHz} & \thead{B1c ranging code: 1.023MHz\\B2a ranging code: 10.23MHz\\B2b ranging code: 10.23MHz\\B1l ranging code: 2.046MHz\\B3l ranging code: 10.23MHz}\\
-    \bottomrule
-    \end{tabular}
-    \footnotesize Note: *RHCP: \textit{Right Hand Circularly Polarized}
-\end{table}
-\end{center}
-% \vspace*{\fill}
-\end{landscape}
-Given that the GPS system was the first to be deployed, it possesses a relatively straightforward structure. As a result, the GPS L1 signal has been selected as the primary target signal for this project. Furthermore, it is important to note that the L5 signal has ten times the bandwidth of L1. Thus, in the event that the utilisation of the L5 signal becomes necessary, the adjustments required for its implementation would be minimal.
+A GNSS receiver on the ground intercepts signals from multiple satellites in the constellation. By analysing the timing and phase information in these signals, the receiver can calculate the distance between itself and each satellite. By triangulating the distances from multiple satellites, the receiver can determine its precise three-dimensional position (latitude, longitude, and altitude). Additionally, the receiver can synchronize its internal clock with the highly accurate satellite atomic clocks, providing precise timing information.
 
-\section{Book from P. D. Groves\texorpdfstring{\cite{RN178}}{}}
-This book offers a thorough textbook on navigation systems, which make use of GNSS, \textit{Intelligent Navigation Systems} (INS), and other sensors to deliver precise \textit{positioning, navigation, and timing} (PNT) data. Paul D. Groves and Kayton M. Ned, two renowned authorities in the subject of navigation systems, are the esteemed authors behind this work.
+\subsection{Key Components of GNSS}
+GNSS commonly consists of these four components: satellites, GNSS receivers, control segment, and user segment \cite{RN188}.
 
-Professor of satellite navigation at University College London, Paul D. Groves' research focuses on navigation algorithms and technology. Kayton M. Ned, on the other hand, was an expert in navigation and control systems for aerospace applications and was a former Stanford University professor of aeronautics and astronautics. With their wealth of knowledge and experience, they are qualified to write a thorough and reliable textbook on navigation systems.
+Satellites: The heart of GNSS is the constellation of satellites orbiting the Earth. Each satellite broadcasts signals carrying unique identification information and precise timing data.
 
-The basics of GNSS systems are described in Section 8.1, which will provide us a foundational understanding. It explains how to find the receiver's distance from the satellite.
+GNSS Receivers: GNSS receivers are devices that intercept and process the satellite signals to calculate the user's position, velocity, and time. These receivers can be integrated into various devices, such as smartphones, car navigation systems, aviation equipment, and scientific instruments.
 
-The user equipment in Chapter 9 refers to the receiver. It describes how GNSS receivers are made. An antenna, reception hardware, range processor, and navigation processor are all components of a GNSS receiver. The tracking component of the ranging processor is the main focus of my work. This chapter makes note of the six correlators that make up a basic receiver design and the frequent use of additional correlators to quicken signal collection. There is also a comprehensive flowchart of the capture procedure available.
+Control Segment: The control segment consists of ground-based monitoring stations and control centres responsible for monitoring the health of the satellites, maintaining their orbits, and ensuring accurate timing information.
 
-In general, as this book is a textbook, it provides a very authoritative and accurate introduction to GNSS-related technologies. It is reliable and thought-provoking.
+User Segment: The user segment encompasses the GNSS receivers used by individuals, industries, and organizations to access positioning, navigation, and timing services.
 
-\section{Book from E. D. Kaplan and C. Hegarty\texorpdfstring{\cite{RN177}}{}}
-Elliott D. Kaplan has made significant contributions to the development and understanding of GNSS technology. Christopher J. Hegarty is also a prominent figure in the GNSS community. He has extensive experience with GPS and other satellite navigation systems. They have been associated with the MITRE Corporation and contributed to the advancement of GNSS technology and its applications.
+\subsection{Applications of GNSS}
 
-The book delves into the fundamental principles underlying GNSS technology, including GPS, GLONASS, Galileo, BeiDou, and others. It explores the concepts of satellite orbits, signal structure, receiver design, and various positioning techniques used in GNSS applications.
+The applications of GNSS are diverse and far-reaching, permeating nearly every aspect of modern life. Some key applications include \cite{RN177}:
+\begin{itemize}
+    \item Navigation: GNSS enables precise and real-time navigation for land, sea, and air transportation, making it a critical component of navigation systems in vehicles, ships, and aircraft.
+    \item Surveying and Mapping: GNSS is widely used in geodetic surveying, mapping, and cartography to obtain accurate geographic data for urban planning, construction, and land management.
+    \item Precision Agriculture: GNSS-based systems optimize agricultural processes by providing precise positioning for automated machinery, crop monitoring, and targeted application of resources like fertilizers and pesticides.
+    \item Emergency and Disaster Response: GNSS aids emergency services in locating and coordinating responses during disasters, enabling efficient search-and-rescue operations.
+    \item Timing and Synchronization: GNSS provides highly accurate timing information, essential for the synchronization of critical infrastructure, such as power grids, telecommunication networks, and financial systems.
+    \item Scientific Research: GNSS data is used in scientific research, including the study of tectonic movements, sea level changes, atmospheric monitoring, and climate research.
+\end{itemize}
 
-Chapters 3 to 7 provide a systematic introduction to the various navigation systems, including GPS, GLONASS, Galileo, BeiDou, etc. It is of great help for the background part of the project. Chapter 8 details the design of the receiver and introduces the antenna, RF front-end, acquisition and tracking respectively, as well as the design of the loop filter. This part was extremely helpful to my understanding. It describes the working principle and the GNSS process through numerous mathematical equations.
+In conclusion, GPS/GNSS has transformed the way we navigate and interact with our environment. By leveraging signals from a constellation of satellites, GNSS provides precise positioning, navigation, and timing services, powering applications across diverse sectors and enriching various aspects of modern life. As technology continues to evolve, GNSS is expected to play an increasingly critical role in shaping our interconnected world.
 
-\section{Paper from J. C. Juang, Y. H. Chen et al.\texorpdfstring{\cite{RN147}}{}}
-The paper titled "\textit{Design and implementation of an adaptive code discriminator in a DSP/FPGA-based Galileo receiver}" is authored by Jyh Ching Juang, Yu Hsuan Chen, Tsai Ling Kao, and Yung Fu Tsai from National Cheng Kung University.
+\subsection{Why Choose GPS/GNSS}
+On 4$^{th}$ September 2019, a lecture\cite{RN146} was given at the "\textit{International Colloquium on Scientific and Fundamental Aspects of GNSS}". Spacecraft mission design, astrodynamics, space navigation, software development, and space politics are among the areas of competence of the author, Joel Parker, a flight dynamics engineer at NASA Goddard Space Flight Center. The "\textit{Transiting Exoplanet Survey Satellite}" (TESS) project, which started in 2017, seeks to find planets in the habitable zones of other stars. He actively participates in the flight dynamics team for this mission.
 
-The coded tracking loop and its related discriminator play a significant role in the tracking performance of their work on the GNSS receiver design. The authors suggested a plan that was put into practice on a DSP/FPGA board to improve tracking performance. The GIOVE-A signal was used for testing in experiments, and the outcomes showed the benefits of their suggested code tracking architecture and discriminator design.
-
-The paper presents a well-defined design methodology for an adaptive coding discriminator, which was subsequently implemented and thoroughly tested. This design approach is framed as an optimisation problem leading to the development of two discriminators. Notably, the adaptive \textit{noncoherent multi-correlator} (NMC) discriminator showcased improvements in transient response and tracking error.
-
-Throughout the article, detailed mathematical principles of capture, tracking, and other processes are elaborated, along with a description of the correlator's design ideas. Numerous test results for correlators based on the new approach are provided, making this paper a valuable reference for my MSc project.
-
-\section{Paper from O. Jakubov, P. Kovar et al.\texorpdfstring{\cite{RN155}}{}}
-To develop advanced GNSS signal processing algorithms, such as multi-constellation, multi-frequency, and multi-antenna navigation, a flexible and re-programmable \textit{software-defined radio} (SDR) solution is essential. To achieve this goal, the researchers have introduced various receiver architectures. Their chosen approach involves constructing an RF front-end with an FPGA universal correlator, mounted on an ExpressCard directly connected to a PC. This setup allows GNSS researchers and engineers to write signal processing algorithms (e.g., tracking, acquisition, and localization) in a Linux application programming interface. The unique hardware configuration enables easy modification of the RF front-end via a PC program, providing the flexibility to increase the number of RF channels, correlators, or antennas by attaching more ExpressCards to the PC, thus enhancing computational capability.
-
-Utilizing the SDR platform, they have successfully implemented a GNSS receiver, offering significant advantages, including low cost, high software customization, and the potential for straightforward upgrades in computational power. The article also discusses a generic FPGA-based GNSS receiver, allowing a comparison of the different approaches' advantages and disadvantages.
-
-The outcome of their work is the prototype of the Witch Navigator receiver. They have conducted successful tests on Galileo E5, E1b, and E1c signals with the correlator and the RF front-end. Moreover, they have fully addressed the communication between the FPGA and the PC, developing and testing all the corresponding controllers and drivers.
-
-The article provides a comprehensive analysis of the design principles for receivers based on FPGAs, and the SDR platform enables the validation of the FPGA platform through MATLAB simulations. This combination of approaches facilitates the development of advanced and adaptable GNSS signal processing algorithms for future navigation systems.
-
-\section{Presentation Slides from J. Parker\texorpdfstring{\cite{RN146}}{}}
-On 4$^{th}$ September 2019, this lecture was given at the "\textit{International Colloquium on Scientific and Fundamental Aspects of GNSS}". Spacecraft mission design, astrodynamics, space navigation, software development, and space politics are among the areas of competence of the author, Joel Parker, a flight dynamics engineer at NASA Goddard Space Flight Center. The "\textit{Transiting Exoplanet Survey Satellite}" (TESS) project, which started in 2017, seeks to find planets in the habitable zones of other stars. He actively participates in the flight dynamics team for this mission.
-
-The presentation provides a comprehensive overview of the history and scope of GNSS/GPS, as well as its potential future applications in lunar exploration and beyond.
+The presentation provides a comprehensive overview of the history and scope of GPS/GNSS, as well as its potential future applications in lunar exploration and beyond.
 
 Numerous flight examples are presented to illustrate the indispensable role of GPS in the space sector. This underscores the critical importance of GNSS technology in space missions. The author then delves into new areas of GPS application, specifically focussing on lunar exploration. The concept of a GNSS receiver designed for the Artemis Project is introduced.
 
@@ -82,12 +49,110 @@ The report concludes with a summary of key development directions:
     \item Using operational programs to optimize the advantages of exploration and science
 \end{itemize}
 
-% \begin{itemize}
-%     \item Research into GNSS capabilities and enhancements for lunar applications.
-%     \item Collaboration with the user and supplier community, both internally and through the ICG (\textit{International Committee on GNSS}), to ensure signal performance and availability of relevant data.
-%     \item Utilising proven receiver and antenna technologies to address technical challenges.
-%     \item Conducting flight demonstrations in the global expansion of lunar exploration activities.
-%     \item Working with operational programs to maximize the benefits of science and exploration.
-% \end{itemize}
+This presentation illustrates the success of GNSS applications and demonstrates their importance. This is one of the reasons why I chose this topic. It shows s a high level of professionalism and will undoubtedly prove valuable for your MSc. project, particularly in providing a thorough introduction to the background of GPS/GNSS and its ongoing development.
 
-The presentation showcases a high level of professionalism and will undoubtedly prove valuable for your MSc. project, particularly in providing a thorough introduction to the background of GNSS/GPS and its ongoing development.
+\subsection{GNSS Signal Plan}
+In complex engineering projects and system development, clear and effective communication between various subsystems and components is essential for successful integration and operation. The \textit{Interface Control Document} (ICD) of GNSS provides the basic information of the system, such as intermediate frequency, modulation scheme, code frequency, etc. 
+
+After reviewing the interface control documents of some systems, we have summarized the parameters of each system in Table \ref{tab:spec_gnss}. 
+
+\begin{landscape}
+% \vspace*{\fill}
+\begin{center}
+\begin{table}
+    \centering
+    \caption{Specifications of Systems}\label{tab:spec_gnss}
+    \begin{tabular}{ccccc}
+    \toprule
+    Specifications & GPS & GLONASS & Galileo & BeiDou\\
+    \midrule
+    \thead{Frequency\\band} & \thead{L1: 1575.42 MHz\\L2: 1227.6 MHz\\L5: 1176.45 MHz} & \thead{L1: 1602MHz\\L2: 1246MHz\\(14 channels)} & \thead{E1: 1575.420MHz\\E6: 1278.750MHz\\E5a: 1176.450MHz\\E5b: 1207.140MHz} & \thead{B1c : 1575.42MHz\\B2a: 1176.45MHz\\B2b: 1207.14MHz\\B1I: 1561.098MHz\\B3I: 1268.52MHz}\\
+    \thead{Band\\width} & \thead{Block IIR, IIRM, and IIF:\\20.46 MHz\\GPS III, GPS IIIF, and subsequent:\\30.69 MHz} & \thead{L1: 7.875MHz(562.5 kHz each)\\L2: 6.125MHz(437.5 kHz each)} & \thead{E1: 24.552MHz\\E6: 40.920MHz\\E5a: 20.460MHz\\E5b: 20.460MHz} & \thead{B1c: 32.736MHz\\B2a: 20.46MHz\\B2b: 20.46MHz\\B1I: 4.092MHz\\B3I: 20.46MHz}\\
+    \thead{Modulation\\scheme} & BPSK & \thead{Modulo-2 addition\\CDMA}& \thead{E1: CBOC\\E5: AltBOC\\E6: BOC} & \thead{B1c: QMBOC(6, 1, 4/33)\\Others: BPSK}\\
+    \thead{Antenna\\polarization} & \multicolumn{4}{c}{RHCP*}\\
+    \thead{Chip\\rate} & \thead{L1 C/A \& P: 1.023MHz\\L2 CL \& CM: 511.5 kHz\\L5 data \& channel: 10.23 MHz} & \thead{L1 C/A: 0.511MHz\\L1 P: 5.11MHz\\L2 C/A: 0.511MHz\\L2 P: 5.11MHz} & \thead{E1 ranging Code: 1.023MHz\\E6: 5.115MHz\\E5: 10.230MHz} & \thead{B1c ranging code: 1.023MHz\\B2a ranging code: 10.23MHz\\B2b ranging code: 10.23MHz\\B1l ranging code: 2.046MHz\\B3l ranging code: 10.23MHz}\\
+    \bottomrule
+    \end{tabular}
+    \footnotesize Note: *RHCP: \textit{Right Hand Circularly Polarized}
+\end{table}
+\end{center}
+% \vspace*{\fill}
+\end{landscape}
+Given that the GPS L1 system was the first to be deployed\cite{RN184}, it possesses a relatively straightforward structure. Based on the GPS L1 ICD\cite{RN170}, we can summarize the signal plan of GPS L1 in table \ref{tab:spec_gpsl1}.
+
+\begin{table}[!htbp]
+\centering
+\caption{Specifications of GPS L1}\label{tab:spec_gpsl1}
+\renewcommand\arraystretch{1.5}
+\begin{tabular}{c@{\hspace{1.3cm}}c@{\hspace{1.3cm}}cc}
+    \toprule
+    Specifications & \multicolumn{3}{c}{GPS} \\
+    Service Name & C/A & \multicolumn{2}{c}{LIC} \\
+    \midrule
+    Centre Frequency & 1575.42MHz & \multicolumn{2}{c}{1575.42 MHz} \\
+    Frequency Band & L1 & \multicolumn{2}{c}{L1} \\
+    Access Technique & CDMA & \multicolumn{2}{c}{CDMA} \\
+    Signal Component & Data & Data & Pilot \\
+    Modulation & BPSK & \multicolumn{2}{c}{TMBOC(6,1,1/11)} \\
+    % Sub-carrierfrequency {[}MHz{]} & N/A & 1.023 & 1.023\&6.138 \\
+    Code Frequency & 1.023 MHz & \multicolumn{2}{c}{1.023 MHz} \\
+    Primary PRN Code Length & 1023 & \multicolumn{2}{c}{10230} \\
+    Code Family & Gold Codes & \multicolumn{2}{c}{Weil Codes} \\
+    Data Rate & 50 bps/50 sps & 50 bps/100 sps & N/A \\
+    \bottomrule
+\end{tabular}
+\end{table}
+
+As a result, the GPS L1 signal has been selected as the primary target signal for this project. Furthermore, it is important to note that the L5 signal has ten times the bandwidth of L1. Thus, in the event that the utilization of the L5 signal becomes necessary, the adjustments required for its implementation would be minimal.
+
+\section{Tracking Process}
+\subsection{Book from P. D. Groves\texorpdfstring{\cite{RN178}}{}}
+This book offers a thorough textbook on navigation systems, which make use of GNSS, \textit{Intelligent Navigation Systems} (INS), and other sensors to deliver precise \textit{positioning, navigation, and timing} (PNT) data. Paul D. Groves and Kayton M. Ned, two renowned authorities in the subject of navigation systems, are the esteemed authors behind this work.
+
+Professor of satellite navigation at University College London, Paul D. Groves' research focuses on navigation algorithms and technology. Kayton M. Ned, on the other hand, was an expert in navigation and control systems for aerospace applications and was a former Stanford University professor of aeronautics and astronautics. With their wealth of knowledge and experience, they are qualified to write a thorough and reliable textbook on navigation systems.
+
+The basics of GNSS systems are described in Section 8.1, which will provide us a foundational understanding. It explains how to find the receiver's distance from the satellite.
+
+The user equipment in Chapter 9 refers to the receiver. It describes how GNSS receivers are made. An antenna, reception hardware, range processor, and navigation processor are all components of a GNSS receiver. The tracking component of the ranging processor is the main focus of my work. This chapter makes note of the six correlators that make up a basic receiver design and the frequent use of additional correlators to quicken signal collection. There is also a comprehensive flowchart of the capture procedure available.
+
+In general, as this book is a textbook, it provides a very authoritative and accurate introduction to GNSS-related technologies. It is reliable and thought-provoking.
+
+\subsection{Book from E. D. Kaplan and C. Hegarty\texorpdfstring{\cite{RN177}}{}}
+Elliott D. Kaplan has made significant contributions to the development and understanding of GNSS technology. Christopher J. Hegarty is also a prominent figure in the GNSS community. He has extensive experience with GPS and other satellite navigation systems. They have been associated with the MITRE Corporation and contributed to the advancement of GNSS technology and its applications.
+
+The book delves into the fundamental principles underlying GNSS technology, including GPS, GLONASS, Galileo, BeiDou, and others. It explores the concepts of satellite orbits, signal structure, receiver design, and various positioning techniques used in GNSS applications.
+
+Chapters 3 to 7 provide a systematic introduction to the various navigation systems, including GPS, GLONASS, Galileo, BeiDou, etc. It is of great help for the background part of the project. Chapter 8 details the design of the receiver and introduces the antenna, RF front-end, acquisition and tracking respectively, as well as the design of the loop filter. This part was extremely helpful to my understanding. It describes the working principle and the GNSS process through numerous mathematical equations.
+
+\subsection{Paper from J. C. Juang, Y. H. Chen et al.\texorpdfstring{\cite{RN147}}{}}
+The paper titled "\textit{Design and implementation of an adaptive code discriminator in a DSP/FPGA-based Galileo receiver}" is authored by Jyh Ching Juang, Yu Hsuan Chen, Tsai Ling Kao, and Yung Fu Tsai from National Cheng Kung University.
+
+The coded tracking loop and its related discriminator play a significant role in the tracking performance of their work on the GNSS receiver design. The authors suggested a plan that was put into practice on a DSP/FPGA board to improve tracking performance. The GIOVE-A signal was used for testing in experiments, and the outcomes showed the benefits of their suggested code tracking architecture and discriminator design.
+
+The paper presents a well-defined design methodology for an adaptive coding discriminator, which was subsequently implemented and thoroughly tested. This design approach is framed as an optimization problem leading to the development of two discriminators. Notably, the adaptive \textit{noncoherent multi-correlator} (NMC) discriminator showcased improvements in transient response and tracking error.
+
+Throughout the article, detailed mathematical principles of capture, tracking, and other processes are elaborated, along with a description of the correlator's design ideas. Numerous test results for correlators based on the new approach are provided, making this paper a valuable reference for my MSc project.
+
+\subsection{Paper from O. Jakubov, P. Kovar et al.\texorpdfstring{\cite{RN155}}{}}
+To develop advanced GNSS signal processing algorithms, such as multi-constellation, multi-frequency, and multi-antenna navigation, a flexible and re-programmable \textit{software-defined radio} (SDR) solution is essential. To achieve this goal, the researchers have introduced various receiver architectures. Their chosen approach involves constructing an RF front-end with an FPGA universal correlator, mounted on an ExpressCard directly connected to a PC. This setup allows GNSS researchers and engineers to write signal processing algorithms (e.g., tracking, acquisition, and localization) in a Linux application programming interface. The unique hardware configuration enables easy modification of the RF front-end via a PC program, providing the flexibility to increase the number of RF channels, correlators, or antennas by attaching more ExpressCards to the PC, thus enhancing computational capability.
+
+Utilizing the SDR platform, they have successfully implemented a GNSS receiver, offering significant advantages, including low cost, high software customization, and the potential for straightforward upgrades in computational power. The article also discusses a generic FPGA-based GNSS receiver, allowing a comparison of the different approaches' advantages and disadvantages.
+
+The outcome of their work is the prototype of the Witch Navigator receiver. They have conducted successful tests on Galileo E5, E1b, and E1c signals with the correlator and the RF front-end. Moreover, they have fully addressed the communication between the FPGA and the PC, developing and testing all the corresponding controllers and drivers.
+
+The article provides a comprehensive analysis of the design principles for receivers based on FPGAs, and the SDR platform enables the validation of the FPGA platform through MATLAB simulations. This combination of approaches facilitates the development of advanced and adaptable GNSS signal processing algorithms for future navigation systems.
+
+\section{FPGA Technique}
+FPGA is a type of integrated circuit that allows users to configure its hardware functionality after manufacturing. Unlike ASICs, which are designed for specific tasks and cannot be reconfigured, FPGAs offer flexibility and programmability. This characteristic makes FPGAs suitable for a wide range of applications \cite{RN185}, including digital signal processing, communication systems, image and video processing, and in this case, GNSS receiver design.
+
+Here are the advantages of using FPGA in the project \cite{RN186}:
+\begin{itemize}
+    \item Hardware Customization: FPGAs allow customization of hardware functionality, tailoring specific algorithms and designs for the GNSS tracking module. This flexibility optimizes hardware resources, resulting in a specialized and efficient GNSS receiver.
+    \item Real-Time Processing: FPGAs excel in parallel processing, enabling real-time data processing with low latency. This is crucial for continuous and accurate GNSS positioning, especially in dynamic environments with intermittent satellite signals.
+    \item Power Efficiency: FPGA designs can be optimized for high performance with low power consumption. This is essential for battery-operated GNSS devices, extending battery life and improving overall device usability.
+    \item Rapid Prototyping and Iteration: FPGA development allows quick prototyping and iterative design refinement. Changes can be implemented and tested rapidly, speeding up development and performance improvements.
+    \item Adaptability and Future Upgrades: The programmable nature of FPGAs allows easy updates and future upgrades. GNSS algorithms can be incorporated without hardware changes as technology advances.
+    \item Cost-Effectiveness: FPGAs offer a cost-effective solution for custom hardware design compared to ASICs. They are suitable for smaller-scale projects or research without requiring expensive fabrication.
+\end{itemize}
+
+In summary, the choice of FPGA to design the GPS receiver is a no-brainer.

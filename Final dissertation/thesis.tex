@@ -6,6 +6,9 @@
 \input{_INCLUDE/my.preamble.tex}
 \input{_INCLUDE/thesis.preamble.tex}
 
+% Macro definition
+\watermarkEnable
+
 % Document information definitions
 \newcommand{\vTitle}{Develop a GPS/GNSS receiver: \\Design of Correlators for GNSS Receivers Based on VHDL}
 \newcommand{\vAuthor}{Yaowen Hu}
@@ -42,9 +45,8 @@
 
 % delete the two declaration sentences in thesis.sty if not applicable. 
 
-\preface{
-% Set line spacing to 2.0
-\linespread{2.0} \selectfont
+\preface
+\doublespacing{
 
 % \input{abstract/abstract}
 % \input{acknowledgements/acknowledgements}

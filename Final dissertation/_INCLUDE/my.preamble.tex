@@ -1,9 +1,8 @@
-% Include packages
+% Include common packages
 \usepackage{graphicx}
 \usepackage{caption}
 % \usepackage{subfigure}
 \usepackage{amssymb}
-
 \usepackage{amsmath}
 \usepackage{float}
 \usepackage{subfig}
@@ -13,12 +12,14 @@
 \usepackage{textcomp}
 \usepackage{pgfgantt}
 \usepackage{pdflscape}
-
 \usepackage{color}
 \usepackage[numbers, sort&compress]{natbib}
 
 % Insert SVG file
 \usepackage[inkscapelatex=false]{svg}
+
+% Set spacing
+\usepackage{setspace}
 
 % Set pdf properties
 \usepackage{hyperref}
@@ -55,8 +56,6 @@
     \SetWatermarkLightness{0.8}
     \SetWatermarkScale{7}
 }
-\watermarkEnable
-
 
 % % [NOT RECOMMENDED]Configue landscape/portrait pages with header and footer
 % \usepackage[paper=portrait, pagesize]{typearea}
@@ -83,4 +82,7 @@
 % Ref: https://blog.csdn.net/haifeng_gu/article/details/108563975
 
 % % Indent control
-% \setlength{\parindent}{0pt}	      % don't indent first lines of paragraphs
+% \setlength{\parindent}{0pt}    % don't indent first lines of paragraphs
+
+% Keep tables in the same section
+\usepackage[section]{placeins}
