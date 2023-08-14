@@ -25,7 +25,7 @@
 \usepackage{hyperref}
 \hypersetup{hidelinks} 
 
-% Set position of page number
+% Set the position of the page number
 \usepackage{fancyhdr}
 \newcommand{\pageHeaderNumPos}[1]{
     \fancypagestyle{plain}{
@@ -50,9 +50,9 @@
 % \setmainfont{Times New Roman}
 
 % Set draft watermark
-\newcommand{\watermarkEnable}{
+\newcommand{\watermarkEnable}[1]{
     \usepackage{draftwatermark}
-    \SetWatermarkText{DRAFT}
+    \SetWatermarkText{#1}
     \SetWatermarkLightness{0.8}
     \SetWatermarkScale{7}
 }
@@ -86,3 +86,6 @@
 
 % Keep tables in the same section
 \usepackage[section]{placeins}
+
+% Thousands separator
+\usepackage[group-separator={,}]{siunitx}

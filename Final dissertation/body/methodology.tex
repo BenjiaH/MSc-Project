@@ -47,10 +47,32 @@ The following figure \ref{fig:tracking_digram} shows the basic architecture of t
 \end{figure}
 
 \subsection{NCO}
-In digital communications, it is often necessary to modulate and shift baseband signals (often IF) to high frequencies for transmission because the wavelengths of the high frequency signals are better matched to the available antenna sizes. In order to modulate, we need to generate a carrier for the high frequency signal, which is often a sine or cosine signal. Therefore, a module is needed to generate the carrier at the desired frequency consistently and accurately.
+In digital communications, it is often necessary to modulate and shift baseband signals (often IF) to high frequencies for transmission because the wavelengths of the high-frequency signals are better matched to the available antenna sizes. In order to modulate, we need to generate a carrier for the high-frequency signal, which is often a sine or cosine signal. Therefore, a module is required to generate the carrier at the desired frequency consistently and accurately.
 
-For hardware, we have three ways to generate such signals: direct form oscillator, NCO, and CORDIC algorithm. After comparing, we learnt that using the CORDIC takes up the least amount of resources in FPGAs\cite{RN181}, however, using the NCO is the simplest solution. In this project we have designed NCO module in FPGA to generate different frequency carriers.
-% \cite{RN189}  \cite{RN190} \cite{RN191} 
+Using hardware, we have three ways to generate such signals: direct form oscillator, NCO, and CORDIC algorithm. After comparing, we learnt that using the CORDIC takes up the least amount of resources in FPGAs\cite{RN181}, however, using the NCO is the simplest solution. In this project, we have designed an NCO module in FPGA to generate different frequency carriers.
+
+The NCO is a signal generator that produces a specified frequency. It can generate square wave signals, i.e. PWM signals with a duty cycle of 50\%, as well as sinusoidal cosine signals and so on\cite{RN189}. It is often used in conjunction with a DAC (\textit{Digital-to-analog Converter}) so that an analogue signal of a specified frequency can be output. In general, the NCO consists of two parts, the \textit{Phase Accumulator} (PA) and the \textit{Look-up Table} (LUT)\cite{RN191-1}. Their architecture is shown in figure \ref{fig:nco}.
+
+\begin{figure}[!h]
+    \centering
+    \includesvg[width=0.8\textwidth]{_IMAGES/PPT2SVG/NCO.svg}
+    \caption{NCO Architecture}
+    \label{fig:nco}
+    \footnotesize Note: *FSW: \textit{Frequency Setting Word}
+\end{figure}
+
+\subsubsection{Phase Accumulator}
+The phase accumulator will complete an accumulation in each clock cycle according to the set increment value. In other words, the accumulator outputs the address of the look-up table so that the look-up table generates the correct sine-cosine signal\cite{RN191}. By setting the increment value, the look-up table is made to sample in a controlled manner.
+
+Here, we assume that the bit width of the accumulator is 32 bits. The ratio of the incremental 32-bit value to the fixed \num{4294967296} accumulator overflow value determines how often the overflow occurs. This controls the triggering of the NCO output waveform. The equation is as follows,
+\begin{equation}
+    F_{out} = (increment\ value) \times \frac{F_{clock}}{2^{Accum\ width}}
+\end{equation}
+
+For example, if the clock is 99.375MHz and the NCO is required to generate a 1.023MHz signal with a register bit width of 32 bits, then the increment value \num{44213852} needs to be written to FSW.
+
+\subsubsection{Phase-to-Amplitude Converter}
+By using the look-up table, we can convert the phase value into an outputable sine-cosine signal. In other words, the look-up table is actually a \textit{Phase-to-Amplitude Converter} (PAC). The easiest way to build it is to use \textit{Read-only Memory} (ROM)\cite{RN190}, create the amplitude data in advance using software such as MATLAB, and then import it into a memory file or directly into the VHDL code.
 
 \subsection{Code Generator}
 
