@@ -43,6 +43,10 @@ For example, if the clock is 99.375MHz and the NCO is required to generate a 1.0
 \subsubsection{Phase-to-Amplitude Converter}
 By using the look-up table, we can convert the phase value into an outputable sine-cosine signal. In other words, the look-up table is actually a \textit{Phase-to-Amplitude Converter} (PAC). The easiest way to build it is to use \textit{Read-only Memory} (ROM)\cite{RN190}, create the amplitude data in advance using software such as MATLAB, and then import it into a memory file or directly into the VHDL code.
 
+This look-up table contains all the magnitude values in a cycle. The magnitude values corresponding to the phases are rounded and stored in the table. This table can be thought of as a matrix. Assume that the bit width of each element is N bits. N is an integer power of 2. The calculation of the indexes in the table will be greatly simplified\cite{RN194}. In this case, a sine-cosine signal can be output simply by selecting the appropriate m bits in the phase representation.
+
+In fact, we can save resources by \dquotes{cunningly} designing look-up tables. We can divide the magnitude values into fractional and integer parts. Such an operation also allows us to easily control the resolution of the NCO output.
+
 \subsection{Code Generator}
 
 
