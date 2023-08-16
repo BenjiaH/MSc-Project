@@ -88,7 +88,42 @@
 \usepackage[section]{placeins}
 
 % Thousands separator
-\usepackage[group-separator={,}]{siunitx}
+\usepackage{numprint}
+\npthousandsep{,}
+\newcommand{\num}[1]{\numprint{#1}}
+% \usepackage[group-separator={,}]{siunitx}
+
+% % Spaces for bin and hex
+% \usepackage{fmtcount}
+% \usepackage{trimclip,ifthen}
+% \newsavebox\numberbox
+% \newlength\boxoffset
+% \newcommand\chop[2]{%
+%   \bgroup\ttfamily%
+%   \setbox0=\hbox{0}%
+%   \savebox\numberbox{#2}%
+%   \boxoffset=0pt%
+%   \whiledo{\lengthtest{\boxoffset<\wd\numberbox}}{%
+%     \clipbox{\boxoffset+0pt 0pt \wd\numberbox-\boxoffset-#1\wd0 -1pt}{\usebox{\numberbox}}%
+%     \addtolength{\boxoffset}{#1\wd0}%
+%     \ifdim\boxoffset<\wd\numberbox\ \fi%
+%   }\unskip\egroup%
+% }
+
+% \usepackage{soul}
+% \newcounter{binst}
+% \makeatletter
+% \newcommand{\FormatBinary}[1]{\begingroup%
+% \setcounter{binst}{0}
+% \def\SOUL@soeverytoken{%
+% \stepcounter{binst}%
+% \ifnum\value{binst}=5\relax%
+% \setcounter{binst}{1}\,%
+% \fi%
+% \the\SOUL@token}%
+% \so{#1}\endgroup} 
+% \makeatother
+
 
 % Double & single quotes
 \newcommand{\dquotes}[1]{``#1''}

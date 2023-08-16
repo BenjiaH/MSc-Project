@@ -9,10 +9,9 @@ After the acquisition phase, where the receiver identifies and locks onto the sa
 The following figure \ref{fig:tracking_digram} shows the basic architecture of the tracking module. The signal is received by the RF front-end and is filtered and fed to the ranging processor. At the same time, the NCO (\textit{Numerically Controlled Oscillator}) generates a GPS L1 IF carrier and a carrier for the C/A (\textit{Coarse Acquisition}) code. The GPS signal is first modulated to IF and then multiplied with the C/A code and finally integrated. Using the principle of the cross-correlation function, the C/A carrier frequency is continuously adjusted to synchronize with the C/A code in the GPS signal. And finally, complete the tracking\cite{RN151}.
 \begin{figure}[!h]
     \centering
-    \includesvg[width=0.7\textwidth]{_IMAGES/PPT2SVG/tracking_diagram.svg}
+    \includesvg[width=0.8\textwidth]{_IMAGES/PPT2SVG/tracking_diagram.svg}
     \caption{Tracking Module Architecture}
     \label{fig:tracking_digram}
-    % \footnotesize Note: *NCO: \textit{Numerically Controlled Oscillator}
 \end{figure}
 
 \subsection{NCO}
@@ -30,7 +29,7 @@ The NCO is a signal generator that produces a specified frequency. It can genera
     \footnotesize Note: *FSW: \textit{Frequency Setting Word}
 \end{figure}
 
-\subsubsection{Phase Accumulator}
+\subsubsection{Phase Accumulator} \label{pa_subsubsection}
 The phase accumulator will complete an accumulation in each clock cycle according to the set increment value. In other words, the accumulator outputs the address of the look-up table so that the look-up table generates the correct sine-cosine signal\cite{RN191}. By setting the increment value, the look-up table is made to sample in a controlled manner.
 
 Here, we assume that the bit width of the accumulator is 32 bits. The ratio of the incremental 32-bit value to the fixed \num{4294967296} accumulator overflow value determines how often the overflow occurs. This controls the triggering of the NCO output waveform. The equation is as follows,
@@ -45,10 +44,51 @@ By using the look-up table, we can convert the phase value into an outputable si
 
 This look-up table contains all the magnitude values in a cycle. The magnitude values corresponding to the phases are rounded and stored in the table. This table can be thought of as a matrix. Assume that the bit width of each element is N bits. N is an integer power of 2. The calculation of the indexes in the table will be greatly simplified\cite{RN194}. In this case, a sine-cosine signal can be output simply by selecting the appropriate m bits in the phase representation.
 
-In fact, we can save resources by \dquotes{cunningly} designing look-up tables. We can divide the magnitude values into fractional and integer parts. Such an operation also allows us to easily control the resolution of the NCO output.
+In fact, we can save resources by \dquotes{cunningly} designing look-up tables\cite{RN193}. Such an operation also allows us to easily control the resolution of the NCO output. Below I will describe the method of designing a look-up table.
+
+Firstly, according to the subsection \ref{pa_subsubsection}(Phase Accumulator), we are able to plot the phase function. Below is the phase function that I am plotting using MATLAB.
+
+\begin{figure}[!htbp]
+    \centering
+    \includesvg[width=0.8\textwidth]{_IMAGES/PPT2SVG/phase_function.svg}
+    \caption{Phase Function}
+    \label{fig:phase_function}
+\end{figure}
+
+The phase will be accumulated at each cycle until it overflows and starts again. This forms the phase function in figure \ref{fig:phase_function}. In fact, this function completes the conversion from the time domain to the phase domain. Next, we will convert the phase domain to the amplitude domain, which is the PAC. The following figure also shows the PAC function generated using MATLAB.
+
+\begin{figure}[!htbp]
+    \centering
+    \includesvg[width=0.8\textwidth]{_IMAGES/PPT2SVG/pac_function.svg}
+    \caption{PAC Function}
+    \label{fig:PAC_function}
+\end{figure}
+
+In figure \ref{fig:PAC_function}, one prefers to use the cosine function with high resolution, i.e. the blue line. This then consumes a lot of resources as we need to set the magnitude values for each phase and the size of the look-up table will become huge. And then such a high resolution is redundant for us. So, when we don't need such high resolution, we can \dquotes{cunningly} design the look-up table to reduce the resolution, e.g. the red lines.
+
+Assuming, the phase overflow value is \num{1024}, i.e. 10 bits wide, and we need 8 dots per cycle, then one dot can be generated every 128 phases. Specifically, each phase interval holds a different magnitude value. Then, we can calculate that the lookup table or ROM has a depth of 8 and a width of 10 bits, occupying 80 bits.
+In fact, the first interval is $0\sim127$, i.e. $00\ 0000\ 0000_{(2)}\sim00\  0111\ 1111_{(2)}$, the next interval is $00\ 1000\ 0000_{(2)}\sim00\ 1111\ 1111_{(2)}$, and so on. We can find that we only need to know the highest three bits to obtain the current amplitude value. Then, we can calculate that the depth of the ROM is 8 and the width is 3 bits, occupying 24 bits. Using this approach can greatly reduce resource usage, as shown in the table below.
+
+\begin{table}[!htbp]
+\centering
+\caption{ROM Size for Different Methods}\label{tab:rom_size}
+\renewcommand\arraystretch{1.5}
+\begin{tabular}{ccccc}
+    \toprule
+    Method & ROM depth & ROM width(bits) & Size(bits) & \thead{Size percentage change\\from previous method(\%)} \\
+    \midrule
+    Original method & 1024 & 10 & 10240 & N/A \\
+    Method 1 & 8 & 10 & 80 & -99.22 \\
+    Method 2 & 8 & 3 & 24 & -70 \\
+    \bottomrule
+\end{tabular}
+\end{table}
 
 \subsection{Code Generator}
+In GPS L1, there are two types of ranging codes, C/A code and P(\textit{Precise}) code.C/A code sends 1023 chips per 1ms and P code sends 10230 chips per 1ms, which has a higher frequency and hence is more precise. Generally, P-codes are provided to military users and are encrypted for transmission. The encrypted P-code is known as the Y-code\cite{RN195}.
 
+Different satellites require different unique C/A codes with good correlation and balancing properties. Therefore, the use of PRN(\textit{Pseudorandom Noise}) codes is a natural fit\cite{RN197}.
+% PRN特征：
 
 
 \subsection{Correlator}
