@@ -33,13 +33,13 @@ clear; close all; clc;
 % =========================================
 skipNumberOfBytes = 46500;
 % deviceType = 'WVD';
-deviceType = 'PC';
+% deviceType = 'PC';
 % deviceType = 'N/A';
 DEBUG_ENABLE = false;
 % DEBUG_ENABLE = true;
 % =========================================
 
-save('deviceType.mat',"deviceType");
+% save('deviceType.mat',"deviceType");
 save('skipNumberOfBytes.mat',"skipNumberOfBytes");
 
 format ('compact');

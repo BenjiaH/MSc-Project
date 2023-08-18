@@ -36,15 +36,17 @@ settings.skipNumberOfBytes     = skipNumberOfBytes;
 % This is a "default" name of the data file (signal record) to be used in
 % the post-processing mode
 
-load('deviceType.mat','deviceType');
-switch deviceType
-    case 'PC'
-        settings.fileName   = 'E:\Users\benji\OneDrive\Project\MSc-Project\Software Receiver\CH1SIM12p5MHzconfig2_int8.dat';
-    case 'WVD'
-        settings.fileName   = 'C:\Users\eexyh39\OneDrive\Project\MSc-Project\Software Receiver\CH1SIM12p5MHzconfig2_int8.dat';
-    otherwise
-        settings.fileName   = 'C:\dataSandbox\reduced_samples_rateNT1065\reducedSimRate\CH1SIM12p5MHzconfig2_int8.dat';
-end
+% load('deviceType.mat','deviceType');
+% switch deviceType
+%     case 'PC'
+%         settings.fileName   = 'E:\Users\benji\OneDrive\Project\MSc-Project\Software Receiver\CH1SIM12p5MHzconfig2_int8.dat';
+%     case 'WVD'
+%         settings.fileName   = 'C:\Users\eexyh39\OneDrive\Project\MSc-Project\Software Receiver\CH1SIM12p5MHzconfig2_int8.dat';
+%     otherwise
+%         settings.fileName   = 'C:\dataSandbox\reduced_samples_rateNT1065\reducedSimRate\CH1SIM12p5MHzconfig2_int8.dat';
+% end
+
+settings.fileName ='../CH1SIM12p5MHzconfig2_int8.dat';
 
 %%'C:\dataSandbox\reduced_samples_rateNT1065\CH1config2_simSampling_L1_25MHz_L5_25MHz_5dBGlobal_int8.dat';
 

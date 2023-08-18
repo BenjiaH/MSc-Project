@@ -164,6 +164,7 @@ if (fid > 0)
     
             I_P_S_reg = [];
             I_P_reg = [];
+            Q_P_S_reg = [];
 
             %=== Process the number of specified code periods =================
             for loopCnt =  1:codePeriods
@@ -298,8 +299,9 @@ if (fid > 0)
                 I_L_S = I_L_S + I_L;
                 Q_L_S = Q_L_S + Q_L;
 
-                I_P_S_reg = [I_P_S_reg, I_P_S];
                 I_P_reg = [I_P_reg, I_P];
+                I_P_S_reg = [I_P_S_reg, I_P_S];
+                Q_P_S_reg = [Q_P_S_reg, Q_P_S];
                 
                 % check if there has been a bit flip
                 if coherentAccmNum == 1
@@ -516,6 +518,9 @@ if (fid > 0)
     close(hwb)
     figure(666);plot(I_P_S_reg);
     figure(777);plot(I_P_reg);
+    figure(888);
+    I_Q_2 = I_P_S_reg .^ 2 + Q_P_S_reg .^ 2;
+    plot(I_Q_2);
 
     %% ===============End of tracking_FLL_2ndOrderUnknownData.m===============
     
