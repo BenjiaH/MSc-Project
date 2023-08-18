@@ -111,7 +111,8 @@ constant MEAS_COUNT_SIZE_I_C : integer := integer(ceil(log2(real(SAMPLES_PER_TIC
 -- !!!!REF: https://www.youtube.com/watch?v=bWHe_PBEPdU
 -- carrier NCO increment to produce 14.58 MHz, increment = freq*(2^NCO_length)/sampling_freq
 -- constant CARR_NCO_INCR_CA_E1B_U_C : unsigned((CARR_NCO_LENGTH_C -1) downto 0) := x"258F3E7B"; -- (14.58MHz * (2 ^ 32)) / 99.375MHz = 630144635.730113
-constant CARR_NCO_INCR_CA_E1B_U_C : unsigned((CARR_NCO_LENGTH_C -1) downto 0) := x"258DCB10"; -- (14.58MHz-2200Hz * (2 ^ 32)) / 99.375MHz = 630144635.730113
+--constant CARR_NCO_INCR_CA_E1B_U_C : unsigned((CARR_NCO_LENGTH_C -1) downto 0) := x"258DCB11"; -- (14.58MHz-2200Hz * (2 ^ 32)) / 99.375MHz = 630144635.730113
+constant CARR_NCO_INCR_CA_E1B_U_C : unsigned((CARR_NCO_LENGTH_C -1) downto 0) := x"2590B1E8"; -- (14.58MHz+2200Hz * (2 ^ 32)) / 99.375MHz = 630144635.730113
 
 ---- code NCO increment to produce 1.023 MHz, increment = freq*(2^NCO_length)/sampling_freq 
 --constant CODE_NCO_INCR_CA_E1B_U_C : unsigned((CODE_NCO_LENGTH_C -1) downto 0) := x"02A2A65C";
@@ -120,7 +121,8 @@ constant CARR_NCO_INCR_CA_E1B_U_C : unsigned((CARR_NCO_LENGTH_C -1) downto 0) :=
 
 -- code NCO increment to produce 10.23 MHz, increment = freq*(2^NCO_length)/sampling_freq 
 --constant CODE_NCO_INCR_E5_L5_U_C : unsigned((CODE_NCO_LENGTH_C -1) downto 0) := x"1A5A7F98";
-constant CODE_NCO_INCR_E5_L5_U_C : unsigned((CODE_NCO_LENGTH_C -1) downto 0) := x"1A5DCBBB"; -- 10.23Mhz + 5000Hz
+--constant CODE_NCO_INCR_E5_L5_U_C : unsigned((CODE_NCO_LENGTH_C -1) downto 0) := x"1A5DCBBB"; -- 10.23Mhz + 5000Hz
+constant CODE_NCO_INCR_E5_L5_U_C : unsigned((CODE_NCO_LENGTH_C -1) downto 0) := x"1A573376"; -- 10.23Mhz - 5000Hz
 --constant CODE_NCO_INCR_E5_L5_U_C : unsigned((CODE_NCO_LENGTH_C -1) downto 0) := x"02A2A65C"; -- 1.023MHz  44,213,852
 
 --constant FE_SELECT_SIZE : integer := integer(ceil(log2(real(NUM_FE_INPUTS_C))));
@@ -184,8 +186,15 @@ constant SIGNAL_TYPE_SIZE_I_C : integer := integer(ceil(log2(real(E5a_Q_SIGNAL))
 
 -- max_chip count length for correlator
 constant MAX_CHIP_COUNT_LENGTH_C        : integer := integer(ceil(log2(real(CODE_LENGTH_E5a_I_C))));
-constant MAX_CORR_LEN_MS_I_C : integer := 20;
-constant MAX_CORR_LEN_SIZE_I_C : integer := integer(ceil(log2(real(MAX_CORR_LEN_MS_I_C)))); -- 5
+
+-- Accumulate every 1ms
+--constant MAX_CORR_LEN_MS_I_C : integer := 20;
+constant MAX_CORR_LEN_MS_I_C : integer := 1;
+
+--constant MAX_CORR_LEN_SIZE_I_C : integer := integer(ceil(log2(real(MAX_CORR_LEN_MS_I_C)))); -- 5
+constant MAX_CORR_LEN_SIZE_I_C : integer := 1;
+
+
 -- code delay size, VE to VL is 1 chip for BOC(1,1)
 constant CODE_DELAY_SIZE_I_C        : integer := integer(ceil(real(SAMPLE_FREQ_C/CODE_FREQ_CA_E1B_i_C))); -- 98
 constant CODE_DELAY_MID_POINT_I_C   : integer := integer(ceil(real(CODE_DELAY_SIZE_I_C/2))); -- 49
@@ -202,7 +211,12 @@ constant MAX_NCO_COUNT_LENGTH_C        : integer := integer(ceil(log2(real(FAST_
 constant MAX_CYCLE_COUNT_I_C : integer := (SAMPLES_PER_TIC / 2);
 constant CYCLE_COUNT_SIZE_I_C : integer := integer(ceil(log2(real(MAX_CYCLE_COUNT_I_C))));
 
-constant DEF_CORR_EPOCHS_CA_I_C     : integer   := 20;
+-- ============================================
+--constant DEF_CORR_EPOCHS_CA_I_C     : integer   := 20;
+constant DEF_CORR_EPOCHS_CA_I_C     : integer   := 1;
+-- ============================================
+
+
 constant DEF_CORR_EPOCHS_E1B_I_C    : integer   := 1;
 constant MAX_SEC_CODE_LENGTH        : integer   := 250; 
 constant SEC_CODE_COUNT_SIZE_C      : integer   := integer(ceil(log2(real(MAX_SEC_CODE_LENGTH))));
@@ -219,7 +233,8 @@ constant ACCM_1MS_MAX_VALUE_I_C    : integer := MAX_CORR_LEN_MS_I_C * SAMPLES_PE
 constant ACC_1MS_SIZE_I_C         : integer := integer(ceil(log2(real(2*ACCM_1MS_MAX_VALUE_I_C)))); -- 24
 constant WORD_ADDR_BITS_I_C : integer := integer(ceil(log2(real(REG_WIDTH_C))));
 
-type accm_1ms_array_type is array ((MAX_CORR_LEN_MS_I_C - 1) downto 0) of std_logic_vector((REG_WIDTH_C - 1) downto 0);
+--type accm_1ms_array_type is array ((MAX_CORR_LEN_MS_I_C - 1) downto 0) of std_logic_vector((REG_WIDTH_C - 1) downto 0);
+type accm_1ms_array_type is array (20 - 1 downto 0) of std_logic_vector((REG_WIDTH_C - 1) downto 0);
 
 -- channel arrays
 type front_end_select_type                  is array ((MAX_CHAN_I_C - 1) downto 0) of std_logic_vector((FE_SELECT_SIZE - 1) downto 0);
@@ -379,8 +394,8 @@ x"9a",x"31",x"a9",x"3d",x"84",x"25",x"99",x"96",x"64",x"27",x"c4",x"09",
 x"f4",x"4e",x"d2",x"6f",x"3b",x"80",x"df",x"86");
 
 -- big_endian
--- type track_code_ram_type is array (0 to ADDR_WORDS_E5a_I_C) of std_logic_vector(0 to 31);
-type track_code_ram_type is array (0 to ADDR_WORDS_E5a_I_C) of std_logic_vector(31 downto 0);
+ type track_code_ram_type is array (0 to ADDR_WORDS_E5a_I_C) of std_logic_vector(0 to 31);
+--type track_code_ram_type is array (0 to ADDR_WORDS_E5a_I_C) of std_logic_vector(31 downto 0);
 constant CODE_PRN1_ROM_CA_C : track_code_ram_type :=(
 x"586D63EC",
 x"5675A837",

@@ -80,8 +80,9 @@ signal      s_axi_rready        : std_logic;
 
 signal      areset_n_b_in       : std_logic;
 signal      measurement_count_u : unsigned((MEAS_COUNT_SIZE_I_C -1) downto 0);
-           
-signal FERawValue :  unsigned(NUM_FE_BITS_C - 1 downto 0);
+         
+signal FERawValue : integer range -MAX_INPUT_AMP_C to MAX_INPUT_AMP_C;
+-- signal FERawValue :  signed(NUM_FE_BITS_C - 1 downto 0);
 signal FEValue :  std_logic_vector(NUM_FE_BITS_C - 1 downto 0);
            
 --           99.38382MHz
@@ -382,7 +383,7 @@ end process;
   
 read_data_input: process is
 use STD.TEXTIO.all;
-    file F: TEXT open READ_MODE is "FE_fs_99p375_MHz_skip_46500_int8.txt";
+    file F: TEXT open READ_MODE is "FE_fs_99p375_MHz_skip_46000_int8.txt";
     variable L: LINE;
     variable value: integer;
     begin
@@ -390,7 +391,7 @@ use STD.TEXTIO.all;
     if (areset_n_b_in = '0') then
         data_FE_sync_u <= (others => (others => '0'));
         FEValue <= (others => '0');
-        FERawValue <= (others => '0');
+        FERawValue <= 0;
     end if;
     while not ENDFILE(F)  loop
         wait until rising_edge(sample_clk_b_in);
@@ -398,15 +399,17 @@ use STD.TEXTIO.all;
 
         READLINE(F, L);
         READ(L, value);
-        FERawValue <= to_unsigned(value, NUM_FE_BITS_C);
+        FERawValue <= value;
 --        for i in 0 to (NUM_FE_INPUTS_C-1) loop
             if value = 3 then
                 FEValue <=  "01";
                 data_FE_sync_u(0) <=  "01";
             elsif value = 1 then
+            -- elsif value = -1 then
                 FEValue <=  "00";
                 data_FE_sync_u(0) <=  "00";
             elsif value = -1 then
+            -- elsif value = 1 then
                 FEValue <=  "10";
                 data_FE_sync_u(0) <=  "10";
             else
