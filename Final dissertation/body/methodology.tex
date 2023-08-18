@@ -1,6 +1,8 @@
 \chapter{Methodology}
 The methodology chapter is a pivotal component of this research, unveiling the systematic approach taken to address the specific goals and inquiries of the project. Within this chapter, an in-depth description of the research design, data collection methodologies, and analytical techniques deployed is meticulously presented. By offering a transparent and methodical account of the research process, this chapter safeguards the robustness and integrity of the study's outcomes.
 
+\section{FPGA}
+
 \section{Tracking}
 A complete GPS/GNSS work process includes acquisition, tracking and navigation. My project is mainly focused on the tracking stage.
 
@@ -88,8 +90,10 @@ In fact, the first interval is $0\sim127$, i.e. $00\ 0000\ 0000_{(2)}\sim00\  01
 In GPS L1, there are two types of ranging codes, C/A code and P(\textit{Precise}) code.C/A code sends 1023 chips per 1ms and P code sends 10230 chips per 1ms, which has a higher frequency and hence is more precise. Generally, P-codes are provided to military users and are encrypted for transmission. The encrypted P-code is known as the Y-code\cite{RN195}.
 
 Different satellites require different unique C/A codes with good correlation and balancing properties. Therefore, the use of PRN(\textit{Pseudorandom Noise}) codes is a natural fit\cite{RN197}.
-% PRN特征：
 
+Signals encoded using PRNs achieve established levels of coding performance with good compatibility. As you can see from its name, the PRN code is not really a random code. It can be pre-calculated. It possesses a very small value of cross-correlation or auto-correlation. However, using it for signal processing becomes more complicated\cite{RN200}.
+
+% 生成方法
 
 \subsection{Correlator}
 \subsubsection{Cross-Correlation}
