@@ -3,6 +3,8 @@ The methodology chapter is a pivotal component of this research, unveiling the s
 
 \section{FPGA}
 
+
+
 \section{Tracking}
 A complete GPS/GNSS work process includes acquisition, tracking and navigation. My project is mainly focused on the tracking stage.
 
@@ -87,16 +89,67 @@ In fact, the first interval is $0\sim127$, i.e. $00\ 0000\ 0000_{(2)}\sim00\  01
 \end{table}
 
 \subsection{Code Generator}
-In GPS L1, there are two types of ranging codes, C/A code and P(\textit{Precise}) code.C/A code sends 1023 chips per 1ms and P code sends 10230 chips per 1ms, which has a higher frequency and hence is more precise. Generally, P-codes are provided to military users and are encrypted for transmission. The encrypted P-code is known as the Y-code\cite{RN195}.
+In GPS L1, there are two types of ranging codes, C/A code and P(\textit{Precise}) code. C/A code sends 1023 chips per 1ms and P code sends 10230 chips per 1ms, which has a higher frequency and hence is more precise. Generally, P-codes are provided to military users and are encrypted for transmission. The encrypted P-code is known as the Y-code\cite{RN195}.
 
 Different satellites require different unique C/A codes with good correlation and balancing properties. Therefore, the use of PRN(\textit{Pseudorandom Noise}) codes is a natural fit\cite{RN197}.
 
-Signals encoded using PRNs achieve established levels of coding performance with good compatibility. As you can see from its name, the PRN code is not really a random code. It can be pre-calculated. It possesses a very small value of cross-correlation or auto-correlation. However, using it for signal processing becomes more complicated\cite{RN200}.
+Signals encoded using PRN achieve established levels of coding performance with good compatibility. As you can see from its name, the PRN code is not really a random code. It can be pre-calculated. It possesses a very small value of cross-correlation or auto-correlation. However, using it for signal processing becomes more complicated\cite{RN200}.
 
 % 生成方法
+Here are three ways to generate C/A codes\cite{RN196}, the PRN codes for GPS,
+\begin{itemize}
+    \item \textit{Linear Feedback Shift Register} (LFSR)
+    \item Memory codes
+    \item Hash functions
+\end{itemize}
+In fact, the most common way is to use LFSR or memory codes. 
+
+\subsubsection{LFSR}
+In simple, LFSR is a shift register. In order to generate the C/A code, we need two shift registers, called G1 generator and G2 generator. The result of exclusive-or(i.e., modulo-2 addition) between the output of G1 and the output of G2 is the C/A code. Before the exclusive-or, G2 needs to be delayed. The amount of delay is different for each satellite and this data can be queried in the ICD.
+
+\begin{figure}[!htbp]
+    \centering
+    \includesvg[width=0.8\textwidth]{_IMAGES/PPT2SVG/prn2.svg}
+    \caption{C/A Code Generator}
+    \label{fig:ca_gen}
+\end{figure}
+
+Figure \ref{fig:ca_gen} illustrates the structural scheme of the generator. The RPN code design specification requires that the G1 shift register needs to feed the modulo-2 sums of the third and tenth levels back to the first level. Therefore, the polynomial generator for G1 is $G1=1+X^3+X^{10}$. In order for the G2 shift register to generate the specified delay, we need to feed the specified levels back to the first level after the modulo-2 addition operation according to the PRN assignments table. PRN No.2 is used here as an example, and after consulting the assignments table\cite{RN170}, we know that the phase selection for C/A is: $3\xor 7$. Therefore, we need to modulo-2 sum add the third and seventh stages as the output of G2. The polynomial of G2 is $G2=1+X^2+X^3+X^5+X^8+X^9+X^{10}$. Finally, the outputs of G1 and G2 are modulo-2 added, and the result is the C/A code, or PRN No.2 code. The clock port is driven by the 1.023MHz signal.
+
+\subsubsection{Memory Codes}
+Nowadays, in order to save the computational resources of the processor, we can store the pre-generated 1023-bit PRN code in inexpensive ROM.
+
+\subsubsection{Pros and Cons of the LFSR and Memory Codes}
+LFSR:
+\begin{itemize}
+    \item + Known mathematical properties (balance, correlation properties) across families of codes
+    \item + Simple generation - one chip at a time with small resource requirements
+    \item - Limited in number
+\end{itemize}
+Memory codes:
+\begin{itemize}
+    \item + Potentially optimal
+    \item - Complex selection
+    \item - Requires memory on transmitter and receiver (all codes stored in non-volatile memory, possible latency issues)
+\end{itemize}
+In my project, I will use MATLAB to calculate the required PRN code in advance and store it in the ROM data type of VHDL
 
 \subsection{Correlator}
+The correlator is the core of the tracking module. It is used to track the received signal and generate the early, prompt, and late code. The correlator is also called the \textit{Code Tracking Loop} (CTL). The most important thing in a correlator is to perform correlation operations, which in this case involve cross-correlation operations.
+
 \subsubsection{Cross-Correlation}
+
+\subsubsection{Correlator}
+The correlator is a digital circuit that performs the correlation operation between the received signal and the local code. The correlation operation is an inner-production operation. The correlation operation is performed by multiplying the received signal with the local code and sum them up.
+
+\begin{figure}[!htbp]
+    \centering
+    \includesvg[width=0.8\textwidth]{_IMAGES/PPT2SVG/correlator_diagram.svg}
+    \caption{Architecture of the Correlator}
+    \label{fig:correlator}
+\end{figure}
+
+The correlation operation usually needs 6 correlators to perform the correlation operation at the same time. In this case, the signal is processed in I/Q phase respectively and each phase is required to multiply by the early, prompt, and late code respectively as well. Therefore, there will be 6 correlators. The correlator is shown in figure \ref{fig:correlator}.
 
 \subsection{Doppler}
 
