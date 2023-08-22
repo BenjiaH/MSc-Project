@@ -7,9 +7,10 @@ u1 = ones(1, 5);
 u2 = zeros(1, 9);
 u3 = ones(1, 6);
 u4 = zeros(1, 20);
+shiftBits = 9;
 
 squareSignal = [u0, u1 , u2, u3, u4];
-copySquareSignal = circshift(squareSignal, 9);
+copySquareSignal = circshift(squareSignal, shiftBits);
 [ac, aclags] = xcorr(squareSignal, squareSignal);
 [cc, cclags] = xcorr(squareSignal, copySquareSignal);
 
@@ -55,7 +56,8 @@ grid on;
 ylim([0 1.1]);
 xlabel("Time");
 ylabel("Amplitude");
-title("Delayed signal");
+titelStr = sprintf("Delayed signal(Shift %d bit(s))", shiftBits);
+title(titelStr);
 
 subplot(3, 2, 6);
 stem(cclags, cc);
