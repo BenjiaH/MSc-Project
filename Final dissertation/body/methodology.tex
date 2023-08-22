@@ -135,12 +135,43 @@ Memory codes:
 In my project, I will use MATLAB to calculate the required PRN code in advance and store it in the ROM data type of VHDL
 
 \subsection{Correlator}
-The correlator is the core of the tracking module. It is used to track the received signal and generate the early, prompt, and late code. The correlator is also called the \textit{Code Tracking Loop} (CTL). The most important thing in a correlator is to perform correlation operations, which in this case involve cross-correlation operations.
+The correlator is the core of the tracking module. It is used to track the received signal and generate the early, prompt, and late codes. The correlator is also called the \textit{Code Tracking Loop} (CTL). The most important thing in a correlator is to perform correlation operations, which in this case involve cross-correlation operations.
 
 \subsubsection{Cross-Correlation}
+Correlation functions are divided into two categories: auto-correlation functions and cross-correlation functions.
+Correlation is a matching process that gives the similarity of two signals \cite{RN202}, defined by equation \ref{equ:auto_corr}.
+\begin{equation}
+    R_f(\tau)=\int_{-\infty}^{\infty}f(t)f(t+\tau)dt \quad for -\infty<\tau<\infty
+    \label{equ:auto_corr}
+\end{equation}
+
+Where $x(t)$ is the signal itself. When the functions in the integrated function are the same, the $R_x(\tau)$ is then called an auto-correlation function which measures how closely a signal matches a copy of itself and the delay between these two signals.
+
+If two functions or signals are not equal, they are said to be cross-correlation functions \cite{RN201}, defined as,
+\begin{equation}
+    R_{f\star g}(\tau)=\int_{-\infty}^{\infty}f(t)g(t+\tau)dt \quad for -\infty<\tau<\infty
+    \label{equ:cross_corr}
+\end{equation}
+
+When the signal is discrete, equation \ref{equ:cross_corr} should be transformed into equation \ref{equ:discrete_cross_corr}. In fact, it's the scalar product of the two signals. 
+\begin{equation}
+    R_{f\star g}[n]=\sum_{m=-\infty}^{\infty}f(m)g(m+n) \quad for -\infty<m<\infty
+    \label{equ:discrete_cross_corr}
+\end{equation}
+
+\begin{figure}[!htbp]
+    \centering
+    \includesvg[width=0.8\textwidth]{_IMAGES/PPT2SVG/corre_function.svg}
+    \caption{Comparison of Auto-correlation and Cross-correlation}
+    \label{fig:corre_function}
+\end{figure}
+
+Figure \ref{fig:corre_function} shows a visual comparison of auto-correlation and mutual correlation. Where the index of the peak of the cross-correlation is the delay value.
+
+That is, as two signals become more similar their correlation function becomes larger. In GPS/GNSS receivers, we need to use the cross-correlation function to measure the delay between the GPS signal and the local code to synchronise.
 
 \subsubsection{Correlator}
-The correlator is a digital circuit that performs the correlation operation between the received signal and the local code. The correlation operation is an inner-production operation. The correlation operation is performed by multiplying the received signal with the local code and sum them up.
+The correlator is a digital circuit that performs the correlation operation between the received signal and the local code. The correlation operation is an inner-production operation. The correlation operation is performed by multiplying the received signal with the local code and summing them up.
 
 \begin{figure}[!htbp]
     \centering
@@ -149,7 +180,7 @@ The correlator is a digital circuit that performs the correlation operation betw
     \label{fig:correlator}
 \end{figure}
 
-The correlation operation usually needs 6 correlators to perform the correlation operation at the same time. In this case, the signal is processed in I/Q phase respectively and each phase is required to multiply by the early, prompt, and late code respectively as well. Therefore, there will be 6 correlators. The correlator is shown in figure \ref{fig:correlator}.
+The correlation operation usually needs 6 correlators to perform the correlation operation at the same time. In this case, the signal is processed in the I/Q phase respectively and each phase is required to multiply by the early, prompt, and late code respectively as well. Therefore, there will be 6 correlators. The structure of the GPS correlator is shown in figure \ref{fig:correlator}.
 
 \subsection{Doppler}
 
