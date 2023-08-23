@@ -1,4 +1,4 @@
-\cleardoublepage
+\myClearDoublePage
 \chapter{Methodology}
 The methodology chapter is a pivotal component of this research, unveiling the systematic approach taken to address the specific goals and inquiries of the project. Within this chapter, an in-depth description of the research design, data collection methodologies, and analytical techniques deployed is meticulously presented. By offering a transparent and methodical account of the research process, this chapter safeguards the robustness and integrity of the study's outcomes.
 
@@ -214,8 +214,9 @@ To verify the correctness of the results, this project will use open-source code
 \subsection{Hardware Verification}
 Verification is an important step in FPGA development that saves time by quickly identifying faults in the code. It also prevents faults from being carried over to the next stage of the chip such as ASICs, which saves a lot of cost \cite{RN204}. There are three main verification methods for developing FPGAs: behavioural simulation, post-synthesis functional simulation and post-implementation functional simulation\cite{RN205}. Due to the time constraints of the project, only behavioural simulation was used for this project.
 \begin{itemize}
-    \item Behavioural Simulation:
-    \item Post-Synthesis Functional Simulation:
-    \item Post-Implementation Functional Simulation: 
+    \item Behavioural Simulation:\\RTL-level simulation allows us to simulate and verify your design before any transformations are performed by synthesis or implementation tools. We can verify your design as a module, block, or system.\\
+    Typically, RTL simulation is performed to verify code syntax and confirm that the code functions as expected. In this step, the design is described primarily in RTL, so no timing information is required.
+    \item Post-Synthesis Functional Simulation:\\It allows simulation of synthesized netlists to verify that the synthesized design meets functional requirements and behaves as expected.
+    \item Post-Implementation Functional Simulation:\\We can perform either functional simulation or timing simulation after implementation. Timing simulation is the closest simulation to actually downloading the design into the device. It allows you to ensure that the implemented design meets the functional and timing requirements and that the behaviour within the device matches the desired behaviour.
 \end{itemize}
 

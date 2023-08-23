@@ -131,22 +131,26 @@
 }
 
 \def\body{
-    % \pageHeaderNumPos{R}
     \cleardoublepage
+    % \addOddPage
     \pagestyle{uheadings}
     \tableofcontents
     \pagestyle{plain}
+    
     \cleardoublepage
     \pagestyle{uheadings}
     \listoftables
     \pagestyle{plain}
+    
     \cleardoublepage
     \pagestyle{uheadings}
     \listoffigures
     \pagestyle{plain}
+    
     \cleardoublepage
     \pagestyle{uheadings}
     \pagenumbering{arabic}
+    
     \doublespacing
     \pageHeaderNumPos{R}
 }

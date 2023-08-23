@@ -25,6 +25,12 @@
 \usepackage{hyperref}
 \hypersetup{hidelinks} 
 
+% My symbols
+\newcommand{\xor}{\oplus}
+
+% Merge cells in a row
+\usepackage{multirow}
+
 % Set the position of the page number
 \usepackage{fancyhdr}
 \newcommand{\pageHeaderNumPos}[1]{
@@ -128,5 +134,36 @@
 \newcommand{\dquotes}[1]{``#1''}
 \newcommand{\squotes}[1]{`#1'}
 
-% My symbols
-\newcommand{\xor}{\oplus}
+% Copy version
+% printVersion = 0 for softcopy; printVersion = 1 for hardcopy
+\newcount\printVersion
+\printVersion = 1
+% Hardcopy
+\newcommand{\enableHardcopy}{
+}
+% Softcopy
+\newcommand{\enableSoftcopy}{
+}
+
+% Clear double-page
+\newcommand{\myClearDoublePage}{
+    \ifnum\printVersion=0
+    % \cleardoublepage
+    \else
+        \cleardoublepage
+    \fi
+}
+
+\newcommand{\addOddPage}{
+    \ifnum\printVersion=0
+    % \cleardoublepage
+    \else
+        \checkoddpage
+        \ifoddpage
+        \else
+            \newpage
+            \mbox{}
+        \fi
+    \fi
+}
+

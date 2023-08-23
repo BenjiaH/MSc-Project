@@ -1,12 +1,43 @@
+\myClearDoublePage
 \chapter{Implementation}
 
-Containing a comprehensive description of the implementation of your software, including the language(s) and platform chosen, problems encountered, any changes made to the design as a result of the implementation, etc.
+The previous section focused on the theoretical approach to designing a tracking module for a receiver, and this chapter will explain the specific practical process and the problems encountered during the process. This project mainly implements the tracking module on a GPS receiver, please note that this is only a separate module and does not realise the full receiver functionality. It also has RF front-end and acquisition modules in the front module, and ranging modules as well as navigation modules in the back module. The project in fact has a hypothetical target device, but based on the current conditions, the main use of VHDL for code writing, as well as behavioural simulation to verify the results, will not be on-board operations.
 
 \section{System Architecture}
 \subsection{RF Front-end}
-The RF (\textit{Radio Frequency}) front-end is a device that collect any signals you expect.
+
+The RF front-end is a device that collects any signals you expect. In this project, we will use \textit{NT1065\_FMC2} as our front-end. This device is designed to receive GPS, GLONASS, Galileo, BeiDou, IRNSS, QZSS and L1, L2, L3, L5, E1, E5a, E5b, E6, B1, B2, B3 bands. It has an FMC(\textit{FPGA Mezzanine Card}) interface, which allows it to have a faster transfer rate to the Xilinx board \cite{RN206}. Here is its key specification table.
+
+\begin{table}[!htbp]
+\centering
+\caption{Key Specification of \textit{NT1065\_FMC2}}\label{tab:nt1065}
+\renewcommand\arraystretch{1.5}
+\begin{tabular}{cc}
+    \toprule
+    Content & Specification \\
+    \midrule
+    Chip & NT1065 \\
+    Number of channels & 4 \\
+    \multirow{2}{*}{Reference frequency sources} & 10 MHz TCXO \\
+     & 24.84 MHz TCXO \\
+    Bit width of ADC & 2 bits \\
+    \bottomrule
+\end{tabular}
+\end{table}
+
+
+\subsection{FPGA Board}
+
+\section{Develop Environment}
+\subsection{Vivado}
+\subsection{Modelsim}
+\subsection{MATLAB}
+
+\section{}
+
+
 
 \subsection{Acquisition}
-\section{Develop Environment} 
+
 Vivado
 
