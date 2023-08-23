@@ -208,7 +208,14 @@ In this case, the speed of movement has changed to the projection of the speed o
 \end{equation}
 
 \section{Verification}
-Where $v$ is the relative velocity between the transmitter and receiver, which is negative if its distance becomes small and positive if the distance becomes large. $\lambda$ is the wavelength of the signal \cite{RN203}. In this example, however, the transmitter and receiver are moving in the same straight line. When this requirement is not met, we need to correct the formula.
-\subsection{Behavioural Simulation}
-\subsection{Post-Synthesis Functional Simulation}
-\subsection{Post-Implementation Functional Simulation}
+\subsection{Software Verification}
+To verify the correctness of the results, this project will use open-source code \textit{SoftGNSS} for Matlab simulation. Also, the results of the simulation will help me to debug the code better.
+
+\subsection{Hardware Verification}
+Verification is an important step in FPGA development that saves time by quickly identifying faults in the code. It also prevents faults from being carried over to the next stage of the chip such as ASICs, which saves a lot of cost \cite{RN204}. There are three main verification methods for developing FPGAs: behavioural simulation, post-synthesis functional simulation and post-implementation functional simulation\cite{RN205}. Due to the time constraints of the project, only behavioural simulation was used for this project.
+\begin{itemize}
+    \item Behavioural Simulation:
+    \item Post-Synthesis Functional Simulation:
+    \item Post-Implementation Functional Simulation: 
+\end{itemize}
+
