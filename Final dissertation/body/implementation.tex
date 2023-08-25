@@ -37,7 +37,7 @@ The FPGA board is the core module of this project. It will process the acquisiti
 
 \begin{table}[!htbp]
 \centering
-\caption{Key Specification of KCU105 Evaluation Board}
+\caption{Key Specification of \textit{KCU105 Evaluation Board}}
 \label{tab:kcu105}
 \renewcommand\arraystretch{1.5}
 \begin{tabular}{cc}
@@ -46,7 +46,7 @@ The FPGA board is the core module of this project. It will process the acquisiti
     \midrule
     Chip & XCKU040-2FFVA1156E FPGA \\
     System Logic Cells (K) & 530 \\
-    DSP Slices & 1,920 \\
+    DSP Slices & \num{1920} \\
     Block RAM (Mb) & 21.1 \\
     16.3Gb/s Transceivers & 20 \\
     I/O Pins & 520 \\
@@ -76,23 +76,73 @@ As we are planning to use FPGA from \textit{Xilinx}, we are supposed to code in 
 \subsection{MATLAB}
 Matlab is a high-level programming environment and language renowned for its versatility in numerical computing, data analysis, and algorithm development. Used across various fields, from engineering to finance, it offers extensive libraries and tools for modelling, simulation, and solving complex mathematical problems, making it indispensable in research and industry. The reason for using it is to run the \textit{SoftGNSS} to verify my design as well.
 
+\section{Signal Analyse and Pre-process}
+At the beginning of the project, the only data known to us were the input signals. Therefore it is very crucial to analyse and pre-process the input signals. I will be using MATLAB to analyse the data and the figure below shows the results of my analysis.
+
+\begin{figure}[!htbp]
+    \centering
+    \includesvg[width=0.8\textwidth]{_IMAGES/PPT2SVG/signal_info.svg}
+    \caption{Signal Analyse}
+    \label{fig:sig_info}
+\end{figure}
+
+From the frequency domain in figure \ref{fig:sig_info}, we can see the IF is about 14.7025MHz. This is in line with our expectations. Also a perfect spectrum of signals can be seen, proving that I'm picking up the correct GPS signals. We should take note of the histogram, which provides us with a lot of basis. We can calculate the noise floor based on it, and we can also verify that we are reading the right data on the testbench based on its distribution. The following table \ref{tab:dis_sig} shows the distribution information of the input signals.
+
+\begin{table}[!htbp]
+\centering
+\renewcommand\arraystretch{1.5}
+\caption{Distribution Table of the Input Signal}
+\label{tab:dis_sig}
+\begin{tabular}{ccc}
+    \toprule
+    Value & Counts & Percentage (\%) \\
+    \midrule
+    -3 & \num{141278} & 14.22 \\
+    -1 & \num{337040} & 33.92 \\
+    1 & \num{346219} & 34.84 \\
+    3 & \num{169213} & 17.03 \\
+    \bottomrule
+\end{tabular}
+\end{table}
+
+In addition, the basic information will be shown in table \ref{tab:sig_info}.
+
+\begin{table}[!htbp]
+\centering
+\renewcommand\arraystretch{1.5}
+\caption{Basic Infomation of the Signal}
+\label{tab:sig_info}
+\begin{tabular}{cc}
+    \toprule
+    \multicolumn{2}{c}{Basic Infomation of the Signal} \\
+    \midrule
+    IF (MHz) & 14.58 \\
+    Sampling frequency (MHz) & 99.375 \\
+    Code frequency (MHz) & 1.023 \\
+    Data type & int 8 \\
+    Samples/code & \num{99375} \\
+    Accumulate time (ms) & 1 \\
+    \bottomrule
+\end{tabular}
+\end{table}
+
 \section{Tracking}
 Before tracking, we need the acquisition result. The part has been done on the \textit{SoftGNSS}. Here are the results.
 
 \begin{table}[!htbp]
 \centering
+\renewcommand\arraystretch{1.5}
 \caption{Results of the Acquisition}
 \label{tab:result_acqu}
-\renewcommand\arraystretch{1.5}
 \begin{tabular}{cc}
     \toprule
     \multicolumn{2}{c}{Result} \\
     \midrule
-    Chopped bits & 46500 \\
+    Chopped bits & \num{46500} \\
     PRN (\textnumero) & 2 \\
-    Frequency (MHz) & 14.5778 \\
+    IF (MHz) & 14.5778 \\
     Doppler (Hz) & 2200 \\
-    Code offset & 162 \\
+    Code offset (Chips) & 162 \\
     \bottomrule
 \end{tabular}
 \end{table}
@@ -100,4 +150,41 @@ Before tracking, we need the acquisition result. The part has been done on the \
 These results are fed directly into the tracking stage.
 
 \subsection{NCO}
-The NCO block is driven by a 99.375MHz signal. Firstly, we need to obtain the FSW. The bit width of the PA is 32 bits. The required carrier frequency is 
+The NCO block is driven by a 99.375MHz signal. Firstly, we need to obtain the FSW. The bit width of the PA is 32 bits and the search frequency is 500Hz. The required carrier frequency is $IF+Doppler$, which is 14.5822MHz. 
+
+However, the code frequency is a bit different. To obtain that, we will first introduce the search frequency. The search frequency allows us to let the local code block slide to determine to inner product. We are expecting to have half a chip more per millisecond, i.e., 0.5 chips/ms. Therefore, the search frequency is 500Hz.Here is the diagram of search frequency.
+
+\begin{figure}[!htbp]
+    \centering
+    \includesvg[width=0.8\textwidth]{_IMAGES/PPT2SVG/search_frequency.svg}
+    \caption{Diagram of Search Frequency}
+    \label{fig:search_frequency}
+\end{figure}
+
+The required code frequency is $Code\  frequency-Search\ frequency = 1.0225Mhz$ then. Using the equation \ref{equ:nco}, we can determine the proper increment value or FSW.
+
+\begin{equation}
+    (increment\ value) = \frac{Requied\ frequency}{Sampling\ frequency} \times 2^{PA\ bit\ width}
+\end{equation}
+
+In order to be able to track 10.23MHz C/A codes in the future, the 10.23MHz signal will first be generated using the NCO and a $1/10$ divider will be used to obtain a 1.023MHz signal. Therefore, the FSWs for carrier and code are \num{630239720} and \num{441922422}.
+
+As for the design of VHDL, essentially, the PA is a counter, except that each clock does not increment by 1 but by a specified value based on FSW. It is also possible to set the overflow value. After the overflow value is reached, the counter will be set to 0.
+
+Since we only need two-bit width carrier signals, the lookup table for the NCO will be very simple, as shown in the table below.
+\begin{table}[]
+\caption{Distribution Table of the Input Signal}
+\label{tab:dis_sig}
+\begin{tabular}{ccc}
+ & Cosine & Sine \\
+Phase & \multicolumn{2}{c}{Amplitude} \\
+000 & 2 & -1 \\
+001 & 2 & 1 \\
+010 & 1 & 2 \\
+011 & -1 & 2 \\
+100 & -2 & 1 \\
+101 & -2 & -1 \\
+110 & -1 & -2 \\
+111 & 1 & -2
+\end{tabular}
+\end{table}
