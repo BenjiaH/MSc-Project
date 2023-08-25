@@ -1,1 +1,0 @@
-selectedChannelWrite_i : 当前写入配置通道的编号[0:21]

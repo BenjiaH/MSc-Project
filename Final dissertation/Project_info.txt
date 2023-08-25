@@ -1,5 +1,0 @@
-Develop a GPS/GNSS receiver: 
-Design of Correlators for GNSS Receivers Based on VHDL
-Author: Yaowen Hu
-Supervisor: Dr Paul Blunt
-Moderator: Dr Sendy Phang
