@@ -1,0 +1,190 @@
+\myClearDoublePage
+\chapter{Implementation}
+
+The previous section focused on the theoretical approach to designing a tracking module for a receiver, and this chapter will explain the specific practical process and the problems encountered during the process. This project mainly implements the tracking module on a GPS receiver, please note that this is only a separate module and does not realise the full receiver functionality. It also has RF front-end and acquisition modules in the front module, and ranging modules as well as navigation modules in the back module. The project in fact has a hypothetical target device, but based on the current conditions, the main use of VHDL for code writing, as well as behavioural simulation to verify the results, will not be on-board operations.
+
+\section{System Architecture}
+\subsection{RF Front-end}
+
+The RF front-end is a device that collects any signals you expect. In this project, we will use \textit{NT1065\_FMC2} as our front-end. This device is designed to receive GPS, GLONASS, Galileo, BeiDou, IRNSS, QZSS and L1, L2, L3, L5, E1, E5a, E5b, E6, B1, B2, B3 bands. It has an FMC(\textit{FPGA Mezzanine Card}) interface, which allows it to have a faster transfer rate to the Xilinx board \cite{RN206}. Figure \ref{fig:nt1065} shows the device's appearance. Here is its key specification table.
+
+\begin{table}[!htbp]
+\centering
+\caption{Key Specification of \textit{NT1065\_FMC2}}\label{tab:nt1065}
+\renewcommand\arraystretch{1.5}
+\begin{tabular}{cc}
+    \toprule
+    Content & Specifications \\
+    \midrule
+    Chip & NT1065 \\
+    Number of channels & 4 \\
+    \multirow{2}{*}{Reference frequency sources (MHz)} & TCXO 10 \\
+     & TCXO 24.84 \\
+    Bit width of ADC (bits) & 2 \\
+    \bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{_IMAGES/fmc-2-nt1065.png}
+    \caption{\textit{NT1065\_FMC2}}
+    \label{fig:nt1065}
+\end{figure}
+
+\subsection{FPGA Board}
+The FPGA board is the core module of this project. It will process the acquisition, tracking and navigation stages. The board we choose is \textit{KCU105 Evaluation Board} from \textit{AMD Xilinx}. It's very powerful. Its specification and appearance will be shown below.
+
+\begin{table}[!htbp]
+\centering
+\caption{Key Specification of \textit{KCU105 Evaluation Board}}
+\label{tab:kcu105}
+\renewcommand\arraystretch{1.5}
+\begin{tabular}{cc}
+    \toprule
+    Content & Specifications \\
+    \midrule
+    Chip & XCKU040-2FFVA1156E FPGA \\
+    System Logic Cells (K) & 530 \\
+    DSP Slices & \num{1920} \\
+    Block RAM (Mb) & 21.1 \\
+    16.3Gb/s Transceivers & 20 \\
+    I/O Pins & 520 \\
+    \multirow{3}{*}{Memory} & 2GB DDR4 component memory \\
+     & 64MB flash \\
+     & 8Kb EEPROM \\
+     \bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{_IMAGES/KCU105_evaluation_board.png}
+    \caption{\textit{KCU105 Evaluation Board}}
+    \label{fig:kcu105}
+\end{figure}
+
+\section{Develop Environment}
+\subsection{Vivado}
+As we are planning to use FPGA from \textit{Xilinx}, we are supposed to code in \textit{Vivado}. It is a powerful and versatile integrated development environment (IDE) created by Xilinx for FPGA and SoC development. It offers a comprehensive suite of tools and features for designing, implementing, and programming FPGAs and SoCs, enabling engineers to create custom digital hardware solutions. With its user-friendly interface and advanced design automation capabilities, \textit{Vivado} simplifies the process of hardware design, synthesis, verification, and debugging. It supports a wide range of Xilinx devices, making it a go-to tool for hardware engineers and developers working on cutting-edge applications in industries like telecommunications, aerospace, and embedded systems. The version we use is \textbf{2018.3}. The reason for that is that it is stable but not outdated.
+
+\subsection{ModelSim}
+\textit{ModelSim} is used to verify the design. We will run the simulation and check all the waveforms of the key signal. \textit{ModelSim} is a leading digital simulation and verification tool by Mentor Graphics, now a part of Siemens. It's widely used for designing and testing digital systems, enabling engineers to simulate hardware description languages like VHDL and Verilog. \textit{ModelSim} assists in debugging, verification, and validation of complex digital designs in various industries.
+
+\textit{ModelSim} is particularly compatible with Vivado, and when used in conjunction with it, you get twice the result with half the effort, and it can quickly locate code errors.
+
+\subsection{MATLAB}
+Matlab is a high-level programming environment and language renowned for its versatility in numerical computing, data analysis, and algorithm development. Used across various fields, from engineering to finance, it offers extensive libraries and tools for modelling, simulation, and solving complex mathematical problems, making it indispensable in research and industry. The reason for using it is to run the \textit{SoftGNSS} to verify my design as well.
+
+\section{Signal Analyse and Pre-process}
+At the beginning of the project, the only data known to us were the input signals. Therefore it is very crucial to analyse and pre-process the input signals. I will be using MATLAB to analyse the data and the figure below shows the results of my analysis.
+
+\begin{figure}[!htbp]
+    \centering
+    \includesvg[width=0.8\textwidth]{_IMAGES/PPT2SVG/signal_info.svg}
+    \caption{Signal Analyse}
+    \label{fig:sig_info}
+\end{figure}
+
+From the frequency domain in figure \ref{fig:sig_info}, we can see the IF is about 14.7025MHz. This is in line with our expectations. Also a perfect spectrum of signals can be seen, proving that I'm picking up the correct GPS signals. We should take note of the histogram, which provides us with a lot of basis. We can calculate the noise floor based on it, and we can also verify that we are reading the right data on the testbench based on its distribution. The following table \ref{tab:dis_sig} shows the distribution information of the input signals.
+
+\begin{table}[!htbp]
+\centering
+\renewcommand\arraystretch{1.5}
+\caption{Distribution Table of the Input Signal}
+\label{tab:dis_sig}
+\begin{tabular}{ccc}
+    \toprule
+    Value & Counts & Percentage (\%) \\
+    \midrule
+    -3 & \num{141278} & 14.22 \\
+    -1 & \num{337040} & 33.92 \\
+    1 & \num{346219} & 34.84 \\
+    3 & \num{169213} & 17.03 \\
+    \bottomrule
+\end{tabular}
+\end{table}
+
+In addition, the basic information will be shown in table \ref{tab:sig_info}.
+
+\begin{table}[!htbp]
+\centering
+\renewcommand\arraystretch{1.5}
+\caption{Basic Infomation of the Signal}
+\label{tab:sig_info}
+\begin{tabular}{cc}
+    \toprule
+    \multicolumn{2}{c}{Basic Infomation of the Signal} \\
+    \midrule
+    IF (MHz) & 14.58 \\
+    Sampling frequency (MHz) & 99.375 \\
+    Code frequency (MHz) & 1.023 \\
+    Data type & int 8 \\
+    Samples/code & \num{99375} \\
+    Accumulate time (ms) & 1 \\
+    \bottomrule
+\end{tabular}
+\end{table}
+
+\section{Tracking}
+Before tracking, we need the acquisition result. The part has been done on the \textit{SoftGNSS}. Here are the results.
+
+\begin{table}[!htbp]
+\centering
+\renewcommand\arraystretch{1.5}
+\caption{Results of the Acquisition}
+\label{tab:result_acqu}
+\begin{tabular}{cc}
+    \toprule
+    \multicolumn{2}{c}{Result} \\
+    \midrule
+    Chopped bits & \num{46500} \\
+    PRN (\textnumero) & 2 \\
+    IF (MHz) & 14.5778 \\
+    Doppler (Hz) & 2200 \\
+    Code offset (Chips) & 162 \\
+    \bottomrule
+\end{tabular}
+\end{table}
+
+These results are fed directly into the tracking stage.
+
+\subsection{NCO}
+The NCO block is driven by a 99.375MHz signal. Firstly, we need to obtain the FSW. The bit width of the PA is 32 bits and the search frequency is 500Hz. The required carrier frequency is $IF+Doppler$, which is 14.5822MHz. 
+
+However, the code frequency is a bit different. To obtain that, we will first introduce the search frequency. The search frequency allows us to let the local code block slide to determine to inner product. We are expecting to have half a chip more per millisecond, i.e., 0.5 chips/ms. Therefore, the search frequency is 500Hz.Here is the diagram of search frequency.
+
+\begin{figure}[!htbp]
+    \centering
+    \includesvg[width=0.8\textwidth]{_IMAGES/PPT2SVG/search_frequency.svg}
+    \caption{Diagram of Search Frequency}
+    \label{fig:search_frequency}
+\end{figure}
+
+The required code frequency is $Code\  frequency-Search\ frequency = 1.0225Mhz$ then. Using the equation \ref{equ:nco}, we can determine the proper increment value or FSW.
+
+\begin{equation}
+    (increment\ value) = \frac{Requied\ frequency}{Sampling\ frequency} \times 2^{PA\ bit\ width}
+\end{equation}
+
+In order to be able to track 10.23MHz C/A codes in the future, the 10.23MHz signal will first be generated using the NCO and a $1/10$ divider will be used to obtain a 1.023MHz signal. Therefore, the FSWs for carrier and code are \num{630239720} and \num{441922422}.
+
+As for the design of VHDL, essentially, the PA is a counter, except that each clock does not increment by 1 but by a specified value based on FSW. It is also possible to set the overflow value. After the overflow value is reached, the counter will be set to 0.
+
+Since we only need two-bit width carrier signals, the lookup table for the NCO will be very simple, as shown in the table below.
+\begin{table}[]
+\caption{Distribution Table of the Input Signal}
+\label{tab:dis_sig}
+\begin{tabular}{ccc}
+ & Cosine & Sine \\
+Phase & \multicolumn{2}{c}{Amplitude} \\
+000 & 2 & -1 \\
+001 & 2 & 1 \\
+010 & 1 & 2 \\
+011 & -1 & 2 \\
+100 & -2 & 1 \\
+101 & -2 & -1 \\
+110 & -1 & -2 \\
+111 & 1 & -2
+\end{tabular}
+\end{table}
