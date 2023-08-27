@@ -34,7 +34,7 @@ The NCO is a signal generator that produces a specified frequency. It can genera
     \footnotesize Note: *FSW: \textit{Frequency Setting Word}
 \end{figure}
 
-\subsubsection{Phase Accumulator} \label{pa_subsubsection}
+\subsubsection{Phase Accumulator} \label{subsec:pa_subsubsection}
 The phase accumulator will complete an accumulation in each clock cycle according to the set increment value. In other words, the accumulator outputs the address of the look-up table so that the look-up table generates the correct sine-cosine signal\cite{RN191}. By setting the increment value, the look-up table is made to sample in a controlled manner.
 
 Here, we assume that the bit width of the accumulator is 32 bits. The ratio of the incremental 32-bit value to the fixed \num{4294967296} accumulator overflow value determines how often the overflow occurs. This controls the triggering of the NCO output waveform. The equation is as follows,
@@ -52,7 +52,7 @@ This look-up table contains all the magnitude values in a cycle. The magnitude v
 
 In fact, we can save resources by \dquotes{cunningly} designing look-up tables\cite{RN193}. Such an operation also allows us to easily control the resolution of the NCO output. Below I will describe the method of designing a look-up table.
 
-Firstly, according to the subsection \ref{pa_subsubsection}(Phase Accumulator), we are able to plot the phase function. Below is the phase function that I am plotting using MATLAB.
+Firstly, according to the subsection \ref{subsec:pa_subsubsection}(Phase Accumulator), we are able to plot the phase function. Below is the phase function that I am plotting using MATLAB.
 
 \begin{figure}[!htbp]
     \centering

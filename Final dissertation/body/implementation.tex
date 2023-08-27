@@ -95,7 +95,7 @@ From the frequency domain in figure \ref{fig:sig_info}, we can see the IF is abo
 \label{tab:dis_sig}
 \begin{tabular}{ccc}
     \toprule
-    Value & Counts & Percentage (\%) \\
+    Level & Counts & Percentage (\%) \\
     \midrule
     -3 & \num{141278} & 14.22 \\
     -1 & \num{337040} & 33.92 \\
@@ -105,16 +105,43 @@ From the frequency domain in figure \ref{fig:sig_info}, we can see the IF is abo
 \end{tabular}
 \end{table}
 
+The following table shows the mean square at different input signal levels.
+\begin{table}[!htbp]
+    \centering
+    \renewcommand\arraystretch{1.5}
+    \caption{Mean Square Accumulation Values}
+    \label{tab:mean_square}
+    \begin{tabular}{cc}
+        \toprule
+        Level & Mean square \\
+        \midrule
+        -3 & 22.5 \\
+        -1 & 2.5 \\
+        1 & 2.5 \\
+        3 & 22.5 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Combining the mean square accumulation values from table \ref{tab:mean_square}, with the distribution of the input signal from table \ref{tab:dis_sig}, results in the following theoretical noise floor value for one accumulation period $T$ i.e.,1ms.
+
+\begin{equation}
+    NF = 2\times ((14.22\%+17.03\%) \times 22.5 + (33.92\%+34.84\%) \times 2.5)\times f_s \times T \approx = \num{1739122}
+\end{equation}
+
+Where, $NF$ is the noise floor value, $f_s=99.375MHz$ and, $T=1ms=1\times 10^{-3}s$. That is, this system has a floor noise of \num{1739122}.
+
 In addition, the basic information will be shown in table \ref{tab:sig_info}.
 
 \begin{table}[!htbp]
 \centering
 \renewcommand\arraystretch{1.5}
-\caption{Basic Infomation of the Signal}
+\caption{Basic Information of the Signal}
 \label{tab:sig_info}
 \begin{tabular}{cc}
     \toprule
-    \multicolumn{2}{c}{Basic Infomation of the Signal} \\
+    % \multicolumn{2}{c}{Basic Infomation of the Signal} \\
+    Specifications & Values \\
     \midrule
     IF (MHz) & 14.58 \\
     Sampling frequency (MHz) & 99.375 \\
@@ -136,23 +163,33 @@ Before tracking, we need the acquisition result. The part has been done on the \
 \label{tab:result_acqu}
 \begin{tabular}{cc}
     \toprule
-    \multicolumn{2}{c}{Result} \\
+    % \multicolumn{2}{c}{Result} \\
+    Specifications & Values \\
     \midrule
-    Chopped bits & \num{46500} \\
+    Chopped bits & \num{46250} \\
     PRN (\textnumero) & 2 \\
     IF (MHz) & 14.5778 \\
     Doppler (Hz) & 2200 \\
-    Code offset (Chips) & 162 \\
+    Code offset (Chips) & \num{412} \\
     \bottomrule
 \end{tabular}
 \end{table}
 
-These results are fed directly into the tracking stage.
+These results are fed directly into the tracking stage. And to ensure that I got the correct input data from the front-end. I will save the input data from the testbench and plot the histogram of it like the figure \ref{fig:sig_info}. The histogram is shown in figure \ref{fig:input_his}.
+
+\begin{figure}[!htbp]
+    \centering
+    \includesvg[width=0.6\textwidth]{_IMAGES/PPT2SVG/input_his.svg}
+    \caption{Histogram of Input Data from Testbench}
+    \label{fig:input_his}
+\end{figure}
+
+Obviously the input signal is correctly distributed across the values, and I'm getting the correct input signal. This is an important way to check if the results are correct.
 
 \subsection{NCO}
 The NCO block is driven by a 99.375MHz signal. Firstly, we need to obtain the FSW. The bit width of the PA is 32 bits and the search frequency is 500Hz. The required carrier frequency is $IF+Doppler$, which is 14.5822MHz. 
 
-However, the code frequency is a bit different. To obtain that, we will first introduce the search frequency. The search frequency allows us to let the local code block slide to determine to inner product. We are expecting to have half a chip more per millisecond, i.e., 0.5 chips/ms. Therefore, the search frequency is 500Hz.Here is the diagram of search frequency.
+However, the code frequency is a bit different. To obtain that, we will first introduce the search frequency. The search frequency allows us to let the local code block slide to determine to inner product. We are expecting to have half a chip more per millisecond, i.e., 0.5 chips/ms. Therefore, the search frequency is 500Hz. Here is the diagram of search frequency.
 
 \begin{figure}[!htbp]
     \centering
@@ -273,12 +310,6 @@ Since each time on the inner product is to let the current signal bit multiplied
 
 \subsubsection{Simulation and Waveform}
 Figure \ref{fig:correlator_wave} below is a waveform  of the signals mentioned above, I will explain in detail the significance of each signal and how it relates to the theory.
-\begin{figure}[!htbp]
-    \centering
-    \includegraphics[width=0.9\textwidth]{_IMAGES/correlator_wave.png}
-    \caption{Waveform of Key Signals in Correlator}
-    \label{fig:correlator_wave}
-\end{figure}
 
 \begin{itemize}
     \item \colorbox{lightgray}{$code\_chip\_count\_1ms\_u$}: This signal is used to indicate 1 millisecond of time. It is essentially a counter that instructs the other correlation accumulation registers to store the current accumulation value by reaching a counter value of 1022, i.e. 1 milliseconds
@@ -289,3 +320,9 @@ Figure \ref{fig:correlator_wave} below is a waveform  of the signals mentioned a
     \item \colorbox{lightgray}{$accumulation\_P\_Q\_reg\_s\_out$}: This signal saves the result of this millisecond accumulation of the Q-phase prompt code.
 \end{itemize}
 
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.9\textwidth]{_IMAGES/correlator_wave.png}
+    \caption{Waveform of Key Signals in Correlator}
+    \label{fig:correlator_wave}
+\end{figure}

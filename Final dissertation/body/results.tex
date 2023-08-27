@@ -1,3 +1,27 @@
 \myClearDoublePage
 \chapter{Results}
-Results
+In this section, I will show my results, i.e., the results of the correlator. It consists of a sequence of data, and when I simulate for 10 milliseconds, it will have ten sets of data.
+
+\section{Theoretical Results}
+Before this, I can theoretically analyse the correlation after the peaks
+
+We know that the sampling frequency is $99.375MHz$, so the number of samples per millisecond is $99.375k Samples$. Therefore, each code slice contains,
+
+\begin{equation}
+    SamplesPerChip=\frac{SamplesPerms}{1023} \approx 97.14\ Samples
+\end{equation}
+
+According to table \ref{tab:result_acqu}, it can be seen that the C/A offset number is 412, so the peak should occur around $412/SamplesPerChip=4.24Chips$. As each chip takes 2ms, the peak should occur around $4.24\times 2=8.48ms$.
+
+\section{Results and Waveform}
+\label{sec:results_waveform}
+Simulate in Modelsim for 50 ms and save the \colorbox{lightgray}{$accumulation\_P\_I\_reg\_s\_out$} and\\ \colorbox{lightgray}{$accumulation\_P\_Q\_reg\_s\_out$} values and input into MATLAB for analysis.
+
+In figure \ref{fig:result_50}, we can see the values of two registers that store the values associated with the I/Q phases, respectively, and at the bottom is the sum of their squares. We can see that the peak reaches its maximum at the eighth value, i.e. at the eighth second, which agrees with my theoretical estimate. However, it is not a significant enough peak, nor is it large enough, so I suspect that the correlator's performance is not yet up to standard.
+
+\begin{figure}[!htbp]
+    \centering
+    \includesvg[width=0.8\textwidth]{_IMAGES/PPT2SVG/result_50.svg}
+    \caption{Result of Correlator for 50ms}
+    \label{fig:result_50}
+\end{figure}
