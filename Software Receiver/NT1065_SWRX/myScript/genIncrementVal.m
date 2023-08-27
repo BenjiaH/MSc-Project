@@ -3,14 +3,15 @@
 clear;
 close all;
 
-dopplerFreq = 2.2e3;
+dopplerFreq = 0;
 carrFreq = 14.58e6;
 searchFreq = 5e3;
 codeFreq = 10.23e6;
 samplingFreq = 99.375e6;
+% samplingFreq = 99.37394e6;
 NCOLength = 32;
 
-incrementVal = @(freq) freq * (2 ^ NCOLength) / samplingFreq;
+incrementVal = @(freq) freq / samplingFreq * (2 ^ NCOLength);
 
 
 carrIncrementVal = ceil(incrementVal(carrFreq + dopplerFreq));

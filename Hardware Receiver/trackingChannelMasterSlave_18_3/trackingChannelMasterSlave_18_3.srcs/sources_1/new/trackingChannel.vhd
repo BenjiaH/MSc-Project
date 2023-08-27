@@ -422,7 +422,7 @@ if rising_edge(sample_clk_b_in) then
                 else
                     post_carr_code_mix_P_I_i <= -post_carr_mix_I_i;
                     post_carr_code_mix_P_Q_i <= -post_carr_mix_Q_i;
-                end if;	
+                end if;
                 -- early mixing
                 --if (code_subcarr_delay_reg_u(CODE_DELAY_MID_POINT_I_C + to_integer(unsigned(early_prompt_spacing_u_in))) = '1') then
                 if (code_subcarr_delay_reg_u(CODE_DELAY_MID_POINT_I_C - to_integer(unsigned(early_prompt_spacing_u_in))) = '1') then

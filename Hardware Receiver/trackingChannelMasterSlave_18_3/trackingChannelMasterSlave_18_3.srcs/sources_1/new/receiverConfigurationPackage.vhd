@@ -110,9 +110,9 @@ constant MEAS_COUNT_SIZE_I_C : integer := integer(ceil(log2(real(SAMPLES_PER_TIC
 
 -- !!!!REF: https://www.youtube.com/watch?v=bWHe_PBEPdU
 -- carrier NCO increment to produce 14.58 MHz, increment = freq*(2^NCO_length)/sampling_freq
--- constant CARR_NCO_INCR_CA_E1B_U_C : unsigned((CARR_NCO_LENGTH_C -1) downto 0) := x"258F3E7B"; -- (14.58MHz * (2 ^ 32)) / 99.375MHz = 630144635.730113
+--  constant CARR_NCO_INCR_CA_E1B_U_C : unsigned((CARR_NCO_LENGTH_C -1) downto 0) := x"258F3E7B"; -- (14.58MHz * (2 ^ 32)) / 99.375MHz = 630144635.730113
 --constant CARR_NCO_INCR_CA_E1B_U_C : unsigned((CARR_NCO_LENGTH_C -1) downto 0) := x"258DCB11"; -- (14.58MHz-2200Hz * (2 ^ 32)) / 99.375MHz = 630144635.730113
-constant CARR_NCO_INCR_CA_E1B_U_C : unsigned((CARR_NCO_LENGTH_C -1) downto 0) := x"2590B1E8"; -- (14.58MHz+2200Hz * (2 ^ 32)) / 99.375MHz = 630144635.730113
+constant CARR_NCO_INCR_CA_E1B_U_C : unsigned((CARR_NCO_LENGTH_C -1) downto 0) := x"2590CC2A"; -- (14.58MHz+2200Hz * (2 ^ 32)) / 99.375MHz = 630144635.730113
 
 ---- code NCO increment to produce 1.023 MHz, increment = freq*(2^NCO_length)/sampling_freq 
 --constant CODE_NCO_INCR_CA_E1B_U_C : unsigned((CODE_NCO_LENGTH_C -1) downto 0) := x"02A2A65C";
@@ -122,8 +122,7 @@ constant CARR_NCO_INCR_CA_E1B_U_C : unsigned((CARR_NCO_LENGTH_C -1) downto 0) :=
 -- code NCO increment to produce 10.23 MHz, increment = freq*(2^NCO_length)/sampling_freq 
 --constant CODE_NCO_INCR_E5_L5_U_C : unsigned((CODE_NCO_LENGTH_C -1) downto 0) := x"1A5A7F98";
 --constant CODE_NCO_INCR_E5_L5_U_C : unsigned((CODE_NCO_LENGTH_C -1) downto 0) := x"1A5DCBBB"; -- 10.23Mhz + 5000Hz
-constant CODE_NCO_INCR_E5_L5_U_C : unsigned((CODE_NCO_LENGTH_C -1) downto 0) := x"1A573376"; -- 10.23Mhz - 5000Hz
---constant CODE_NCO_INCR_E5_L5_U_C : unsigned((CODE_NCO_LENGTH_C -1) downto 0) := x"02A2A65C"; -- 1.023MHz  44,213,852
+constant CODE_NCO_INCR_E5_L5_U_C : unsigned((CODE_NCO_LENGTH_C -1) downto 0) := x"1A5745E0"; -- 10.23Mhz - 5000Hz
 
 --constant FE_SELECT_SIZE : integer := integer(ceil(log2(real(NUM_FE_INPUTS_C))));
 constant FE_SELECT_SIZE : integer := 1;
