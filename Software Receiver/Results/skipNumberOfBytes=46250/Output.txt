@@ -1,0 +1,25 @@
+
+Welcome 
+
+                   -------------------------------
+
+Probing data (../CH1SIM12p5MHzconfig2_int8.dat)...
+samplesPerCode =
+       99375
+  Raw IF data plotted 
+  (change settings in "initSettingsNSL_26MHz.m" to reconfigure)
+ 
+  Processing is now split into three stages;  Acquisition, Tracking and Navigation
+  Use runAcquisition and runTracking_...(many different types) and runNav to perform each stage 
+>> runAcquisition
+Starting processing...
+   Acquiring satellites...
+(02 )
+
+*=========*=====*===============*===========*=============*========*
+| Channel | PRN |   Frequency   |  Doppler  | Code Offset | Status |
+*=========*=====*===============*===========*=============*========*
+|       1 |   2 |  1.45778e+07 |   -2200   |       412   |     T  |
+*=========*=====*===============*===========*=============*========*
+
+>> 

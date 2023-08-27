@@ -128,7 +128,7 @@ if (fid > 0)
     title ('Histogram'); 
     xlabel('Bin'); ylabel('Number in bin');
 
-    T = tabulate(data)
+%     T = tabulate(data)
 %     class(T)
      
 

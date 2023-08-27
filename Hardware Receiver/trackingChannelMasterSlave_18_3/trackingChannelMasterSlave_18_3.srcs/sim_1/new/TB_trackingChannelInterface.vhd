@@ -404,8 +404,8 @@ use STD.TEXTIO.all;
         READ(L, value);
         FERawValue <= value;
         
---        write(Lin, value);
---        writeline(Fin, Lin);
+       write(Lin, value);
+       writeline(Fin, Lin);
 --        for i in 0 to (NUM_FE_INPUTS_C-1) loop
             if value = 3 then
                 FEValue <=  "01";
