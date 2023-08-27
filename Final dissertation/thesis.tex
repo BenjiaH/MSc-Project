@@ -1,5 +1,6 @@
 % Yue Li, June 2017
 
+\special{dvipdfmx:config z 0} %取消PDF压缩，加快速度，最终版本生成的时候最好把这句话注释掉
 \documentclass[a4paper, 12pt, twoside]{report}
 % \documentclass[a4paper, 12pt]{report}
 \usepackage[left=2.5cm,right=2.5cm,top=2cm,bottom=3cm]{geometry}
@@ -63,8 +64,7 @@
 % body of thesis comes here
 \input{body/body}
 
-
-% \input{summary/summary}
+\input{summary/summary}
 
 % ----------------------------REFERENCES----------------------------
 \cleardoublepage

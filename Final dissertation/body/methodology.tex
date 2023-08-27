@@ -184,6 +184,17 @@ The correlator is a digital circuit that performs the correlation operation betw
 
 The correlation operation usually needs 6 correlators to perform the correlation operation at the same time. In this case, the signal is processed in the I/Q phase respectively and each phase is required to multiply by the early, prompt, and late code respectively as well. Therefore, there will be 6 correlators. The massively parallel correlator arrays in receivers allow for the parallel search of thousands of code bins which will save a lot of time\cite{RN178}. The structure of the GPS correlator is shown in figure \ref{fig:correlator}.
 
+Figure \ref{fig:code_delay} illustrates how the early, prompt and late code change as the phases of the C/A code signals are advanced with respect to the input signal. For ease of understanding, only the incoming signal is shown along with the 1-bit C/A code. In reality, the incoming PRN code is drowned in noise, and each correlator must accumulate a large amount, i.e., 1 ms of inner product, so that each envelope amplitude emerges from the noise.
+
+\begin{figure}[!htbp]
+    \centering
+    \includesvg[width=0.8\textwidth]{_IMAGES/PPT2SVG/code_delay.svg}
+    \caption{Code Correlation Phases}
+    \label{fig:code_delay}
+\end{figure}
+
+Successful tracking is proved only when the value of P is maximum and the value of E is equal to the value of L.
+
 \subsection{Doppler Effect}
 A typical scenario is one in which the receiver antenna is fixed to the earth and constantly receives signals from satellites in orbit. Using the antenna as a reference system, the satellite is constantly moving at high speed. The frequency of the signal from the satellite is fixed, while the frequency received on the ground is constantly changing, a phenomenon called the Doppler effect, which produces a Doppler shift.
 
