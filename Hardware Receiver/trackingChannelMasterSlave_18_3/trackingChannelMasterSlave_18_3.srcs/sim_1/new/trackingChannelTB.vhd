@@ -78,15 +78,13 @@ signal meas_carr_NCO_u_out             : std_logic_vector((REG_WIDTH_C -1) downt
 signal meas_cycle_count_u_out          : std_logic_vector((REG_WIDTH_C -1) downto 0);
 signal measurement_enable_b_in          : std_logic;
 signal measurement_count_u              : unsigned((MEAS_COUNT_SIZE_I_C -1) downto 0);
-signal bit_length_u_in                  : std_logic_vector((SEC_CODE_COUNT_SIZE_C - 1) downto 0);
 
 begin
 
 uut : entity work.trackingChannel
     generic map(    enable_BOC_bool_g => true)
-    port map(       
---                    areset_n_b_in       => areset_n_b_in,
-                    bit_length_u_in     => bit_length_u_in,
+    port map(       areset_n_b_in       => areset_n_b_in,
+    
                     sample_clk_b_in     => sample_clk_b_in,
                     data_FE_sync_u_in   => data_FE_sync_u_in,
                     front_end_select_u_in => front_end_select_u_in,
@@ -159,9 +157,7 @@ BEGIN
     code_len_chip_1ms_u_in <= std_logic_vector(to_unsigned(CODE_LENGTH_CA_C, MAX_CHIP_COUNT_LENGTH_C));
     code_len_chip_u_in <= std_logic_vector(to_unsigned(CODE_LENGTH_CA_C, MAX_CHIP_COUNT_LENGTH_C));
     carr_NCO_increment_u_in <= std_logic_vector(CARR_NCO_INCR_CA_E1B_U_C);
---    ==============================================================================
---    code_NCO_increment_u_in <= std_logic_vector(CODE_NCO_INCR_CA_E1B_U_C);
-    code_NCO_increment_u_in <= std_logic_vector(CODE_NCO_INCR_E5_L5_U_C);
+    code_NCO_increment_u_in <= std_logic_vector(CODE_NCO_INCR_CA_E1B_U_C);
     early_prompt_spacing_u_in <= std_logic_vector(to_unsigned(ONE_CHIP_SPACING_CA_E1B_I_C, CODE_DELAY_LEN_I_C));
     very_early_prompt_spacing_u_in <= std_logic_vector(to_unsigned(ONE_CHIP_SPACING_CA_E1B_I_C, CODE_DELAY_LEN_I_C));
     correlation_length_epochs_u_in <= std_logic_vector(to_unsigned(DEF_CORR_EPOCHS_CA_I_C, MAX_CORR_LEN_SIZE_I_C));
@@ -201,14 +197,13 @@ BEGIN
     wait; -- will wait forever
 end process;
 
-read_data_input :  process (sample_clk_b_in, areset_n_b_in) is
+  read_data_input :  process (sample_clk_b_in, areset_n_b_in) is
     use STD.TEXTIO.all;
 --  file F: TEXT is in "quantised_noise_fs_99p375_MHz_0p1_s.txt";  -- VHDL'87
     file F: TEXT open READ_MODE is "quantised_noise_fs_99p375_MHz_0p1_s.txt";
---    file F: TEXT open READ_MODE is "FE_fs_99p375_MHz_skip_46500_int8.txt";
     variable L: LINE;
     variable value: integer;
-begin
+ begin
     if (areset_n_b_in = '0') then
         data_FE_sync_u_in <= (others => (others => '0'));
         measurement_enable_b_in <= '0';
@@ -237,5 +232,5 @@ begin
         end if;
     end if;
     
-    end process read_data_input;
+  end process read_data_input;
 end Behavioral;

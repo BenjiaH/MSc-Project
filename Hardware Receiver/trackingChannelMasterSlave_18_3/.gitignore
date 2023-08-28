@@ -72,3 +72,5 @@ xvlog.*
 ## checkpoint files
 *.dcp
 
+# Memory File
+FE*.txt

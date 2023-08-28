@@ -53,7 +53,9 @@ package receiverConfigurationPackage is
 -- General
 -----------------------------------------------------------------------
 -- number of front end inputs   
+--constant NUM_FE_INPUTS_C : integer := 4;
 constant NUM_FE_INPUTS_C : integer := 1;
+
 -- width in bits of front end inputs
 constant NUM_FE_BITS_C : integer := 2;
 -- number of levels and therefore counters required by front end monitor
@@ -82,7 +84,6 @@ constant MAX_INPUT_AMP_C    : integer := 3;
 
 
 constant CODE_FREQ_CA_E1B_i_C    : integer := 1023000;
---constant CODE_FREQ_CA_E1B_i_C    : integer := 102300;
 
 constant CODE_LENGTH_CA_C        : integer := 1023;
 constant CODE_LENGTH_E1B_C       : integer := 4*CODE_LENGTH_CA_C;
@@ -107,26 +108,23 @@ constant E5a_Q_SIGNAL       : integer := 6;
 constant BYTE_LENGTH_C      : integer := 8;
 
 constant MEAS_COUNT_SIZE_I_C : integer := integer(ceil(log2(real(SAMPLES_PER_TIC))));
-
--- !!!!REF: https://www.youtube.com/watch?v=bWHe_PBEPdU
+ 
 -- carrier NCO increment to produce 14.58 MHz, increment = freq*(2^NCO_length)/sampling_freq
---  constant CARR_NCO_INCR_CA_E1B_U_C : unsigned((CARR_NCO_LENGTH_C -1) downto 0) := x"258F3E7B"; -- (14.58MHz * (2 ^ 32)) / 99.375MHz = 630144635.730113
---constant CARR_NCO_INCR_CA_E1B_U_C : unsigned((CARR_NCO_LENGTH_C -1) downto 0) := x"258DCB11"; -- (14.58MHz-2200Hz * (2 ^ 32)) / 99.375MHz = 630144635.730113
-constant CARR_NCO_INCR_CA_E1B_U_C : unsigned((CARR_NCO_LENGTH_C -1) downto 0) := x"2590CC2A"; -- (14.58MHz+2200Hz * (2 ^ 32)) / 99.375MHz = 630144635.730113
+--constant CARR_NCO_INCR_CA_E1B_U_C : unsigned((CARR_NCO_LENGTH_C -1) downto 0) := x"258F3E7B";
+constant CARR_NCO_INCR_CA_E1B_U_C : unsigned((CARR_NCO_LENGTH_C -1) downto 0) := x"2590B1E8"; -- (14.58MHz+2200Hz * (2 ^ 32)) / 99.375MHz = 630144635.730113
 
----- code NCO increment to produce 1.023 MHz, increment = freq*(2^NCO_length)/sampling_freq 
---constant CODE_NCO_INCR_CA_E1B_U_C : unsigned((CODE_NCO_LENGTH_C -1) downto 0) := x"02A2A65C";
----- carrier NCO increment to produce 13.55 MHz, increment = freq*(2^NCO_length)/sampling_freq
---constant CARR_NCO_INCR_E5_L5_U_C : unsigned((CARR_NCO_LENGTH_C -1) downto 0) := x"22E7FA55";
+-- code NCO increment to produce 1.023 MHz, increment = freq*(2^NCO_length)/sampling_freq 
+constant CODE_NCO_INCR_CA_E1B_U_C : unsigned((CODE_NCO_LENGTH_C -1) downto 0) := x"02A2A65C";
+
+-- carrier NCO increment to produce 13.55 MHz, increment = freq*(2^NCO_length)/sampling_freq
+constant CARR_NCO_INCR_E5_L5_U_C : unsigned((CARR_NCO_LENGTH_C -1) downto 0) := x"22E7FA55";
 
 -- code NCO increment to produce 10.23 MHz, increment = freq*(2^NCO_length)/sampling_freq 
 --constant CODE_NCO_INCR_E5_L5_U_C : unsigned((CODE_NCO_LENGTH_C -1) downto 0) := x"1A5A7F98";
---constant CODE_NCO_INCR_E5_L5_U_C : unsigned((CODE_NCO_LENGTH_C -1) downto 0) := x"1A5DCBBB"; -- 10.23Mhz + 5000Hz
-constant CODE_NCO_INCR_E5_L5_U_C : unsigned((CODE_NCO_LENGTH_C -1) downto 0) := x"1A5745E0"; -- 10.23Mhz - 5000Hz
+constant CODE_NCO_INCR_E5_L5_U_C : unsigned((CODE_NCO_LENGTH_C -1) downto 0) := x"1A573376"; -- 10.23Mhz - 5000Hz
 
 --constant FE_SELECT_SIZE : integer := integer(ceil(log2(real(NUM_FE_INPUTS_C))));
 constant FE_SELECT_SIZE : integer := 1;
-
 
 -- number of master channels 
 constant NUM_MASTER_CHAN_I_C :integer := 16;
@@ -136,7 +134,6 @@ constant NUM_SLAVE_CHAN_I_C :integer := 6;
 constant MAX_CHAN_I_C :integer := NUM_MASTER_CHAN_I_C + NUM_SLAVE_CHAN_I_C; 
 type slave_chan_type is array ((NUM_MASTER_CHAN_I_C - 1) downto 0) of integer range 0 to 3;
 constant NUM_SLAVES_A_I_C : slave_chan_type :=(0,0,0,0,0,0,0,0,0,0,0,0,0,3,2,1);
---constant NUM_SLAVES_A_I_C : slave_chan_type :=(0,0);
 
 
 -- front end data array type
@@ -176,8 +173,8 @@ type mon_FE_slv_reg_type is array (0 to (AXI_NUM_READ_REG_FE_MON_I_C - 1)) of st
 -----------------------------------------------------------------------
 -- Tracking Channels
 -----------------------------------------------------------------------
-constant ADDR_BYTES_E5a_I_C : integer := integer(ceil(real(CODE_LENGTH_E5a_I_C/BYTE_LENGTH_C))); 
-constant ADDR_WORDS_E5a_I_C : integer := integer(ceil(real(CODE_LENGTH_E5a_I_C/REG_WIDTH_C))); -- 319
+constant ADDR_BYTES_E5a_I_C : integer := integer(ceil(real(CODE_LENGTH_E5a_I_C/BYTE_LENGTH_C)));
+constant ADDR_WORDS_E5a_I_C : integer := integer(ceil(real(CODE_LENGTH_E5a_I_C/REG_WIDTH_C)));
 constant ADDR_LEN_E5a_I_C : integer := integer(ceil(log2(real(ADDR_BYTES_E5a_I_C))));
 constant ADDR_LEN_WORDS_E5a_I_C : integer := integer(ceil(log2(real(ADDR_WORDS_E5a_I_C))));
 
@@ -185,24 +182,19 @@ constant SIGNAL_TYPE_SIZE_I_C : integer := integer(ceil(log2(real(E5a_Q_SIGNAL))
 
 -- max_chip count length for correlator
 constant MAX_CHIP_COUNT_LENGTH_C        : integer := integer(ceil(log2(real(CODE_LENGTH_E5a_I_C))));
-
--- Accumulate every 1ms
 --constant MAX_CORR_LEN_MS_I_C : integer := 20;
 constant MAX_CORR_LEN_MS_I_C : integer := 1;
 
---constant MAX_CORR_LEN_SIZE_I_C : integer := integer(ceil(log2(real(MAX_CORR_LEN_MS_I_C)))); -- 5
+--constant MAX_CORR_LEN_SIZE_I_C : integer := integer(ceil(log2(real(MAX_CORR_LEN_MS_I_C))));
 constant MAX_CORR_LEN_SIZE_I_C : integer := 1;
 
-
--- code delay size, VE to VL is 1 chip for BOC(1,1)
-constant CODE_DELAY_SIZE_I_C        : integer := integer(ceil(real(SAMPLE_FREQ_C/CODE_FREQ_CA_E1B_i_C))); -- 98
-constant CODE_DELAY_MID_POINT_I_C   : integer := integer(ceil(real(CODE_DELAY_SIZE_I_C/2))); -- 49
+-- code delay size, VE to VL is 1 chip for BOC(1,1)  
+constant CODE_DELAY_SIZE_I_C        : integer := integer(ceil(real(SAMPLE_FREQ_C/CODE_FREQ_CA_E1B_i_C)));
+constant CODE_DELAY_MID_POINT_I_C   : integer := integer(ceil(real(CODE_DELAY_SIZE_I_C/2)));
 constant CODE_DELAY_LEN_I_C         : integer := integer(ceil(log2(real(CODE_DELAY_MID_POINT_I_C))));
 
 -- max_count value for fast NCO (ratio of fastest code rate to slowest) 
 constant FAST_NCO_COUNT_MAX_C          : integer := 10;
---constant FAST_NCO_COUNT_MAX_C          : integer := 1;
-
 constant MAX_NCO_COUNT_LENGTH_C        : integer := integer(ceil(log2(real(FAST_NCO_COUNT_MAX_C))));
 
 
@@ -210,30 +202,29 @@ constant MAX_NCO_COUNT_LENGTH_C        : integer := integer(ceil(log2(real(FAST_
 constant MAX_CYCLE_COUNT_I_C : integer := (SAMPLES_PER_TIC / 2);
 constant CYCLE_COUNT_SIZE_I_C : integer := integer(ceil(log2(real(MAX_CYCLE_COUNT_I_C))));
 
--- ============================================
 --constant DEF_CORR_EPOCHS_CA_I_C     : integer   := 20;
 constant DEF_CORR_EPOCHS_CA_I_C     : integer   := 1;
--- ============================================
-
 
 constant DEF_CORR_EPOCHS_E1B_I_C    : integer   := 1;
 constant MAX_SEC_CODE_LENGTH        : integer   := 250; 
 constant SEC_CODE_COUNT_SIZE_C      : integer   := integer(ceil(log2(real(MAX_SEC_CODE_LENGTH))));
 constant SEC_COUNTER_WIDTH_C        : integer   := 32;
 
-constant ONE_CHIP_SPACING_CA_E1B_I_C   : integer := integer(ceil(real(CODE_DELAY_MID_POINT_I_C/2))); -- 24
+constant ONE_CHIP_SPACING_CA_E1B_I_C   : integer := integer(ceil(real(CODE_DELAY_MID_POINT_I_C/2)));
 -- max value of the full correlation length accumulators
 constant ACCUMULATOR_MAX_VALUE_I_C    : integer := MAX_CORR_LEN_MS_I_C * SAMPLES_PER_EPOCH_1MS_C * MAX_INPUT_AMP_C * MAX_CARR_AMP_C;
 -- size is double the max value for signed
 constant ACCUMULATOR_SIZE_I_C         : integer := integer(ceil(log2(real(2*ACCUMULATOR_MAX_VALUE_I_C))));
 -- max value of the 1 ms length accumulators
-constant ACCM_1MS_MAX_VALUE_I_C    : integer := MAX_CORR_LEN_MS_I_C * SAMPLES_PER_EPOCH_1MS_C * MAX_INPUT_AMP_C * MAX_CARR_AMP_C; -- 11925000
+constant ACCM_1MS_MAX_VALUE_I_C    : integer := MAX_CORR_LEN_MS_I_C * SAMPLES_PER_EPOCH_1MS_C * MAX_INPUT_AMP_C * MAX_CARR_AMP_C;
 -- size is double the max value for signed
-constant ACC_1MS_SIZE_I_C         : integer := integer(ceil(log2(real(2*ACCM_1MS_MAX_VALUE_I_C)))); -- 24
+constant ACC_1MS_SIZE_I_C         : integer := integer(ceil(log2(real(2*ACCM_1MS_MAX_VALUE_I_C))));
 constant WORD_ADDR_BITS_I_C : integer := integer(ceil(log2(real(REG_WIDTH_C))));
 
 --type accm_1ms_array_type is array ((MAX_CORR_LEN_MS_I_C - 1) downto 0) of std_logic_vector((REG_WIDTH_C - 1) downto 0);
-type accm_1ms_array_type is array (20 - 1 downto 0) of std_logic_vector((REG_WIDTH_C - 1) downto 0);
+--*****************************************************
+type accm_1ms_array_type is array ((20 - 1) downto 0) of std_logic_vector((REG_WIDTH_C - 1) downto 0);
+
 
 -- channel arrays
 type front_end_select_type                  is array ((MAX_CHAN_I_C - 1) downto 0) of std_logic_vector((FE_SELECT_SIZE - 1) downto 0);
@@ -252,7 +243,7 @@ type early_prompt_spacing_type              is array ((MAX_CHAN_I_C - 1) downto 
 type very_early_prompt_spacing_type         is array ((MAX_CHAN_I_C - 1) downto 0) of std_logic_vector((CODE_DELAY_LEN_I_C - 1) downto 0);
 type correlation_length_epochs_type         is array ((MAX_CHAN_I_C - 1) downto 0) of std_logic_vector((MAX_CORR_LEN_SIZE_I_C - 1) downto 0);
 type epoch_length_ms_type                   is array ((MAX_CHAN_I_C - 1) downto 0) of std_logic_vector((MAX_CORR_LEN_SIZE_I_C - 1) downto 0);
-type bit_length_type                        is array ((MAX_CHAN_I_C - 1) downto 0) of std_logic_vector((SEC_CODE_COUNT_SIZE_C - 1) downto 0);
+type bit_length_type                  is array ((MAX_CHAN_I_C - 1) downto 0) of std_logic_vector((SEC_CODE_COUNT_SIZE_C - 1) downto 0);
 type accumulation_type                      is array ((MAX_CHAN_I_C - 1) downto 0) of std_logic_vector((REG_WIDTH_C -1) downto 0);
 type accm_1ms_type                          is array ((MAX_CHAN_I_C - 1) downto 0) of accm_1ms_array_type;
 type RAM_do_type                            is array ((MAX_CHAN_I_C - 1) downto 0) of std_logic_vector((REG_WIDTH_C -1) downto 0);
@@ -392,9 +383,7 @@ x"f8",x"85",x"e9",x"b7",x"6e",x"ce",x"39",x"f8",x"75",x"5f",x"ee",x"da",
 x"9a",x"31",x"a9",x"3d",x"84",x"25",x"99",x"96",x"64",x"27",x"c4",x"09",
 x"f4",x"4e",x"d2",x"6f",x"3b",x"80",x"df",x"86");
 
--- big_endian
- type track_code_ram_type is array (0 to ADDR_WORDS_E5a_I_C) of std_logic_vector(0 to 31);
---type track_code_ram_type is array (0 to ADDR_WORDS_E5a_I_C) of std_logic_vector(31 downto 0);
+type track_code_ram_type is array (0 to ADDR_WORDS_E5a_I_C) of std_logic_vector(0 to 31);
 constant CODE_PRN1_ROM_CA_C : track_code_ram_type :=(
 x"586D63EC",
 x"5675A837",
@@ -535,75 +524,6 @@ x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"000000
 x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
 x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000");
 
-constant CODE_PRN2_REVERSE_ROM_CA_C : track_code_ram_type :=(
-x"997C1C27",
-x"2FF4D3F6",
-x"C78D110D",
-x"C4710E60",
-x"4B0B41E5",
-x"3B1F070F",
-x"58F01D63",
-x"CB666274",
-x"315247A0",
-x"90790550",
-x"2AD5DFFE",
-x"C48554A8",
-x"0ECA4284",
-x"783B2A9C",
-x"3AD11037",
-x"BEDC992B",
-x"3439E906",
-x"BA40D62C",
-x"CDA5DA51",
-x"14B51107",
-x"D7C49B97",
-x"6575C6F7",
-x"83D74ACF",
-x"67C5EDF7",
-x"C2D6847B",
-x"0860CD33",
-x"5CCBE6BF",
-x"05F30BD1",
-x"D3BE9979",
-x"69E73796",
-x"96F7D667",
-x"098502D2",
-x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
-x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
-x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
-x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
-x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
-x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
-x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
-x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
-x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
-x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
-x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
-x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
-x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
-x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
-x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
-x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
-x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
-x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
-x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
-x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
-x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
-x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
-x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
-x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
-x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
-x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
-x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
-x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
-x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
-x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
-x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
-x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
-x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
-x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
-x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",
-x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000",x"00000000");
 
 -- this PRN 1, g2 start 5, 32 words then padded to the 320 words for 10230 chips
 --constant CODE_PRN1_ROM_CA_C : track_code_ram_type :=(
