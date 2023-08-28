@@ -2,9 +2,7 @@
 \chapter{Methodology}
 The methodology chapter is a pivotal component of this research, unveiling the systematic approach taken to address the specific goals and inquiries of the project. Within this chapter, an in-depth description of the research design, data collection methodologies, and analytical techniques deployed is meticulously presented. By offering a transparent and methodical account of the research process, this chapter safeguards the robustness and integrity of the study's outcomes.
 
-\section{FPGA}
-
-
+% \section{FPGA}
 
 \section{Tracking}
 A complete GPS/GNSS work process includes acquisition, tracking and navigation. My project is mainly focused on the tracking stage.
@@ -34,7 +32,8 @@ The NCO is a signal generator that produces a specified frequency. It can genera
     \footnotesize Note: *FSW: \textit{Frequency Setting Word}
 \end{figure}
 
-\subsubsection{Phase Accumulator} \label{subsec:pa_subsubsection}
+\subsubsection{Phase Accumulator}
+\label{subsec:pa_subsubsection}
 The phase accumulator will complete an accumulation in each clock cycle according to the set increment value. In other words, the accumulator outputs the address of the look-up table so that the look-up table generates the correct sine-cosine signal\cite{RN191}. By setting the increment value, the look-up table is made to sample in a controlled manner.
 
 Here, we assume that the bit width of the accumulator is 32 bits. The ratio of the incremental 32-bit value to the fixed \num{4294967296} accumulator overflow value determines how often the overflow occurs. This controls the triggering of the NCO output waveform. The equation is as follows,
@@ -52,7 +51,9 @@ This look-up table contains all the magnitude values in a cycle. The magnitude v
 
 In fact, we can save resources by \dquotes{cunningly} designing look-up tables\cite{RN193}. Such an operation also allows us to easily control the resolution of the NCO output. Below I will describe the method of designing a look-up table.
 
-Firstly, according to the subsection \ref{subsec:pa_subsubsection}(Phase Accumulator), we are able to plot the phase function. Below is the phase function that I am plotting using MATLAB.
+Firstly, according to the subsection \ref{subsec:pa_subsubsection}(Phase Accumulator), we are able to plot the phase function. Figure \ref{fig:phase_function}Below is the phase function that I am plotting using MATLAB.
+
+The phase will be accumulated at each cycle until it overflows and starts again. In fact, this function completes the conversion from the time domain to the phase domain. Next, we will convert the phase domain to the amplitude domain, which is the PAC. The following figure also shows the PAC function generated using MATLAB.
 
 \begin{figure}[!htbp]
     \centering
@@ -60,8 +61,6 @@ Firstly, according to the subsection \ref{subsec:pa_subsubsection}(Phase Accumul
     \caption{Phase Function}
     \label{fig:phase_function}
 \end{figure}
-
-The phase will be accumulated at each cycle until it overflows and starts again. This forms the phase function in figure \ref{fig:phase_function}. In fact, this function completes the conversion from the time domain to the phase domain. Next, we will convert the phase domain to the amplitude domain, which is the PAC. The following figure also shows the PAC function generated using MATLAB.
 
 \begin{figure}[!htbp]
     \centering
