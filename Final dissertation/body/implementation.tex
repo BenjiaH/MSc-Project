@@ -290,7 +290,7 @@ Note that I don't know whether the energy is mainly concentrated in phase I or p
 \subsubsection{Early, Prompt, and Late Code Generator}
 \begin{figure}[!htbp]
     \centering
-    \includesvg[width=0.8\textwidth]{_IMAGES/PPT2SVG/prompt_code.svg}
+    \includesvg[width=0.7\textwidth]{_IMAGES/PPT2SVG/prompt_code.svg}
     \caption{Diagram of \colorbox{lightgray}{$code\_subcarr\_delay\_reg\_u$} Register}
     \label{fig:prompt_code}
 \end{figure}
@@ -300,7 +300,14 @@ In order to generate the early, prompt, and late code, I design a register\\ \co
 \subsubsection{Multiplier Optimization}
 As mentioned earlier, finding the inner product is the core of the correlator, so a lot of multipliers will be used. However, compilers like Vivado will call on the on-board DSP resources to replace the multipliers during synthesis, which I don't want to see because on-board DSP resources are scarce \cite{RN208, RN209}, and they should be used elsewhere. So I can optimize the multiplier for the current project.
 
-Since each time on the inner product is to let the current signal bit multiplied with the current C/A code bit, and the C/A code is only used in two cases are 0 and 1. When the C/A code bit is 1, the result of multiplying any number with 1 is unchanged, and when the C/A code bit is 0, I need to convert it to -1 first, and the result of multiplying any number with -1 is its opposite. In this case, rewriting the code saves a lot of on-board resources. The optimized code is shown below.
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.7\textwidth]{_IMAGES/multiplier_code.png}
+    \caption{Part of the Code of Multiplier}
+    \label{fig:multiplier_code}
+\end{figure}
+
+Since each time on the inner product is to let the current signal bit multiplied with the current C/A code bit, and the C/A code is only used in two cases are 0 and 1. When the C/A code bit is 1, the result of multiplying any number with 1 is unchanged, and when the C/A code bit is 0, I need to convert it to -1 first, and the result of multiplying any number with -1 is its opposite. In this case, rewriting the code saves a lot of on-board resources. The optimized code is shown in figure \ref{fig:multiplier_code}.
 
 % \begin{lstlisting}[language=VHDL, caption=Part of the Code of Multiplier]
 %     -- prompt mixing
@@ -319,16 +326,15 @@ Since each time on the inner product is to let the current signal bit multiplied
 %     label       =   {ff.py}
 % ]{_SRC/multiplier.vhd}
 
-
-% \begin{figure}[!htbp]
-%     \centering
-%     \includegraphics[width=0.9\textwidth]{_IMAGES/multiplier_code.png}
-%     \caption{Part of the Code of Multiplier}
-%     \label{fig:multiplier_code}
-% \end{figure}
-
 \subsubsection{Simulation and Waveform}
-Figure \ref{fig:correlator_wave} below is a waveform  of the signals mentioned above, I will explain in detail the significance of each signal and how it relates to the theory.
+Figure \ref{fig:correlator_wave} below is a waveform of the signals mentioned above, I will explain in detail the significance of each signal and how it relates to the theory.
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.9\textwidth]{_IMAGES/correlator_wave.png}
+    \caption{Waveform of Key Signals in Correlator}
+    \label{fig:correlator_wave}
+\end{figure}
 
 \begin{itemize}
     \item \colorbox{lightgray}{$code\_chip\_count\_1ms\_u$}: This signal is used to indicate 1 millisecond of time. It is essentially a counter that instructs the other correlation accumulation registers to store the current accumulation value by reaching a counter value of 1022, i.e. 1 milliseconds
@@ -338,10 +344,3 @@ Figure \ref{fig:correlator_wave} below is a waveform  of the signals mentioned a
     \item \colorbox{lightgray}{$accumulation\_P\_I\_reg\_s\_out$}: This signal saves the result of this millisecond accumulation of the I-phase prompt code.
     \item \colorbox{lightgray}{$accumulation\_P\_Q\_reg\_s\_out$}: This signal saves the result of this millisecond accumulation of the Q-phase prompt code.
 \end{itemize}
-
-\begin{figure}[!htbp]
-    \centering
-    \includegraphics[width=0.9\textwidth]{_IMAGES/correlator_wave.png}
-    \caption{Waveform of Key Signals in Correlator}
-    \label{fig:correlator_wave}
-\end{figure}
