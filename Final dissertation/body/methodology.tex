@@ -5,7 +5,13 @@ The methodology chapter is a pivotal component of this research, unveiling the s
 % \section{FPGA}
 
 \section{Tracking}
-A complete GPS/GNSS work process includes acquisition, tracking and navigation. My project is mainly focused on the tracking stage.
+A complete GPS/GNSS work process includes acquisition, tracking and navigation as shown in figure \ref{fig:receiver}. My project is mainly focused on the tracking stage.
+\begin{figure}[!h]
+    \centering
+    \includesvg[width=0.8\textwidth]{_IMAGES/PPT2SVG/receiver.svg}
+    \caption{Diagram of the GPS/GNSS Receiver}
+    \label{fig:receiver}
+\end{figure}
 
 After the acquisition phase, where the receiver identifies and locks onto the satellite signals, the tracking phase begins. During this phase, the receiver closely monitors the received signals and tracks their variations to accurately determine the user's position, velocity, and timing information. This involves maintaining a stable lock on the satellite signals despite various challenges, such as signal degradation due to atmospheric conditions, obstructions, and interference.
 

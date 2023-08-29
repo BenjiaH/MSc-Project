@@ -24,7 +24,7 @@ hold on;
 plot(overFlowReg, "LineWidth", 1.5);
 % title("Phase Function");
 grid on;
-xlabel("Time");
+xlabel("Cycly counts");
 ylabel("Phase");
 legend("Phase function", "Overflow");
 ylim([-1 30]);
