@@ -7,4 +7,4 @@ proc write_sim_data {env name radix cycle file} {
     close $fid 
 }
 
-write_sim_data tb_trackingchannelinterface/uut/trackingChannelGen(0)/trackingChannel_X {accumulation_P_I_reg_s_out accumulation_P_Q_reg_s_out} decimal 1000000 1.txt
+write_sim_data tb_trackingchannelinterface/uut/trackingChannelGen(0)/trackingChannel_X {accumulation_P_I_reg_s_out accumulation_P_Q_reg_s_out} decimal 1000000 result_50.txt

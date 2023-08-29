@@ -2,7 +2,7 @@ clear;
 clc;
 close all;
 
-% filename = '../../../Hardware Receiver/trackingChannelMasterSlave_18_3/trackingChannelMasterSlave_18_3.sim/sim_1/behav/modelsim/Is_and_Qs_signal.log';
+% filename = '../../../Hardware Receiver/trackingChannelMasterSlave_18_3/trackingChannelMasterSlave_18_3.sim/sim_1/behav/modelsim/result_50.txt';
 filename = 'Is_and_Qs_signal_bak/revised_Is_and_Qs_signal_2001ms_46250.log';
 fileID = fopen(filename);
 IQCell = textscan(fileID,'%f %f','Delimiter',',');

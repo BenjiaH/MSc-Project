@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Product Version: Vivado v2018.3.1 (64-bit)              -->
+<!-- Product Version: Vivado v2018.3 (64-bit)              -->
 <!--                                                         -->
-<!-- Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.   -->
+<!-- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="39" Path="E:/Users/benji/OneDrive/Project/MSc-Project/Hardware Receiver/trackingChannelMasterSlave_18_3/trackingChannelMasterSlave_18_3.xpr">
+<Project Version="7" Minor="39" Path="C:/Users/eexyh39/OneDrive/Project/MSc-Project/Hardware Receiver/trackingChannelMasterSlave_18_3/trackingChannelMasterSlave_18_3.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="006958eb70304efc9364ce8f55dbd0b1"/>
     <Option Name="Part" Val="xc7z020clg484-1"/>
-    <Option Name="CompiledLibDir" Val="D:/modeltech64_10.6c/vivado18_3_compile_simlib"/>
+    <Option Name="CompiledLibDir" Val="$PPRDIR/../../../../../Desktop/VHDL/vivado18_3_compile_simlib"/>
     <Option Name="CompiledLibDirXSim" Val=""/>
-    <Option Name="CompiledLibDirModelSim" Val="D:/modeltech64_10.6c/vivado18_3_compile_simlib"/>
+    <Option Name="CompiledLibDirModelSim" Val="$PPRDIR/../../../../../Desktop/VHDL/vivado18_3_compile_simlib"/>
     <Option Name="CompiledLibDirQuesta" Val="$PCACHEDIR/compile_simlib/questa"/>
     <Option Name="CompiledLibDirIES" Val="$PCACHEDIR/compile_simlib/ies"/>
     <Option Name="CompiledLibDirXcelium" Val="$PCACHEDIR/compile_simlib/xcelium"/>
@@ -35,7 +35,7 @@
     <Option Name="DSABoardId" Val="zc702"/>
     <Option Name="DSANumComputeUnits" Val="60"/>
     <Option Name="WTXSimLaunchSim" Val="0"/>
-    <Option Name="WTModelSimLaunchSim" Val="4"/>
+    <Option Name="WTModelSimLaunchSim" Val="6"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
     <Option Name="WTVcsLaunchSim" Val="0"/>
@@ -117,6 +117,7 @@
       </Config>
     </FileSet>
     <FileSet Name="sim_1" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/sim_1">
+      <Filter Type="Srcs"/>
       <File Path="$PSRCDIR/sim_1/new/TB_trackingChannelInterface.vhd">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
