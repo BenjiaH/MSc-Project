@@ -3,15 +3,15 @@ clc;
 close all;
 
 % filename = '../../../Hardware Receiver/trackingChannelMasterSlave_18_3/trackingChannelMasterSlave_18_3.sim/sim_1/behav/modelsim/result_50.txt';
-filename = 'Is_and_Qs_signal_bak/revised_Is_and_Qs_signal_2001ms_46250.log';
+filename = 'Is_and_Qs_signal_bak/result_50.txt';
 fileID = fopen(filename);
 IQCell = textscan(fileID,'%f %f','Delimiter',',');
 fclose(fileID);
 
 IPhase = [IQCell{:, 1}];
 QPhase = [IQCell{:, 2}];
-IPhase = IPhase(1:50);
-QPhase = QPhase(1:50);
+IPhase = IPhase;
+QPhase = QPhase;
 squareEnergy = (IPhase .^ 2 + QPhase .^ 2);
 n = ((squareEnergy));
 
