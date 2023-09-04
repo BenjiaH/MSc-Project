@@ -1,11 +1,69 @@
 \myClearDoublePage
 \chapter{Summary and Reflections}
-As the results came in, the project came to a close. There is a lot of work to summarize and reflect on as well as improve. I will describe two aspects below.
+As the results came in, the project came to a close. There is a lot of work to summarize and reflect on as well as improve. I will describe three aspects below.
 
-\section{Summary and Reflections}
+\section{Summary}
 For the thesis: the first chapter focuses on the background as well as the objectives of the project. The second chapter introduces the related work, starting with the signal and analysing the GPS/GNSS signal characteristics, followed by reviewing the previous books related to GPS tracking, and finally introduces the FPGA technology and explains the reason for using FPGA. Chapter 3 analyses theoretically how to perform GPS signal tracking, various modules such as NCO, code generator etc. are studied and analysed. Finally, the verification methodology is explained to ensure that the results can be evaluated objectively. Chapter 4 is a concrete implementation, where much of the theory needs to be engineered due to the gap between theory and practice. Firstly, the equipment used, and the development environment are described. Next the input signals are analysed. Finally, each module was developed, and the core algorithms in it were introduced. In the last chapter, the results are analysed, and the results are predicted from the theory first, and then compared with the actual results, which are basically in line with the expectations.
 
 For the project itself, I think it is somewhat difficult. Especially in terms of code debugging. I need to analyse the errors from the waveforms and this is something I need to improve. I also realized the difference between theory and practice, and that completing the code writing does not necessarily complete the function in question.
+
+\section{Reflections}
+The planning and execution of this project involved several critical steps, and while it largely went as anticipated, certain challenges emerged. Here's a breakdown of the planning and mitigation strategies employed:
+\begin{enumerate}
+
+    \item Clear Project Objectives:
+    \begin{itemize}
+        \item Planning: The project began with well-defined objectives, focusing on GPS signal tracking using FPGA technology.
+        \item Mitigation: Clear objectives allowed for precise planning, reducing the risk of scope creep and ensuring alignment with project goals.
+    \end{itemize}
+    \item Literature Review and Background Research:
+    \begin{itemize}
+        \item Planning: Extensive research on GPS signal characteristics, FPGA technology, and related works was conducted in Chapter 2.
+        \item Mitigation: This research helped identify best practices and anticipate potential issues, guiding the project in the right direction.
+    \end{itemize}
+    % \item Theory-Practice Gap:
+    % \begin{itemize}
+    %     \item Planning: Chapter 3 bridged theoretical concepts with practical implementation, but challenges arose in translating theory into code.
+    %     \item Mitigation: Regular code debugging and verification using simulation tools like ModelSim ensured that theory aligned with practical outcomes. Troubleshooting and revisiting theory when issues emerged mitigated this challenge.
+    % \end{itemize}
+    \item Performance Issues - NCO and Correlator:
+    \begin{itemize}
+        \item Planning: The NCO and correlator were critical modules, but issues with precision and performance emerged in Chapter 5.
+        \item Mitigation: Future work was identified for NCO accuracy improvement and enhanced correlator performance. Debugging and code optimization were applied to mitigate these issues.
+    \end{itemize}
+    \item Objective Evaluation Methods:
+    \begin{itemize}
+        \item Planning: Identifying more objective evaluation methods was recognized as an area for improvement.
+        \item Mitigation: Although challenging, efforts were made to explore and develop better evaluation methods, such as C/No plots.
+    \end{itemize}
+\end{enumerate}
+
+% **1. **
+%    - **Planning:** The project began with well-defined objectives, focusing on GPS signal tracking using FPGA technology.
+%    - **Mitigation:** Clear objectives allowed for precise planning, reducing the risk of scope creep and ensuring alignment with project goals.
+
+% **2. Literature Review and Background Research:**
+%    - **Planning:** Extensive research on GPS signal characteristics, FPGA technology, and related works was conducted in Chapter 2.
+%    - **Mitigation:** This research helped identify best practices and anticipate potential issues, guiding the project in the right direction.
+
+% **3. Theory-Practice Gap:**
+%    - **Planning:** Chapter 3 bridged theoretical concepts with practical implementation, but challenges arose in translating theory into code.
+%    - **Mitigation:** Regular code debugging and verification using simulation tools like ModelSim ensured that theory aligned with practical outcomes. Troubleshooting and revisiting theory when issues emerged mitigated this challenge.
+
+
+% **6. Performance Issues - NCO and Correlator:**
+%    - **Planning:** The NCO and correlator were critical modules, but issues with precision and performance emerged in Chapter 5.
+%    - **Mitigation:** Future work was identified for NCO accuracy improvement and enhanced correlator performance. Debugging and code optimization were applied to mitigate these issues.
+
+% **7. Version Control:**
+%    - **Planning:** The project benefited from version control using Git, ensuring a systematic approach to code management.
+%    - **Mitigation:** Git facilitated tracking changes, aiding in issue resolution and version backtracking when necessary.
+
+% **8. Objective Evaluation Methods:**
+%    - **Planning:** Identifying more objective evaluation methods was recognized as an area for improvement.
+%    - **Mitigation:** Although challenging, efforts were made to explore and develop better evaluation methods, such as C/No plots.
+
+In summary, meticulous planning and mitigation strategies played a pivotal role in ensuring the successful execution of this project. Clear objectives, comprehensive research, a systematic verification process, equipment selection, and adaptability in the face of challenges were key factors that contributed to the project's overall success.
 
 \section{Future Work}
 In section \ref{sec:results_waveform}, I mentioned that the correlator's performance is not up to standard. I think the following aspects can be improved:

@@ -14,9 +14,9 @@ The RF front-end is a device that collects any signals you expect. In this proje
 \renewcommand\arraystretch{1.5}
 \begin{tabular}{cc}
     \toprule
-    Content & Specifications \\
+    Specifications & Values \\
     \midrule
-    Chip & NT1065 \\
+    Chip name & NT1065 \\
     Number of channels & 4 \\
     \multirow{2}{*}{Reference frequency sources (MHz)} & TCXO 10 \\
      & TCXO 24.84 \\
@@ -42,9 +42,9 @@ The FPGA board is the core module of this project. It will process the acquisiti
 \renewcommand\arraystretch{1.5}
 \begin{tabular}{cc}
     \toprule
-    Content & Specifications \\
+    Specifications & Values \\
     \midrule
-    Chip & XCKU040-2FFVA1156E FPGA \\
+    Chip name & XCKU040-2FFVA1156E \\
     System Logic Cells (K) & 530 \\
     DSP Slices & \num{1920} \\
     Block RAM (Mb) & 21.1 \\
@@ -66,7 +66,7 @@ The FPGA board is the core module of this project. It will process the acquisiti
 
 \section{Develop Environment}
 \subsection{Vivado}
-As we are planning to use FPGA from \textit{Xilinx}, we are supposed to code in \textit{Vivado}. It is a powerful and versatile integrated development environment (IDE) created by Xilinx for FPGA and SoC development. It offers a comprehensive suite of tools and features for designing, implementing, and programming FPGAs and SoCs, enabling engineers to create custom digital hardware solutions. With its user-friendly interface and advanced design automation capabilities, \textit{Vivado} simplifies the process of hardware design, synthesis, verification, and debugging. It supports a wide range of Xilinx devices, making it a go-to tool for hardware engineers and developers working on cutting-edge applications in industries like telecommunications, aerospace, and embedded systems. The version we use is \textbf{2018.3}. The reason for that is that it is stable but not outdated.
+As we are planning to use FPGA from \textit{Xilinx}, we are supposed to code in \textit{Vivado}. It is a powerful and versatile integrated development environment (IDE) created for FPGA and SoC development. It offers a comprehensive suite of tools and features for designing, implementing, and programming FPGAs and SoCs, enabling engineers to create custom digital hardware solutions. With its user-friendly interface and advanced design automation capabilities, \textit{Vivado} simplifies the process of hardware design, synthesis, verification, and debugging. It supports a wide range of Xilinx devices, making it a go-to tool for hardware engineers and developers working on cutting-edge applications in industries like telecommunications, aerospace, and embedded systems. The version we use is \textbf{2018.3}. The reason for that is that it is stable but not outdated.
 
 \subsection{ModelSim}
 \textit{ModelSim} is used to verify the design. We will run the simulation and check all the waveforms of the key signal. \textit{ModelSim} is a leading digital simulation and verification tool by Mentor Graphics, now a part of Siemens. It's widely used for designing and testing digital systems, enabling engineers to simulate hardware description languages like VHDL and Verilog. \textit{ModelSim} assists in debugging, verification, and validation of complex digital designs in various industries.
@@ -74,10 +74,10 @@ As we are planning to use FPGA from \textit{Xilinx}, we are supposed to code in 
 \textit{ModelSim} is particularly compatible with Vivado, and when used in conjunction with it, you get twice the result with half the effort, and it can quickly locate code errors.
 
 \subsection{MATLAB}
-Matlab is a high-level programming environment and language renowned for its versatility in numerical computing, data analysis, and algorithm development. Used across various fields, from engineering to finance, it offers extensive libraries and tools for modelling, simulation, and solving complex mathematical problems, making it indispensable in research and industry. The reason for using it is to run the \textit{SoftGNSS} to verify my design as well.
+MATLAB is a high-level programming environment and language renowned for its versatility in numerical computing, data analysis, and algorithm development. Used across various fields, from engineering to finance, it offers extensive libraries and tools for modelling, simulation, and solving complex mathematical problems, making it indispensable in research and industry. The reason for using it is to run the \textit{SoftGNSS} to verify my design as well.
 
 \section{Signal Analyse and Pre-process}
-At the beginning of the project, the only data known to us were the input signals. Therefore it is very crucial to analyse and pre-process the input signals. I will be using MATLAB to analyse the data and the figure below shows the results of my analysis.
+At the beginning of the project, the only data known to us were the input signals. Therefore, it is very crucial to analyse and pre-process the input signals. I will be using MATLAB to analyse the data and the figure below shows the results of my analysis.
 
 \begin{figure}[!htbp]
     \centering
@@ -86,7 +86,29 @@ At the beginning of the project, the only data known to us were the input signal
     \label{fig:sig_info}
 \end{figure}
 
-From the frequency domain in figure \ref{fig:sig_info}, we can see the IF is about 14.7025MHz. This is in line with our expectations. Also a perfect spectrum of signals can be seen, proving that I'm picking up the correct GPS signals. We should take note of the histogram, which provides us with a lot of basis. We can calculate the noise floor based on it, and we can also verify that we are reading the right data on the testbench based on its distribution. The following table \ref{tab:dis_sig} shows the distribution information of the input signals.
+From the frequency domain in Figure \ref{fig:sig_info}, we can see the IF is about 14.7025MHz. This is in line with our expectations. Also a perfect spectrum of signals can be seen, proving that I'm picking up the correct GPS signals. In addition, the basic information will be shown in Table \ref{tab:sig_info}.
+
+\begin{table}[H]
+\centering
+\renewcommand\arraystretch{1.5}
+\caption{Basic Information of the Signal}
+\label{tab:sig_info}
+\begin{tabular}{cc}
+    \toprule
+    % \multicolumn{2}{c}{Basic Infomation of the Signal} \\
+    Results & Values \\
+    \midrule
+    IF (MHz) & 14.58 \\
+    Sampling frequency (MHz) & 99.375 \\
+    Code frequency (MHz) & 1.023 \\
+    Data type & int 8 \\
+    Samples/code & \num{99375} \\
+    Accumulate time (ms) & 1 \\
+    \bottomrule
+\end{tabular}
+\end{table}
+
+We should also take note of the histogram in Figure \ref{fig:sig_info}, which provides us with a lot of basis. We can calculate the noise floor based on it, and we can also verify that we are reading the right data on the testbench based on its distribution. The following Table \ref{tab:dis_sig} shows the distribution information of the input signals.
 
 \begin{table}[!htbp]
 \centering
@@ -123,35 +145,16 @@ The following table shows the mean square at different input signal levels.
     \end{tabular}
 \end{table}
 
-Combining the mean square accumulation values from table \ref{tab:mean_square}, with the distribution of the input signal from table \ref{tab:dis_sig}, results in the following theoretical noise floor value for one accumulation period $T$ i.e.,1ms.
+Combining the mean square accumulation values from Table \ref{tab:mean_square}, with the distribution of the input signal from Table \ref{tab:dis_sig}, results in the following theoretical noise floor value for one accumulation period $T$ i.e.,1ms.
 
 \begin{equation}
-    NF = 2\times ((14.22\%+17.03\%) \times 22.5 + (33.92\%+34.84\%) \times 2.5)\times f_s \times T \approx = \num{1739122}
+\begin{aligned}
+    {NF} &= 2\times ((14.22\%+17.03\%) \times 22.5 + (33.92\%+34.84\%) \times 2.5)\times f_s \times T \\
+    &\approx \num{1739122}
+\end{aligned}
 \end{equation}
 
-Where, $NF$ is the noise floor value, $f_s=99.375MHz$ and, $T=1ms=1\times 10^{-3}s$. That is, this system has a floor noise of \num{1739122}.
-
-In addition, the basic information will be shown in table \ref{tab:sig_info}.
-
-\begin{table}[!htbp]
-\centering
-\renewcommand\arraystretch{1.5}
-\caption{Basic Information of the Signal}
-\label{tab:sig_info}
-\begin{tabular}{cc}
-    \toprule
-    % \multicolumn{2}{c}{Basic Infomation of the Signal} \\
-    Specifications & Values \\
-    \midrule
-    IF (MHz) & 14.58 \\
-    Sampling frequency (MHz) & 99.375 \\
-    Code frequency (MHz) & 1.023 \\
-    Data type & int 8 \\
-    Samples/code & \num{99375} \\
-    Accumulate time (ms) & 1 \\
-    \bottomrule
-\end{tabular}
-\end{table}
+Where, ${NF}$ is the noise floor value, $f_s=99.375MHz$ and, $T=1ms=1\times 10^{-3}s$. That is, this system has a floor noise of \num{1739122}.
 
 \section{Tracking}
 Before tracking, we need the acquisition result. The part has been done on the \textit{SoftGNSS}. Here are the results.
@@ -164,7 +167,7 @@ Before tracking, we need the acquisition result. The part has been done on the \
 \begin{tabular}{cc}
     \toprule
     % \multicolumn{2}{c}{Result} \\
-    Specifications & Values \\
+    Results & Values \\
     \midrule
     Chopped bits & \num{46250} \\
     PRN (\textnumero) & 2 \\
@@ -175,7 +178,7 @@ Before tracking, we need the acquisition result. The part has been done on the \
 \end{tabular}
 \end{table}
 
-These results are fed directly into the tracking stage. And to ensure that I got the correct input data from the front-end. I will save the input data from the testbench and plot the histogram of it like the figure \ref{fig:sig_info}. The histogram is shown in figure \ref{fig:input_his}.
+These results are fed directly into the tracking stage. And to ensure that I got the correct input data from the front-end. I will save the input data from the testbench and plot the histogram of it like the Figure \ref{fig:sig_info}. The histogram is shown in Figure \ref{fig:input_his}.
 
 \begin{figure}[!htbp]
     \centering
@@ -254,7 +257,7 @@ Figure \ref{fig:nco_carrier_wave} shows that using the NCO to generate the carri
 \end{figure}
 
 \subsection{Code Generator}
-In order to save computational resources on board, I calculated the required PRN code, i.e. PRN \textnumero 2 code, in advance. It is generated through Matlab and stored in VHDL code.
+In order to save computational resources on board, I calculated the required PRN code, i.e. PRN \textnumero 2 code, in advance. It is generated through MATLAB and stored in VHDL code.
 
 \begin{figure}[!h]
     \centering
@@ -285,7 +288,7 @@ Our design requirement is to find the inner product of the local code and the in
     \item After every 1 millisecond end, the value of the accumulation register is saved and set to zero before the next millisecond is calculated.
 \end{itemize}
 
-Note that I don't know whether the energy is mainly concentrated in phase I or phase Q, so each product operation needs to be processed separately for I/Q phase. Assuming we simulate for 60ms, we will get 60 results. Plotting these sixty results in Matlab gives results similar to figure \ref{fig:corre_function}. However, to ensure that we are tracking the correct code delay, we need three correlators that use the early, prompt, and late code to determine their results after correlation.
+Note that I don't know whether the energy is mainly concentrated in phase I or phase Q, so each product operation needs to be processed separately for I/Q phase. Assuming we simulate for 60ms, we will get 60 results. Plotting these sixty results in MATLAB gives results similar to Figure \ref{fig:corre_function}. However, to ensure that we are tracking the correct code delay, we need three correlators that use the early, prompt, and late code to determine their results after correlation.
 
 \subsubsection{Early, Prompt, and Late Code Generator}
 \begin{figure}[!htbp]
@@ -295,7 +298,7 @@ Note that I don't know whether the energy is mainly concentrated in phase I or p
     \label{fig:prompt_code}
 \end{figure}
 
-In order to generate the early, prompt, and late code, I design a register\\ \colorbox{lightgray}{$code\_subcarr\_delay\_reg\_u$}. It is 98 bits wide and filled with PRN \textnumero 2 code. I take the 25th bit for the early code, the 49th bit for the prompt code, and the 73rd bit for the late code. It is shown in figure \ref{fig:prompt_code}.
+In order to generate the early, prompt, and late code, I design a register\\ \colorbox{lightgray}{$code\_subcarr\_delay\_reg\_u$}. It is 98 bits wide and filled with PRN \textnumero 2 code. I take the 25th bit for the early code, the 49th bit for the prompt code, and the 73rd bit for the late code. It is shown in Figure \ref{fig:prompt_code}.
 
 \subsubsection{Multiplier Optimization}
 As mentioned earlier, finding the inner product is the core of the correlator, so a lot of multipliers will be used. However, compilers like Vivado will call on the on-board DSP resources to replace the multipliers during synthesis, which I don't want to see because on-board DSP resources are scarce \cite{RN208, RN209}, and they should be used elsewhere. So I can optimize the multiplier for the current project.
@@ -307,7 +310,7 @@ As mentioned earlier, finding the inner product is the core of the correlator, s
     \label{fig:multiplier_code}
 \end{figure}
 
-Since each time on the inner product is to let the current signal bit multiplied with the current C/A code bit, and the C/A code is only used in two cases are 0 and 1. When the C/A code bit is 1, the result of multiplying any number with 1 is unchanged, and when the C/A code bit is 0, I need to convert it to -1 first, and the result of multiplying any number with -1 is its opposite. In this case, rewriting the code saves a lot of on-board resources. The optimized code is shown in figure \ref{fig:multiplier_code}.
+Since each time on the inner product is to let the current signal bit multiplied with the current C/A code bit, and the C/A code is only used in two cases are 0 and 1. When the C/A code bit is 1, the result of multiplying any number with 1 is unchanged, and when the C/A code bit is 0, I need to convert it to -1 first, and the result of multiplying any number with -1 is its opposite. In this case, rewriting the code saves a lot of on-board resources. The optimized code is shown in Figure \ref{fig:multiplier_code}.
 
 % \begin{lstlisting}[language=VHDL, caption=Part of the Code of Multiplier]
 %     -- prompt mixing
