@@ -8,7 +8,6 @@
 \usepackage{subfig}
 \usepackage{booktabs}
 \usepackage{makecell}
-% \usepackage{appendix}
 \usepackage{textcomp}
 \usepackage{pgfgantt}
 \usepackage{pdflscape}
@@ -26,12 +25,18 @@
 \hypersetup{hidelinks} 
 
 % My symbols
+%% XOR
 \newcommand{\xor}{\oplus}
+%% Double & single quotes
+\newcommand{\dquotes}[1]{``#1''}
+\newcommand{\squotes}[1]{`#1'}
 
 % Merge cells in a row
 \usepackage{multirow}
 
 % Set the position of the page number
+% Hide header and footer when blank page
+\usepackage{emptypage}
 \usepackage{fancyhdr}
 \newcommand{\pageHeaderNumPos}[1]{
     \fancypagestyle{plain}{
@@ -39,7 +44,10 @@
     % Hide line
     \renewcommand{\headrulewidth}{0pt}
     \renewcommand{\footrulewidth}{0pt}
-    \fancyhead[#1]{\thepage}}
+    % \fancyhead[#1]{\thepage}
+    \fancyhead[EL]{\thepage}
+    \fancyhead[OR]{\thepage}
+    }
     \pagestyle{plain}}
 
 \newcommand{\pageFooterNumPos}[1]{
@@ -51,7 +59,7 @@
     \fancyfoot[#1]{\thepage}}
     \pagestyle{plain}}
 
-% % Set font
+% % Set text font
 % \usepackage{fontspec}
 % \setmainfont{Times New Roman}
 
@@ -103,43 +111,8 @@
 % Set code font
 \usepackage{inconsolata}
 
-% % Spaces for bin and hex
-% \usepackage{fmtcount}
-% \usepackage{trimclip,ifthen}
-% \newsavebox\numberbox
-% \newlength\boxoffset
-% \newcommand\chop[2]{%
-%   \bgroup\ttfamily%
-%   \setbox0=\hbox{0}%
-%   \savebox\numberbox{#2}%
-%   \boxoffset=0pt%
-%   \whiledo{\lengthtest{\boxoffset<\wd\numberbox}}{%
-%     \clipbox{\boxoffset+0pt 0pt \wd\numberbox-\boxoffset-#1\wd0 -1pt}{\usebox{\numberbox}}%
-%     \addtolength{\boxoffset}{#1\wd0}%
-%     \ifdim\boxoffset<\wd\numberbox\ \fi%
-%   }\unskip\egroup%
-% }
-
-% \usepackage{soul}
-% \newcounter{binst}
-% \makeatletter
-% \newcommand{\FormatBinary}[1]{\begingroup%
-% \setcounter{binst}{0}
-% \def\SOUL@soeverytoken{%
-% \stepcounter{binst}%
-% \ifnum\value{binst}=5\relax%
-% \setcounter{binst}{1}\,%
-% \fi%
-% \the\SOUL@token}%
-% \so{#1}\endgroup} 
-% \makeatother
-
-% Double & single quotes
-\newcommand{\dquotes}[1]{``#1''}
-\newcommand{\squotes}[1]{`#1'}
-
 % Copy version
-% printVersion = 0 for softcopy; printVersion = 1 for hardcopy
+% printVersion = 0 for softcopy(one-side); printVersion = 1 for hardcopy(two-side)
 \newcount\printVersion
 \printVersion = 1
 % Hardcopy
@@ -171,61 +144,3 @@
     \fi
 }
 
-% % Listing configuration
-% \usepackage{listings}
-% \usepackage{xcolor}
-
-% %New colors defined below
-% \definecolor{codegreen}{rgb}{0,0.6,0}
-% \definecolor{codegray}{rgb}{0.5,0.5,0.5}
-% \definecolor{codepurple}{rgb}{0.58,0,0.82}
-% \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
-
-% %Code listing style named "mystyle"
-% \lstdefinestyle{mystyle}{
-%   backgroundcolor=\color{backcolour}, commentstyle=\color{codegreen},
-%   keywordstyle=\color{magenta},
-%   numberstyle=\tiny\color{codegray},
-%   stringstyle=\color{codepurple},
-%   basicstyle=\ttfamily\footnotesize,
-%   breakatwhitespace=false,         
-%   breaklines=true,                 
-%   captionpos=b,                    
-%   keepspaces=true,                 
-%   numbers=left,                    
-%   numbersep=5pt,                  
-%   showspaces=false,                
-%   showstringspaces=false,
-%   showtabs=false,                  
-%   tabsize=2
-% }
-
-% %"mystyle" code listing set
-% \lstset{style=mystyle}
-
-% \lstset{
-%     basicstyle          =   \sffamily,          % 基本代码风格
-%     keywordstyle        =   \bfseries,          % 关键字风格
-%     commentstyle        =   \rmfamily\itshape,  % 注释的风格，斜体
-%     stringstyle         =   \ttfamily,  % 字符串风格
-%     flexiblecolumns,                % 别问为什么，加上这个
-%     numbers             =   left,   % 行号的位置在左边
-%     showspaces          =   false,  % 是否显示空格，显示了有点乱，所以不现实了
-%     numberstyle         =   \ttfamily,    % 行号的样式，小五号，tt等宽字体
-%     showstringspaces    =   false,
-%     captionpos          =   t,      % 这段代码的名字所呈现的位置，t指的是top上面
-%     frame               =   lrtb,   % 显示边框
-% }
-
-% \lstdefinestyle{VHDL}{
-%     language        =   VHDL, % 语言选Python
-%     basicstyle      =   \ttfamily,
-%     numberstyle     =   \ttfamily,
-%     keywordstyle    =   \color{blue},
-%     keywordstyle    =   [2] \color{teal},
-%     stringstyle     =   \color{magenta},
-%     commentstyle    =   \color{red}\ttfamily,
-%     breaklines      =   true,   % 自动换行，建议不要写太长的行
-%     columns         =   fixed,  % 如果不加这一句，字间距就不固定，很丑，必须加
-%     basewidth       =   0.5em,
-% }
